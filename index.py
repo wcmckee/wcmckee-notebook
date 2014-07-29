@@ -26,6 +26,8 @@ welcometobrobeurstudios
 # <codecell>
 
 import os
+import dominate
+from dominate.tags import *
 
 # <codecell>
 
@@ -40,7 +42,29 @@ for fil in os.listdir(notebookdir):
 
 # <codecell>
 
-lisnb
+for nbs in lisnb:
+    print nbs
+
+# <codecell>
+
+nbdoc = dominate.document(title='BroBeur Notebooks')
+with nbdoc.head:
+    link(rel='stylesheet', href='style.css')
+    script(type='text/javascript', src='script.js')
+
+with nbdoc:
+    with div(id='header').add(ol()):
+        for nbs in lisnb:
+            li(a(nbs, href='/%s' % nbs))
+
+    with div():
+        attr(cls='body')
+        p('Lorem ipsum..')
+
+print nbdoc
+
+# <codecell>
+
 
 # <codecell>
 
