@@ -1871,11 +1871,13 @@ YCBvOeKf9/8AOjc1V9RluE0AAAAASUVORK5CYII=
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[6]:
+In&nbsp;[19]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">dominate</span>
+<span class="kn">from</span> <span class="nn">dominate.tags</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 
 </div>
@@ -1886,7 +1888,7 @@ In&nbsp;[6]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[7]:
+In&nbsp;[20]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1901,7 +1903,7 @@ In&nbsp;[7]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[8]:
+In&nbsp;[21]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1919,11 +1921,12 @@ In&nbsp;[8]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[9]:
+In&nbsp;[22]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">lisnb</span>
+<div class="highlight"><pre><span class="k">for</span> <span class="n">nbs</span> <span class="ow">in</span> <span class="n">lisnb</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">nbs</span>
 </pre></div>
 
 </div>
@@ -1934,68 +1937,298 @@ In&nbsp;[9]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">
-    Out[9]:</div>
-
-
-<div class="output_text output_subarea output_pyout">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
 <pre>
-[&apos;wcmgit.html&apos;,
- &apos;tlc.html&apos;,
- &apos;digzocean.html&apos;,
- &apos;tpb.html&apos;,
- &apos;bugit.html&apos;,
- &apos;sortbooks.html&apos;,
- &apos;adypost.html&apos;,
- &apos;pyEmailz.html&apos;,
- &apos;nbconv.html&apos;,
- &apos;master.html&apos;,
- &apos;pydog.html&apos;,
- &apos;spellcheckin.html&apos;,
- &apos;jsonBehind.html&apos;,
- &apos;hamgar.html&apos;,
- &apos;markdown.html&apos;,
- &apos;wcmdocker.html&apos;,
- &apos;wirePIL.html&apos;,
- &apos;netcafe.html&apos;,
- &apos;tarpipe.html&apos;,
- &apos;ftpWCM.html&apos;,
- &apos;loop.html&apos;,
- &apos;rgdsnatch.html&apos;,
- &apos;metatime.html&apos;,
- &apos;skins.html&apos;,
- &apos;getdrawn.html&apos;,
- &apos;Untitled0.html&apos;,
- &apos;NumPyExplore.html&apos;,
- &apos;openimg.html&apos;,
- &apos;Untitled1.html&apos;,
- &apos;Game Of Thrones.html&apos;,
- &apos;pyatakl.html&apos;,
- &apos;json.html&apos;,
- &apos;pyssh.html&apos;,
- &apos;url redirect.html&apos;,
- &apos;whai.html&apos;,
- &apos;test.html&apos;,
- &apos;utils.html&apos;,
- &apos;karen.html&apos;,
- &apos;artcontrol.html&apos;,
- &apos;pynztacam.html&apos;,
- &apos;wallpapersav.html&apos;,
- &apos;redTube.html&apos;,
- &apos;hackbrobeur.html&apos;,
- &apos;flask-test.html&apos;,
- &apos;opche.html&apos;,
- &apos;scrapnot.html&apos;,
- &apos;reddit.html&apos;,
- &apos;wordpress.html&apos;,
- &apos;test-wp.html&apos;,
- &apos;aklmcam.html&apos;,
- &apos;webData.html&apos;]
+wcmgit.html
+tlc.html
+digzocean.html
+tpb.html
+bugit.html
+sortbooks.html
+adypost.html
+pyEmailz.html
+nbconv.html
+master.html
+pydog.html
+spellcheckin.html
+jsonBehind.html
+hamgar.html
+markdown.html
+wcmdocker.html
+wirePIL.html
+netcafe.html
+tarpipe.html
+ftpWCM.html
+loop.html
+rgdsnatch.html
+metatime.html
+skins.html
+getdrawn.html
+Untitled0.html
+NumPyExplore.html
+openimg.html
+Untitled1.html
+Game Of Thrones.html
+pyatakl.html
+json.html
+pyssh.html
+url redirect.html
+whai.html
+test.html
+utils.html
+karen.html
+artcontrol.html
+pynztacam.html
+wallpapersav.html
+redTube.html
+hackbrobeur.html
+flask-test.html
+opche.html
+index.html
+scrapnot.html
+reddit.html
+wordpress.html
+test-wp.html
+aklmcam.html
+webData.html
+
 </pre>
 </div>
-
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[27]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">nbdoc</span> <span class="o">=</span> <span class="n">dominate</span><span class="o">.</span><span class="n">document</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&#39;BroBeur Notebooks&#39;</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">nbdoc</span><span class="o">.</span><span class="n">head</span><span class="p">:</span>
+    <span class="n">link</span><span class="p">(</span><span class="n">rel</span><span class="o">=</span><span class="s">&#39;stylesheet&#39;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s">&#39;style.css&#39;</span><span class="p">)</span>
+    <span class="n">script</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s">&#39;text/javascript&#39;</span><span class="p">,</span> <span class="n">src</span><span class="o">=</span><span class="s">&#39;script.js&#39;</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">nbdoc</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s">&#39;header&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ol</span><span class="p">()):</span>
+        <span class="k">for</span> <span class="n">nbs</span> <span class="ow">in</span> <span class="n">lisnb</span><span class="p">:</span>
+            <span class="n">li</span><span class="p">(</span><span class="n">a</span><span class="p">(</span><span class="n">nbs</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s">&#39;/</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">nbs</span><span class="p">))</span>
+
+    <span class="k">with</span> <span class="n">div</span><span class="p">():</span>
+        <span class="n">attr</span><span class="p">(</span><span class="n">cls</span><span class="o">=</span><span class="s">&#39;body&#39;</span><span class="p">)</span>
+        <span class="n">p</span><span class="p">(</span><span class="s">&#39;Lorem ipsum..&#39;</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="n">nbdoc</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;BroBeur Notebooks&lt;/title&gt;
+    &lt;link href=&quot;style.css&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;script src=&quot;script.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id=&quot;header&quot;&gt;
+      &lt;ol&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/wcmgit.html&quot;&gt;wcmgit.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/tlc.html&quot;&gt;tlc.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/digzocean.html&quot;&gt;digzocean.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/tpb.html&quot;&gt;tpb.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/bugit.html&quot;&gt;bugit.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/sortbooks.html&quot;&gt;sortbooks.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/adypost.html&quot;&gt;adypost.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/pyEmailz.html&quot;&gt;pyEmailz.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/nbconv.html&quot;&gt;nbconv.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/master.html&quot;&gt;master.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/pydog.html&quot;&gt;pydog.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/spellcheckin.html&quot;&gt;spellcheckin.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/jsonBehind.html&quot;&gt;jsonBehind.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/hamgar.html&quot;&gt;hamgar.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/markdown.html&quot;&gt;markdown.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/wcmdocker.html&quot;&gt;wcmdocker.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/wirePIL.html&quot;&gt;wirePIL.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/netcafe.html&quot;&gt;netcafe.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/tarpipe.html&quot;&gt;tarpipe.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/ftpWCM.html&quot;&gt;ftpWCM.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/loop.html&quot;&gt;loop.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/rgdsnatch.html&quot;&gt;rgdsnatch.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/metatime.html&quot;&gt;metatime.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/skins.html&quot;&gt;skins.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/getdrawn.html&quot;&gt;getdrawn.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/Untitled0.html&quot;&gt;Untitled0.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/NumPyExplore.html&quot;&gt;NumPyExplore.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/openimg.html&quot;&gt;openimg.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/Untitled1.html&quot;&gt;Untitled1.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/Game Of Thrones.html&quot;&gt;Game Of Thrones.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/pyatakl.html&quot;&gt;pyatakl.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/json.html&quot;&gt;json.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/pyssh.html&quot;&gt;pyssh.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/url redirect.html&quot;&gt;url redirect.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/whai.html&quot;&gt;whai.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/test.html&quot;&gt;test.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/utils.html&quot;&gt;utils.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/karen.html&quot;&gt;karen.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/artcontrol.html&quot;&gt;artcontrol.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/pynztacam.html&quot;&gt;pynztacam.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/wallpapersav.html&quot;&gt;wallpapersav.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/redTube.html&quot;&gt;redTube.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/hackbrobeur.html&quot;&gt;hackbrobeur.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/flask-test.html&quot;&gt;flask-test.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/opche.html&quot;&gt;opche.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/index.html&quot;&gt;index.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/scrapnot.html&quot;&gt;scrapnot.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/reddit.html&quot;&gt;reddit.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/wordpress.html&quot;&gt;wordpress.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/test-wp.html&quot;&gt;test-wp.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/aklmcam.html&quot;&gt;aklmcam.html&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;/webData.html&quot;&gt;webData.html&lt;/a&gt;
+        &lt;/li&gt;
+      &lt;/ol&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;body&quot;&gt;
+      &lt;p&gt;Lorem ipsum..&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[23]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre> 
+</pre></div>
+
+</div>
 </div>
 </div>
 
