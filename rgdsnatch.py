@@ -48,7 +48,7 @@ r = praw.Reddit(user_agent='rgdsnatch')
 
 # <codecell>
 
-r.login('artcontrol', 'zipit123')
+r.login('artcontrol', 'taylor123vag!')
 
 # <codecell>
 
@@ -129,7 +129,23 @@ titlis
 
 # <codecell>
 
+from random import shuffle
+
+def shuffle_word(word):
+    word = list(word)
+    shuffle(word)
+    return ''.join(word)
+
+# <codecell>
+
+[shuffle_word(word) for wz in titlis]
+
+# <codecell>
+
 jplis = []
+
+# <codecell>
+
 
 # <codecell>
 
@@ -152,13 +168,14 @@ with doc:
         attr(cls='header')
         #<img src="smiley.gif" alt="Smiley face" height="42" width="42">
         h1('artcontroldrawsyou!')
-        p(img(scr='http://brobeur.com/artcontroldrawsyou/logo.gif'))
+        img(scr='logo.gif')
         h2('go away artcontrol')
         
     with div(id='author'):
         for tits in titlis:
             h3(tits)
-            h2(a(tits, href='%s' % tits))
+            (a(tits, href='%s' % tits))
+            
     
     with div(id='body').add(p()):
         for i in jplis:
@@ -167,6 +184,7 @@ with doc:
             
 
 
+            
 
 print doc
 
@@ -184,6 +202,78 @@ ophtml.write(str(doc))
 # <codecell>
 
 ophtml.close()
+
+# <codecell>
+
+def fcopy(src,dest):
+    """
+    Copy file from source to dest.  dest can include an absolute or relative path
+    If the path doesn't exist, it gets created
+    """
+    dest_dir = os.path.dirname(dest)
+    try:
+        os.makedirs(dest_dir)
+    except os.error as e:
+        pass #Assume it exists.  This could fail if you don't have permissions, etc...
+    shutil.copy(src,dest)
+
+# <markdowncell>
+
+# cycle though folder and create file in each folder
+
+# <codecell>
+
+fcopy('/var/www/artcontroldrawsyou/home/')
+
+# <codecell>
+
+ls
+
+# <codecell>
+
+for usz in titlis:
+    print usz
+    #os.mkdir(usz)
+    #os.chdir('/var/www/artcontroldrawsyou/home/' + usz)
+
+# <codecell>
+
+for filz in titlis:
+    print filz
+    
+    with open('/var/www/artcontroldrawsyou/home/' + filz + '/index.html', 'w') as fout:
+        fout.write('')
+    #os.chdir('/var/www/artcontroldrawsyou/home' + usz)
+    bulkc = dominate.document(title=filz)
+    with bulkc.head:
+        link(rel='stylesheet', href='style.css')
+        script(type='text/javascript', src='script.js')
+
+    with bulkc:
+        with div():
+            attr(cls='header')
+            #<img src="smiley.gif" alt="Smiley face" height="42" width="42">
+            h1(filz)
+            img(scr='logo.gif')
+            h2('go away artcontrol')
+        
+        with div(id='photographs'):
+            for tits in titlis:
+                h3(tits)
+                (a(tits, href='%s' % tits.lower))
+            
+    
+        with div(id='body').add(p()):
+            for i in jplis:
+                li(img(i.lower(), src='%s' % i))
+                li(a(i.lower(), href='%s' % i))
+            
+    #with open('index.html', 'w') as indx:
+       #bulkc = indx.write()
+    print bulkc
+
+# <codecell>
+
 
 # <codecell>
 
