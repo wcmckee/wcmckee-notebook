@@ -1,6 +1,32 @@
 # -*- coding: utf-8 -*-
 # <nbformat>3.0</nbformat>
 
+# <markdowncell>
+
+# RedditGetsDrawn Snatch
+# 
+# This is a Python script that takes data from reddit and posts it to another subreddit. It also creates a html file with the images embed into. The images are the most recent 25 on r/redditgetsdrawn.
+# 
+
+# <markdowncell>
+
+# TODO
+# 
+# submit art to users via website
+# 
+# fix image sizes (need to scale down to 550px)
+# 
+# Save to server rather than imgur
+# 
+# Archieve, snapshots of rgd
+# 
+# more artcontrol
+# 
+# itwillbemine comments to html
+# 
+# work on css, div up page, title, side, body, footer
+# 
+
 # <codecell>
 
 import os
@@ -14,7 +40,7 @@ from dominate.tags import *
 
 # <codecell>
 
-os.chdir('/home/wcmckee/artcontroldrawsyou')
+os.chdir('/var/www/artcontroldrawsyou')
 
 # <codecell>
 
@@ -83,17 +109,23 @@ for uz in rdnewz:
 # <codecell>
 
 urzlis = []
+titlis = []
 
 # <codecell>
 
-os.chdir('imgs')
+#os.chdir('imgs')
 
 # <codecell>
 
 for rdn in rdnew:
     print rdn.url
     urzlis.append(rdn.url)
+    titlis.append(rdn.author.name)
     
+
+# <codecell>
+
+titlis
 
 # <codecell>
 
@@ -116,16 +148,30 @@ with doc.head:
     script(type='text/javascript', src='script.js')
 
 with doc:
-    with div(id='header').add(p()):
+    with div():
+        attr(cls='header')
+        #<img src="smiley.gif" alt="Smiley face" height="42" width="42">
+        h1('artcontroldrawsyou!')
+        p(img(scr='http://brobeur.com/artcontroldrawsyou/logo.gif'))
+        h2('go away artcontrol')
+        
+    with div(id='author'):
+        for tits in titlis:
+            h3(tits)
+            h2(a(tits, href='%s' % tits))
+    
+    with div(id='body').add(p()):
         for i in jplis:
             li(img(i.lower(), src='%s' % i))
             li(a(i.lower(), href='%s' % i))
+            
 
-    with div():
-        attr(cls='body')
-        p('Lorem ipsum..')
+
 
 print doc
+
+# <codecell>
+
 
 # <codecell>
 
@@ -141,7 +187,7 @@ ophtml.close()
 
 # <codecell>
 
-cat index.html
+import PIL
 
 # <codecell>
 
@@ -340,6 +386,40 @@ for con in mincom:
 
 # <codecell>
 
+itwillbemine = dominate.document(title='itwillbemine')
+
+# <codecell>
+
+with itwillbemine.head:
+    link(rel='stylesheet', href='style.css')
+    script(type='text/javascript', src='script.js')
+
+with itwillbemine:
+    with div():
+        attr(cls='header')
+        #<img src="smiley.gif" alt="Smiley face" height="42" width="42">
+        h1('itwillbemine')
+        p(img(scr='http://brobeur.com/artcontroldrawsyou/logo.gif'))
+        for mine in minels:
+            h1(mine.created)
+            h2(mine.body)
+        
+    with div(id='author'):
+        for tits in titlis:
+            h3(tits)
+    
+    with div(id='body').add(p()):
+        for i in jplis:
+            li(img(i.lower(), src='%s' % i))
+            li(a(i.lower(), href='%s' % i))
+            
+
+
+
+print itwillbemine
+
+# <codecell>
+
 minels
 
 # <codecell>
@@ -367,10 +447,6 @@ minelsz = []
 
 # <codecell>
 
-ls
-
-# <codecell>
-
 #for mina in minels:
     #print mina.body
    # minelsz.append(mina.body)
@@ -385,7 +461,12 @@ ls
 
 # <codecell>
 
-cat idcomt.json
+
+# <codecell>
+
+
+# <codecell>
+
 
 # <codecell>
 
