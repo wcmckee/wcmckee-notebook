@@ -34,6 +34,7 @@ import random
 import requests
 import re
 import json
+import time
 import praw
 import dominate
 from dominate.tags import *
@@ -48,25 +49,7 @@ r = praw.Reddit(user_agent='rgdsnatch')
 
 # <codecell>
 
-r.login('artcontrol', 'taylor123vag!')
-
-# <codecell>
-
-usrd = r.get_my_subreddits()
-
-# <codecell>
-
-suls = []
-
-# <codecell>
-
-for subs in usrd:
-    print subs
-    suls.append(subs)
-
-# <codecell>
-
-suls
+#r.login('artcontrol', 'taylor123vag!')
 
 # <codecell>
 
@@ -129,23 +112,16 @@ titlis
 
 # <codecell>
 
-from random import shuffle
-
-def shuffle_word(word):
-    word = list(word)
-    shuffle(word)
-    return ''.join(word)
-
-# <codecell>
-
-[shuffle_word(word) for wz in titlis]
-
-# <codecell>
-
 jplis = []
 
 # <codecell>
 
+from time import gmtime, strftime
+
+# <codecell>
+
+for iz in jplis:
+    print iz
 
 # <codecell>
 
@@ -156,6 +132,9 @@ for urz in urzlis:
 # <codecell>
 
 doc = dominate.document(title='artcontroldrawsyou')
+
+# <codecell>
+
 
 # <codecell>
 
@@ -170,26 +149,29 @@ with doc:
         h1('artcontroldrawsyou!')
         img(scr='logo.gif')
         h2('go away artcontrol')
+        p(strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime()))
+        a('about', href='about')
+        a('contact', href='contact') 
+        a('blog', href='blog')
         
-    with div(id='author'):
+    with div(id='authors'):
         for tits in titlis:
-            h3(tits)
-            (a(tits, href='%s' % tits))
+            (tits)
+            (a(tits, href='https://reddit.com/u/%s' % tits))
             
     
     with div(id='body').add(p()):
         for i in jplis:
-            li(img(i.lower(), src='%s' % i))
-            li(a(i.lower(), href='%s' % i))
+            (img(i.lower(), src='%s' % i))
+            (a(i.lower(), href='%s' % i))
             
+    with div(id='footer'):
+        p(a('artcontroldrawsyou is opensource', href='https://github.com/wcmckee/wcmckee-notebook'))
 
 
             
 
 print doc
-
-# <codecell>
-
 
 # <codecell>
 
@@ -205,7 +187,7 @@ ophtml.close()
 
 # <codecell>
 
-def fcopy(src,dest):
+'''def fcopy(src,dest):
     """
     Copy file from source to dest.  dest can include an absolute or relative path
     If the path doesn't exist, it gets created
@@ -215,7 +197,7 @@ def fcopy(src,dest):
         os.makedirs(dest_dir)
     except os.error as e:
         pass #Assume it exists.  This could fail if you don't have permissions, etc...
-    shutil.copy(src,dest)
+    shutil.copy(src,dest)'''
 
 # <markdowncell>
 
@@ -223,11 +205,7 @@ def fcopy(src,dest):
 
 # <codecell>
 
-fcopy('/var/www/artcontroldrawsyou/home/')
-
-# <codecell>
-
-ls
+#fcopy('/var/www/artcontroldrawsyou/home/')
 
 # <codecell>
 
@@ -238,11 +216,14 @@ for usz in titlis:
 
 # <codecell>
 
-for filz in titlis:
+ls
+
+# <codecell>
+
+'''for filz in titlis:
     print filz
     
-    with open('/var/www/artcontroldrawsyou/home/' + filz + '/index.html', 'w') as fout:
-        fout.write('')
+    
     #os.chdir('/var/www/artcontroldrawsyou/home' + usz)
     bulkc = dominate.document(title=filz)
     with bulkc.head:
@@ -254,7 +235,7 @@ for filz in titlis:
             attr(cls='header')
             #<img src="smiley.gif" alt="Smiley face" height="42" width="42">
             h1(filz)
-            img(scr='logo.gif')
+            img(scr='http://artcontrol.me/wp-content/uploads/2014/08/daenuhlyn-headcoloe.png')
             h2('go away artcontrol')
         
         with div(id='photographs'):
@@ -267,25 +248,16 @@ for filz in titlis:
             for i in jplis:
                 li(img(i.lower(), src='%s' % i))
                 li(a(i.lower(), href='%s' % i))
+                
+        with div(id='footer'):
+            p(a('artcontroldrawsyou is opensource', href='https://github.com/wcmckee/wcmckee-notebook'))
+        
+        with open('/var/www/artcontroldrawsyou/home/' + filz + '/index.html', 'w') as fout:
+            fout.write(str(bulkc))
             
     #with open('index.html', 'w') as indx:
-       #bulkc = indx.write()
-    print bulkc
-
-# <codecell>
-
-
-# <codecell>
-
-import PIL
-
-# <codecell>
-
-jplis
-
-# <codecell>
-
-rdnew
+       #bulkc = indx.write() 
+        #print bulkc'''
 
 # <codecell>
 
@@ -341,23 +313,11 @@ linkdict = {}
 
 # <codecell>
 
-ls
-
-# <codecell>
-
 ady = r.get_subreddit('artcontroldrawsyou')
 
 # <codecell>
 
 comrgd =  rgdatit + ' ' + rgdaturo
-
-# <codecell>
-
-comrgd
-
-# <codecell>
-
-import time
 
 # <codecell>
 
@@ -490,18 +450,18 @@ with itwillbemine:
         #<img src="smiley.gif" alt="Smiley face" height="42" width="42">
         h1('itwillbemine')
         p(img(scr='http://brobeur.com/artcontroldrawsyou/logo.gif'))
-        for mine in minels:
-            h1(mine.created)
-            h2(mine.body)
+        #for mine in minels:
+            #h1(mine.author_flair_text())
+            #p(mine.body)
         
     with div(id='author'):
         for tits in titlis:
             h3(tits)
     
     with div(id='body').add(p()):
-        for i in jplis:
-            li(img(i.lower(), src='%s' % i))
-            li(a(i.lower(), href='%s' % i))
+        for mine in minels:
+            #h1(mine.created)
+            p(mine.body)
             
 
 
@@ -510,7 +470,9 @@ print itwillbemine
 
 # <codecell>
 
-minels
+savmine = open('reddit.html', 'w')
+savmine.write(str(itwillbemine))
+savmine.close()
 
 # <codecell>
 
@@ -551,12 +513,137 @@ minelsz = []
 
 # <codecell>
 
+import feedparser
 
 # <codecell>
 
+mcs = feedparser.parse('http://mcsteffen.tumblr.com/rss')
 
 # <codecell>
 
+emcs = mcs['entries']
+
+# <codecell>
+
+for em in emcs:
+    print em
+
+# <codecell>
+
+for em in emcs:
+    print len(em['summary_detail']['value'])
+    
+
+# <codecell>
+
+contactpage = dominate.document(title='contact')
+
+# <codecell>
+
+with contactpage.head:
+    link(rel='stylesheet', href='style.css')
+    script(type='text/javascript', src='script.js')
+
+with contactpage:
+    with div():
+        attr(cls='header')
+        #<img src="smiley.gif" alt="Smiley face" height="42" width="42">
+        h1('contact')
+        p('email: will@artcontrol.me twitter: art_control')
+        #for mine in minels:
+            #h1(mine.author_flair_text())
+            #p(mine.body)
+        
+    '''with div(id='author'):
+        for tits in titlis:
+            h3(tits)
+    
+    with div(id='body').add(p()):
+        for mine in minels:
+            #h1(mine.created)
+            p(mine.body)
+            
+
+
+
+'''
+print contactpage
+
+# <codecell>
+
+os.chdir('contact')
+
+# <codecell>
+
+savcon = open('index.html', 'w')
+savcon.write(str(contactpage))
+savcon.close()
+
+# <codecell>
+
+dirdir = os.chdir('/var/www/artcontroldrawsyou')
+
+# <codecell>
+
+dirdir
+
+# <codecell>
+
+aboutpage = dominate.document(title='about')
+with aboutpage.head:
+    link(rel='stylesheet', href='style.css')
+    script(type='text/javascript', src='script.js')
+
+with aboutpage:
+    with div():
+        attr(cls='header')
+        #<img src="smiley.gif" alt="Smiley face" height="42" width="42">
+        h1('about')
+        p('artcontroldrawsyou is a website that takes RedditGetsDrawn data and posts it here.')
+        #for mine in minels:
+            #h1(mine.author_flair_text())
+            #p(mine.body)
+        
+    '''with div(id='author'):
+        for tits in titlis:
+            h3(tits)
+    
+    with div(id='body').add(p()):
+        for mine in minels:
+            #h1(mine.created)
+            p(mine.body)
+            
+
+
+
+'''
+print aboutpage
+
+# <codecell>
+
+os.chdir('about')
+
+# <codecell>
+
+aboucr = open('index.html', 'w')
+aboucr.write(str(aboutpage))
+aboucr.close()
+
+# <codecell>
+
+os.chdir('/var/www/artcontroldrawsyou/')
+
+# <codecell>
+
+import requests
+
+# <codecell>
+
+requests.get('https://github.com/wcmckee/hamiltoncomputerclub.org.nz/archive/master.zip')
+
+# <codecell>
+
+ls
 
 # <codecell>
 
