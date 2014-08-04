@@ -1,0 +1,885 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass{article}
+
+    
+    
+    \usepackage{graphicx} % Used to insert images
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{color} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    
+
+    
+    
+    \definecolor{orange}{cmyk}{0,0.4,0.8,0.2}
+    \definecolor{darkorange}{rgb}{.71,0.21,0.01}
+    \definecolor{darkgreen}{rgb}{.12,.54,.11}
+    \definecolor{myteal}{rgb}{.26, .44, .56}
+    \definecolor{gray}{gray}{0.45}
+    \definecolor{lightgray}{gray}{.95}
+    \definecolor{mediumgray}{gray}{.8}
+    \definecolor{inputbackground}{rgb}{.95, .95, .85}
+    \definecolor{outputbackground}{rgb}{.95, .95, .95}
+    \definecolor{traceback}{rgb}{1, .95, .95}
+    % ansi colors
+    \definecolor{red}{rgb}{.6,0,0}
+    \definecolor{green}{rgb}{0,.65,0}
+    \definecolor{brown}{rgb}{0.6,0.6,0}
+    \definecolor{blue}{rgb}{0,.145,.698}
+    \definecolor{purple}{rgb}{.698,.145,.698}
+    \definecolor{cyan}{rgb}{0,.698,.698}
+    \definecolor{lightgray}{gray}{0.5}
+    
+    % bright ansi colors
+    \definecolor{darkgray}{gray}{0.25}
+    \definecolor{lightred}{rgb}{1.0,0.39,0.28}
+    \definecolor{lightgreen}{rgb}{0.48,0.99,0.0}
+    \definecolor{lightblue}{rgb}{0.53,0.81,0.92}
+    \definecolor{lightpurple}{rgb}{0.87,0.63,0.87}
+    \definecolor{lightcyan}{rgb}{0.5,1.0,0.83}
+    
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{rgdsnatch}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=blue,
+      linkcolor=darkorange,
+      citecolor=darkgreen,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    RedditGetsDrawn Snatch
+
+This is a Python script that takes data from reddit and posts it to
+another subreddit. It also creates a html file with the images embed
+into. The images are the most recent 25 on r/redditgetsdrawn.
+
+    TODO
+
+submit art to users via website
+
+fix image sizes (need to scale down to 550px)
+
+Save to server rather than imgur
+
+Archieve, snapshots of rgd
+
+more artcontrol
+
+itwillbemine comments to html - currently being saved in contact
+
+work on css, div up page, title, side, body, footer
+
+update twitter with ONE IMAGE and announce that the list has been
+updated.
+
+write blog post and submits to artcontroldrawsyou/blog
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{k+kn}{import} \PY{n+nn}{os}
+       \PY{k+kn}{import} \PY{n+nn}{random}
+       \PY{k+kn}{import} \PY{n+nn}{requests}
+       \PY{k+kn}{import} \PY{n+nn}{re}
+       \PY{k+kn}{import} \PY{n+nn}{json}
+       \PY{k+kn}{import} \PY{n+nn}{time}
+       \PY{k+kn}{import} \PY{n+nn}{praw}
+       \PY{k+kn}{import} \PY{n+nn}{dominate}
+       \PY{k+kn}{from} \PY{n+nn}{dominate.tags} \PY{k+kn}{import} \PY{o}{*}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{os}\PY{o}{.}\PY{n}{chdir}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{/var/www/artcontroldrawsyou}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{r} \PY{o}{=} \PY{n}{praw}\PY{o}{.}\PY{n}{Reddit}\PY{p}{(}\PY{n}{user\PYZus{}agent}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{rgdsnatch}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{c}{\PYZsh{}r.login(\PYZsq{}artcontrol\PYZsq{}, \PYZsq{}taylor123vag!\PYZsq{})}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{rd} \PY{o}{=} \PY{n}{r}\PY{o}{.}\PY{n}{get\PYZus{}subreddit}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{redditgetsdrawn}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{rdnewz} \PY{o}{=} \PY{n}{rd}\PY{o}{.}\PY{n}{get\PYZus{}new}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{rdnew} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{rdnew}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{k}{for} \PY{n}{uz} \PY{o+ow}{in} \PY{n}{rdnewz}\PY{p}{:}
+           \PY{c}{\PYZsh{}print uz}
+           \PY{n}{rdnew}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{uz}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{urzlis} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+       \PY{n}{titlis} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{c}{\PYZsh{}os.chdir(\PYZsq{}imgs\PYZsq{})}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{k}{for} \PY{n}{rdn} \PY{o+ow}{in} \PY{n}{rdnew}\PY{p}{:}
+           \PY{k}{print} \PY{n}{rdn}\PY{o}{.}\PY{n}{url}
+           \PY{n}{urzlis}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{rdn}\PY{o}{.}\PY{n}{url}\PY{p}{)}
+           \PY{n}{titlis}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{rdn}\PY{o}{.}\PY{n}{author}\PY{o}{.}\PY{n}{name}\PY{p}{)}
+           
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{titlis}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{jplis} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{k+kn}{from} \PY{n+nn}{time} \PY{k+kn}{import} \PY{n}{gmtime}\PY{p}{,} \PY{n}{strftime}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{k}{for} \PY{n}{iz} \PY{o+ow}{in} \PY{n}{jplis}\PY{p}{:}
+           \PY{k}{print} \PY{n}{iz}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{k}{for} \PY{n}{urz} \PY{o+ow}{in} \PY{n}{urzlis}\PY{p}{:}
+           \PY{k}{if} \PY{l+s}{\PYZsq{}}\PY{l+s}{.jpg}\PY{l+s}{\PYZsq{}} \PY{o+ow}{in} \PY{n}{urz}\PY{p}{:}
+               \PY{n}{jplis}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{urz}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{doc} \PY{o}{=} \PY{n}{dominate}\PY{o}{.}\PY{n}{document}\PY{p}{(}\PY{n}{title}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{artcontroldrawsyou}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} 
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{k}{with} \PY{n}{doc}\PY{o}{.}\PY{n}{head}\PY{p}{:}
+           \PY{n}{link}\PY{p}{(}\PY{n}{rel}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{stylesheet}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{href}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{style.css}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+           \PY{n}{script}\PY{p}{(}\PY{n+nb}{type}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{text/javascript}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{src}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{script.js}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+       
+       \PY{k}{with} \PY{n}{doc}\PY{p}{:}
+           \PY{k}{with} \PY{n}{div}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+               \PY{n}{attr}\PY{p}{(}\PY{n}{cls}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{header}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+               \PY{c}{\PYZsh{}\PYZlt{}img src=\PYZdq{}smiley.gif\PYZdq{} alt=\PYZdq{}Smiley face\PYZdq{} height=\PYZdq{}42\PYZdq{} width=\PYZdq{}42\PYZdq{}\PYZgt{}}
+               \PY{n}{h1}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{artcontroldrawsyou!}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+               \PY{n}{img}\PY{p}{(}\PY{n}{scr}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{logo.gif}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+               \PY{n}{h2}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{go away artcontrol}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+               \PY{n}{p}\PY{p}{(}\PY{n}{strftime}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZpc{}}\PY{l+s}{a, }\PY{l+s+si}{\PYZpc{}d}\PY{l+s}{ }\PY{l+s}{\PYZpc{}}\PY{l+s}{b }\PY{l+s}{\PYZpc{}}\PY{l+s}{Y }\PY{l+s}{\PYZpc{}}\PY{l+s}{H:}\PY{l+s}{\PYZpc{}}\PY{l+s}{M:}\PY{l+s}{\PYZpc{}}\PY{l+s}{S +0000}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{gmtime}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+               \PY{n}{a}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{about}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{href}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{http://brobeur.com/artcontroldrawsyou/about}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+               \PY{n}{a}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{contact}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{href}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{http://brobeur.com/artcontroldrawsyou/contact}\PY{l+s}{\PYZsq{}}\PY{p}{)} 
+               \PY{n}{a}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{blog}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{href}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{http://brobeur.com/wcmckee.com/wcmckee/output}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+               
+           \PY{k}{with} \PY{n}{div}\PY{p}{(}\PY{n+nb}{id}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{authors}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{p}{:}
+               \PY{k}{for} \PY{n}{tits} \PY{o+ow}{in} \PY{n}{titlis}\PY{p}{:}
+                   \PY{p}{(}\PY{n}{tits}\PY{p}{)}
+                   \PY{p}{(}\PY{n}{a}\PY{p}{(}\PY{n}{tits}\PY{p}{,} \PY{n}{href}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{https://reddit.com/u/}\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZsq{}} \PY{o}{\PYZpc{}} \PY{n}{tits}\PY{p}{)}\PY{p}{)}
+                   
+           
+           \PY{k}{with} \PY{n}{div}\PY{p}{(}\PY{n+nb}{id}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{body}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{p}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+               \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{jplis}\PY{p}{:}
+                   \PY{p}{(}\PY{n}{img}\PY{p}{(}\PY{n}{i}\PY{o}{.}\PY{n}{lower}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{src}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZsq{}} \PY{o}{\PYZpc{}} \PY{n}{i}\PY{p}{)}\PY{p}{)}
+                   \PY{p}{(}\PY{n}{a}\PY{p}{(}\PY{n}{i}\PY{o}{.}\PY{n}{lower}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{href}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZsq{}} \PY{o}{\PYZpc{}} \PY{n}{i}\PY{p}{)}\PY{p}{)}
+                   
+           \PY{k}{with} \PY{n}{div}\PY{p}{(}\PY{n+nb}{id}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{footer}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{p}{:}
+               \PY{n}{p}\PY{p}{(}\PY{n}{a}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{artcontroldrawsyou is open source}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{href}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{https://github.com/wcmckee/wcmckee\PYZhy{}notebook}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+       
+       
+                   
+       
+       \PY{k}{print} \PY{n}{doc}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{ophtml} \PY{o}{=} \PY{n+nb}{open}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{index.html}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{w}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{ophtml}\PY{o}{.}\PY{n}{write}\PY{p}{(}\PY{n+nb}{str}\PY{p}{(}\PY{n}{doc}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{ophtml}\PY{o}{.}\PY{n}{close}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}def fcopy(src,dest):}
+       \PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
+       \PY{l+s+sd}{    Copy file from source to dest.  dest can include an absolute or relative path}
+       \PY{l+s+sd}{    If the path doesn\PYZsq{}t exist, it gets created}
+       \PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
+       \PY{l+s+sd}{    dest\PYZus{}dir = os.path.dirname(dest)}
+       \PY{l+s+sd}{    try:}
+       \PY{l+s+sd}{        os.makedirs(dest\PYZus{}dir)}
+       \PY{l+s+sd}{    except os.error as e:}
+       \PY{l+s+sd}{        pass \PYZsh{}Assume it exists.  This could fail if you don\PYZsq{}t have permissions, etc...}
+       \PY{l+s+sd}{    shutil.copy(src,dest)\PYZsq{}\PYZsq{}\PYZsq{}}
+\end{Verbatim}
+
+    cycle though folder and create file in each folder
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{c}{\PYZsh{}fcopy(\PYZsq{}/var/www/artcontroldrawsyou/home/\PYZsq{})}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{k}{for} \PY{n}{usz} \PY{o+ow}{in} \PY{n}{titlis}\PY{p}{:}
+           \PY{k}{print} \PY{n}{usz}
+           \PY{c}{\PYZsh{}os.mkdir(usz)}
+           \PY{c}{\PYZsh{}os.chdir(\PYZsq{}/var/www/artcontroldrawsyou/home/\PYZsq{} + usz)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}for filz in titlis:}
+       \PY{l+s+sd}{    print filz}
+       \PY{l+s+sd}{    }
+       \PY{l+s+sd}{    }
+       \PY{l+s+sd}{    \PYZsh{}os.chdir(\PYZsq{}/var/www/artcontroldrawsyou/home\PYZsq{} + usz)}
+       \PY{l+s+sd}{    bulkc = dominate.document(title=filz)}
+       \PY{l+s+sd}{    with bulkc.head:}
+       \PY{l+s+sd}{        link(rel=\PYZsq{}stylesheet\PYZsq{}, href=\PYZsq{}style.css\PYZsq{})}
+       \PY{l+s+sd}{        script(type=\PYZsq{}text/javascript\PYZsq{}, src=\PYZsq{}script.js\PYZsq{})}
+       
+       \PY{l+s+sd}{    with bulkc:}
+       \PY{l+s+sd}{        with div():}
+       \PY{l+s+sd}{            attr(cls=\PYZsq{}header\PYZsq{})}
+       \PY{l+s+sd}{            \PYZsh{}\PYZlt{}img src=\PYZdq{}smiley.gif\PYZdq{} alt=\PYZdq{}Smiley face\PYZdq{} height=\PYZdq{}42\PYZdq{} width=\PYZdq{}42\PYZdq{}\PYZgt{}}
+       \PY{l+s+sd}{            h1(filz)}
+       \PY{l+s+sd}{            img(scr=\PYZsq{}http://artcontrol.me/wp\PYZhy{}content/uploads/2014/08/daenuhlyn\PYZhy{}headcoloe.png\PYZsq{})}
+       \PY{l+s+sd}{            h2(\PYZsq{}go away artcontrol\PYZsq{})}
+       \PY{l+s+sd}{        }
+       \PY{l+s+sd}{        with div(id=\PYZsq{}photographs\PYZsq{}):}
+       \PY{l+s+sd}{            for tits in titlis:}
+       \PY{l+s+sd}{                h3(tits)}
+       \PY{l+s+sd}{                (a(tits, href=\PYZsq{}\PYZpc{}s\PYZsq{} \PYZpc{} tits.lower))}
+       \PY{l+s+sd}{            }
+       \PY{l+s+sd}{    }
+       \PY{l+s+sd}{        with div(id=\PYZsq{}body\PYZsq{}).add(p()):}
+       \PY{l+s+sd}{            for i in jplis:}
+       \PY{l+s+sd}{                li(img(i.lower(), src=\PYZsq{}\PYZpc{}s\PYZsq{} \PYZpc{} i))}
+       \PY{l+s+sd}{                li(a(i.lower(), href=\PYZsq{}\PYZpc{}s\PYZsq{} \PYZpc{} i))}
+       \PY{l+s+sd}{                }
+       \PY{l+s+sd}{        with div(id=\PYZsq{}footer\PYZsq{}):}
+       \PY{l+s+sd}{            p(a(\PYZsq{}artcontroldrawsyou is opensource\PYZsq{}, href=\PYZsq{}https://github.com/wcmckee/wcmckee\PYZhy{}notebook\PYZsq{}))}
+       \PY{l+s+sd}{        }
+       \PY{l+s+sd}{        with open(\PYZsq{}/var/www/artcontroldrawsyou/home/\PYZsq{} + filz + \PYZsq{}/index.html\PYZsq{}, \PYZsq{}w\PYZsq{}) as fout:}
+       \PY{l+s+sd}{            fout.write(str(bulkc))}
+       \PY{l+s+sd}{            }
+       \PY{l+s+sd}{    \PYZsh{}with open(\PYZsq{}index.html\PYZsq{}, \PYZsq{}w\PYZsq{}) as indx:}
+       \PY{l+s+sd}{       \PYZsh{}bulkc = indx.write() }
+       \PY{l+s+sd}{        \PYZsh{}print bulkc\PYZsq{}\PYZsq{}\PYZsq{}}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{ransubz} \PY{o}{=} \PY{n}{random}\PY{o}{.}\PY{n}{randint}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{24}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{k}{print} \PY{n}{ransubz}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{ransev} \PY{o}{=} \PY{n}{rdnew}\PY{p}{[}\PY{n}{ransubz}\PY{p}{]}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{rgdautoz} \PY{o}{=} \PY{n+nb}{str}\PY{p}{(}\PY{n}{ransev}\PY{o}{.}\PY{n}{author}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{rgdsubred} \PY{o}{=} \PY{n+nb}{str}\PY{p}{(}\PY{n}{ransev}\PY{o}{.}\PY{n}{subreddit}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{sutit} \PY{o}{=} \PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{[}\PY{l+s}{\PYZsq{}} \PY{o}{+} \PY{n}{rgdsubred} \PY{o}{+} \PY{l+s}{\PYZsq{}}\PY{l+s}{]}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{sutit}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{rgdaqwew} \PY{o}{=} \PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{xpost[RGD]}\PY{l+s}{\PYZsq{}} \PY{o}{+} \PY{n}{rgdautoz}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{rgdaturo} \PY{o}{=} \PY{n+nb}{str}\PY{p}{(}\PY{n}{ransev}\PY{o}{.}\PY{n}{url}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{rgdatit} \PY{o}{=} \PY{n+nb}{str}\PY{p}{(}\PY{n}{ransev}\PY{o}{.}\PY{n}{title}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{rgdatit}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{c}{\PYZsh{}rd.get\PYZus{}top}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{linkdict} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{ady} \PY{o}{=} \PY{n}{r}\PY{o}{.}\PY{n}{get\PYZus{}subreddit}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{artcontroldrawsyou}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{comrgd} \PY{o}{=}  \PY{n}{rgdatit} \PY{o}{+} \PY{l+s}{\PYZsq{}}\PY{l+s}{ }\PY{l+s}{\PYZsq{}} \PY{o}{+} \PY{n}{rgdaturo}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{loctime} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{localtime}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{loctime}\PY{o}{.}\PY{n}{tm\PYZus{}mday}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{loctime}\PY{o}{.}\PY{n}{tm\PYZus{}mon}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{thedat} \PY{o}{=} \PY{p}{(}\PY{n+nb}{str}\PY{p}{(}\PY{n}{loctime}\PY{o}{.}\PY{n}{tm\PYZus{}mday}\PY{p}{)} \PY{o}{+} \PY{l+s}{\PYZsq{}}\PY{l+s}{/}\PY{l+s}{\PYZsq{}} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{loctime}\PY{o}{.}\PY{n}{tm\PYZus{}mon}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{thedat}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{mixtut} \PY{o}{=} \PY{p}{(}\PY{n}{thedat} \PY{o}{+} \PY{n}{sutit} \PY{o}{+} \PY{n}{rgdautoz}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{loctime}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{c}{\PYZsh{}ady.submit(mixtut , (rgdaqwew, comrgd))}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}for newa in rdnew:}
+       \PY{l+s+sd}{    \PYZsh{}rint newa.url}
+       \PY{l+s+sd}{    print len(newa)}
+       \PY{l+s+sd}{    htmstr = (str(newa.title) + \PYZsq{}\PYZlt{}a href=\PYZdq{}\PYZsq{} + }
+       \PY{l+s+sd}{                 str(newa.url) + }
+       \PY{l+s+sd}{                 \PYZsq{}\PYZdq{}\PYZgt{}\PYZlt{}img class=\PYZdq{}aligncenter size\PYZhy{}large wp\PYZhy{}image\PYZhy{}5723\PYZdq{} alt=\PYZdq{}\PYZsq{} +}
+       \PY{l+s+sd}{                 str(newa.author) +}
+       \PY{l+s+sd}{                 \PYZsq{}\PYZdq{} src=\PYZdq{}\PYZsq{} + }
+       \PY{l+s+sd}{                 str(newa.url) + }
+       \PY{l+s+sd}{                 \PYZsq{}\PYZdq{} /\PYZgt{}\PYZlt{}/a\PYZgt{}\PYZsq{})}
+       \PY{l+s+sd}{    \PYZsh{}ophtml.write(htmstr)}
+       \PY{l+s+sd}{    \PYZsh{}ady.submit((\PYZsq{}[RGD]\PYZsq{} + newa.author), newa.url)}
+       \PY{l+s+sd}{    print newa.author}
+       \PY{l+s+sd}{    \PYZsh{}print newa.media}
+       \PY{l+s+sd}{    ophtml.write(htmstr)}
+       \PY{l+s+sd}{    print newa.selftext}
+       \PY{l+s+sd}{    print newa.url}
+       \PY{l+s+sd}{    print newa.num\PYZus{}comments}
+       \PY{l+s+sd}{    }
+       \PY{l+s+sd}{    linkdict.update(\PYZob{}str(newa.author): str(newa.url)\PYZcb{})}
+       \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{c}{\PYZsh{}print str(newa.title)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{k+kn}{import} \PY{n+nn}{json}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{newzjson} \PY{o}{=} \PY{n}{json}\PY{o}{.}\PY{n}{dumps}\PY{p}{(}\PY{n}{linkdict}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{c}{\PYZsh{}newzjson}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} 
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{rmine} \PY{o}{=} \PY{n}{r}\PY{o}{.}\PY{n}{get\PYZus{}redditor}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{itwillbemine}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{c}{\PYZsh{}opest = open(\PYZsq{}userurl.json\PYZsq{}, \PYZsq{}r\PYZsq{})}
+       \PY{c}{\PYZsh{}opest.read()}
+       \PY{c}{\PYZsh{}opest.close()}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{mincom} \PY{o}{=} \PY{n}{rmine}\PY{o}{.}\PY{n}{get\PYZus{}comments}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{c}{\PYZsh{}print mincom}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{minels} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{dausr} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{k}{for} \PY{n}{newa} \PY{o+ow}{in} \PY{n}{rdnew}\PY{p}{:}
+           \PY{c}{\PYZsh{}rint newa.url}
+           \PY{c}{\PYZsh{}print newa.author}
+           \PY{n}{linkdict}\PY{o}{.}\PY{n}{update}\PY{p}{(}\PY{p}{\PYZob{}}\PY{n+nb}{str}\PY{p}{(}\PY{n}{newa}\PY{o}{.}\PY{n}{author}\PY{p}{)}\PY{p}{:} \PY{n+nb}{str}\PY{p}{(}\PY{n}{newa}\PY{o}{.}\PY{n}{url}\PY{p}{)}\PY{p}{\PYZcb{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{k}{for} \PY{n}{con} \PY{o+ow}{in} \PY{n}{mincom}\PY{p}{:}
+           \PY{c}{\PYZsh{}print con.body}
+           \PY{n}{minels}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{con}\PY{p}{)}
+           \PY{n}{dausr}\PY{o}{.}\PY{n}{update}\PY{p}{(}\PY{p}{\PYZob{}}\PY{n+nb}{str}\PY{p}{(}\PY{n}{con}\PY{o}{.}\PY{n}{id}\PY{p}{)}\PY{p}{:} \PY{n+nb}{str}\PY{p}{(}\PY{n}{con}\PY{o}{.}\PY{n}{body}\PY{p}{)}\PY{p}{\PYZcb{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{itwillbemine} \PY{o}{=} \PY{n}{dominate}\PY{o}{.}\PY{n}{document}\PY{p}{(}\PY{n}{title}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{itwillbemine}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{k}{with} \PY{n}{itwillbemine}\PY{o}{.}\PY{n}{head}\PY{p}{:}
+           \PY{n}{link}\PY{p}{(}\PY{n}{rel}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{stylesheet}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{href}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{style.css}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+           \PY{n}{script}\PY{p}{(}\PY{n+nb}{type}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{text/javascript}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{src}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{script.js}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+       
+       \PY{k}{with} \PY{n}{itwillbemine}\PY{p}{:}
+           \PY{k}{with} \PY{n}{div}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+               \PY{n}{attr}\PY{p}{(}\PY{n}{cls}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{header}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+               \PY{c}{\PYZsh{}\PYZlt{}img src=\PYZdq{}smiley.gif\PYZdq{} alt=\PYZdq{}Smiley face\PYZdq{} height=\PYZdq{}42\PYZdq{} width=\PYZdq{}42\PYZdq{}\PYZgt{}}
+               \PY{n}{h1}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{itwillbemine}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+               \PY{n}{img}\PY{p}{(}\PY{n}{scr}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{logo.gif}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+               \PY{n}{h2}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{go away artcontrol}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+               \PY{n}{p}\PY{p}{(}\PY{n}{strftime}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZpc{}}\PY{l+s}{a, }\PY{l+s+si}{\PYZpc{}d}\PY{l+s}{ }\PY{l+s}{\PYZpc{}}\PY{l+s}{b }\PY{l+s}{\PYZpc{}}\PY{l+s}{Y }\PY{l+s}{\PYZpc{}}\PY{l+s}{H:}\PY{l+s}{\PYZpc{}}\PY{l+s}{M:}\PY{l+s}{\PYZpc{}}\PY{l+s}{S +0000}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{gmtime}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+               \PY{n}{a}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{about}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{href}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{http://brobeur.com/artcontroldrawsyou/about}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+               \PY{n}{a}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{contact}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{href}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{http://brobeur.com/artcontroldrawsyou/contact}\PY{l+s}{\PYZsq{}}\PY{p}{)} 
+               \PY{n}{a}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{blog}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{href}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{http://brobeur.com/artcontroldrawsyou/wcmckee.com/wcmckee/output}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+           
+           \PY{k}{with} \PY{n}{div}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+               \PY{n}{attr}\PY{p}{(}\PY{n}{cls}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{header}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+               \PY{c}{\PYZsh{}\PYZlt{}img src=\PYZdq{}smiley.gif\PYZdq{} alt=\PYZdq{}Smiley face\PYZdq{} height=\PYZdq{}42\PYZdq{} width=\PYZdq{}42\PYZdq{}\PYZgt{}}
+               \PY{n}{h1}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{itwillbemine}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+               \PY{n}{p}\PY{p}{(}\PY{n}{img}\PY{p}{(}\PY{n}{scr}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{http://brobeur.com/artcontroldrawsyou/logo.gif}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+               \PY{c}{\PYZsh{}for mine in minels:}
+                   \PY{c}{\PYZsh{}h1(mine.author\PYZus{}flair\PYZus{}text())}
+                   \PY{c}{\PYZsh{}p(mine.body)}
+               
+           \PY{k}{with} \PY{n}{div}\PY{p}{(}\PY{n+nb}{id}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{author}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{p}{:}
+               \PY{k}{for} \PY{n}{tits} \PY{o+ow}{in} \PY{n}{titlis}\PY{p}{:}
+                   \PY{n}{h3}\PY{p}{(}\PY{n}{tits}\PY{p}{)}
+           
+           \PY{k}{with} \PY{n}{div}\PY{p}{(}\PY{n+nb}{id}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{body}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{p}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+               \PY{k}{for} \PY{n}{mine} \PY{o+ow}{in} \PY{n}{minels}\PY{p}{:}
+                   \PY{c}{\PYZsh{}h1(mine.created)}
+                   \PY{n}{p}\PY{p}{(}\PY{n}{mine}\PY{o}{.}\PY{n}{body}\PY{p}{)}
+                   
+       
+       
+       
+       \PY{k}{print} \PY{n}{itwillbemine}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{savmine} \PY{o}{=} \PY{n+nb}{open}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{reddit.html}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{w}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+       \PY{n}{savmine}\PY{o}{.}\PY{n}{write}\PY{p}{(}\PY{n+nb}{str}\PY{p}{(}\PY{n}{itwillbemine}\PY{p}{)}\PY{p}{)}
+       \PY{n}{savmine}\PY{o}{.}\PY{n}{close}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{noizjson} \PY{o}{=} \PY{n}{json}\PY{o}{.}\PY{n}{dumps}\PY{p}{(}\PY{n}{dausr}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{newposts} \PY{o}{=} \PY{n+nb}{open}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{userurl.json}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{a}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+       \PY{n}{newposts}\PY{o}{.}\PY{n}{write}\PY{p}{(}\PY{n}{newzjson}\PY{p}{)}
+       \PY{k}{print} \PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{file userurl.json updated}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+       \PY{n}{newcomments} \PY{o}{=} \PY{n+nb}{open}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{idcomt.json}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{a}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+       \PY{n}{newcomments}\PY{o}{.}\PY{n}{write}\PY{p}{(}\PY{n}{noizjson}\PY{p}{)}
+       \PY{k}{print} \PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{user comments updated}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+       \PY{n}{newposts}\PY{o}{.}\PY{n}{close}\PY{p}{(}\PY{p}{)}
+       \PY{n}{newcomments}\PY{o}{.}\PY{n}{close}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{rdusr} \PY{o}{=} \PY{n+nb}{str}\PY{p}{(}\PY{n}{con}\PY{o}{.}\PY{n}{author}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{minelsz} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{c}{\PYZsh{}for mina in minels:}
+           \PY{c}{\PYZsh{}print mina.body}
+          \PY{c}{\PYZsh{} minelsz.append(mina.body)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{c}{\PYZsh{}minelsz}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{c}{\PYZsh{}mina.body}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{k+kn}{import} \PY{n+nn}{feedparser}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{mcs} \PY{o}{=} \PY{n}{feedparser}\PY{o}{.}\PY{n}{parse}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{http://mcsteffen.tumblr.com/rss}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{emcs} \PY{o}{=} \PY{n}{mcs}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{entries}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{k}{for} \PY{n}{em} \PY{o+ow}{in} \PY{n}{emcs}\PY{p}{:}
+           \PY{k}{print} \PY{n}{em}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{tumlis} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{k}{for} \PY{n}{em} \PY{o+ow}{in} \PY{n}{emcs}\PY{p}{:}
+           \PY{n}{tumlis}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{(}\PY{n}{em}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{summary\PYZus{}detail}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{value}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+           
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{tumlis}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{contactpage} \PY{o}{=} \PY{n}{dominate}\PY{o}{.}\PY{n}{document}\PY{p}{(}\PY{n}{title}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{contact}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{k}{with} \PY{n}{contactpage}\PY{o}{.}\PY{n}{head}\PY{p}{:}
+           \PY{n}{link}\PY{p}{(}\PY{n}{rel}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{stylesheet}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{href}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{style.css}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+           \PY{n}{script}\PY{p}{(}\PY{n+nb}{type}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{text/javascript}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{src}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{script.js}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+       
+       \PY{k}{with} \PY{n}{contactpage}\PY{p}{:}
+           \PY{k}{with} \PY{n}{div}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+               \PY{n}{attr}\PY{p}{(}\PY{n}{cls}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{top}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+               \PY{c}{\PYZsh{}\PYZlt{}img src=\PYZdq{}smiley.gif\PYZdq{} alt=\PYZdq{}Smiley face\PYZdq{} height=\PYZdq{}42\PYZdq{} width=\PYZdq{}42\PYZdq{}\PYZgt{}}
+               \PY{n}{h1}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{artcontroldrawsyou!}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+               \PY{n}{img}\PY{p}{(}\PY{n}{scr}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{logo.gif}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+               \PY{n}{h2}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{go away artcontrol}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+               \PY{n}{p}\PY{p}{(}\PY{n}{strftime}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZpc{}}\PY{l+s}{a, }\PY{l+s+si}{\PYZpc{}d}\PY{l+s}{ }\PY{l+s}{\PYZpc{}}\PY{l+s}{b }\PY{l+s}{\PYZpc{}}\PY{l+s}{Y }\PY{l+s}{\PYZpc{}}\PY{l+s}{H:}\PY{l+s}{\PYZpc{}}\PY{l+s}{M:}\PY{l+s}{\PYZpc{}}\PY{l+s}{S +0000}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{gmtime}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+               \PY{n}{a}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{about}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{href}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{http://brobeur.com/artcontroldrawsyou/about}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+               \PY{n}{a}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{contact}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{href}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{http://brobeur.com/artcontroldrawsyou/contact}\PY{l+s}{\PYZsq{}}\PY{p}{)} 
+               \PY{n}{a}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{blog}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{href}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{http://brobeur.com/artcontroldrawsyou/wcmckee.com/wcmckee/output}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+       
+           \PY{k}{with} \PY{n}{div}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+               \PY{n}{attr}\PY{p}{(}\PY{n}{cls}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{header}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+               \PY{c}{\PYZsh{}\PYZlt{}img src=\PYZdq{}smiley.gif\PYZdq{} alt=\PYZdq{}Smiley face\PYZdq{} height=\PYZdq{}42\PYZdq{} width=\PYZdq{}42\PYZdq{}\PYZgt{}}
+               \PY{n}{h1}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{contact}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+               \PY{n}{p}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{email: will@artcontrol.me twitter: art\PYZus{}control}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+               \PY{n}{p}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Recent comments from itwillbemine:}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+               \PY{c}{\PYZsh{}for mine in minels:}
+                   \PY{c}{\PYZsh{}h1(mine.author\PYZus{}flair\PYZus{}text())}
+                   \PY{c}{\PYZsh{}p(mine.body)}
+               
+        \PY{c}{\PYZsh{}   with div(id=\PYZsq{}author\PYZsq{}):}
+         \PY{c}{\PYZsh{}     for tum in tumlis:}
+          \PY{c}{\PYZsh{}         p(tum)}
+           
+           
+           \PY{k}{with} \PY{n}{div}\PY{p}{(}\PY{n+nb}{id}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{body}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{p}{:}
+               \PY{k}{for} \PY{n}{mine} \PY{o+ow}{in} \PY{n}{minels}\PY{p}{:}
+                   \PY{c}{\PYZsh{}h1(mine.created)}
+                   \PY{n}{li}\PY{p}{(}\PY{n}{mine}\PY{o}{.}\PY{n}{body}\PY{p}{)}
+                   
+       
+       
+       
+       
+       \PY{k}{print} \PY{n}{contactpage}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{os}\PY{o}{.}\PY{n}{chdir}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{contact}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{savcon} \PY{o}{=} \PY{n+nb}{open}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{index.html}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{w}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+       \PY{n}{savcon}\PY{o}{.}\PY{n}{write}\PY{p}{(}\PY{n+nb}{str}\PY{p}{(}\PY{n}{contactpage}\PY{p}{)}\PY{p}{)}
+       \PY{n}{savcon}\PY{o}{.}\PY{n}{close}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{dirdir} \PY{o}{=} \PY{n}{os}\PY{o}{.}\PY{n}{chdir}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{/var/www/artcontroldrawsyou}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{dirdir}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{aboutpage} \PY{o}{=} \PY{n}{dominate}\PY{o}{.}\PY{n}{document}\PY{p}{(}\PY{n}{title}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{about}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+       \PY{k}{with} \PY{n}{aboutpage}\PY{o}{.}\PY{n}{head}\PY{p}{:}
+           \PY{n}{link}\PY{p}{(}\PY{n}{rel}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{stylesheet}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{href}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{style.css}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+           \PY{n}{script}\PY{p}{(}\PY{n+nb}{type}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{text/javascript}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{src}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{script.js}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+       
+       \PY{k}{with} \PY{n}{aboutpage}\PY{p}{:}
+           \PY{k}{with} \PY{n}{div}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+               \PY{n}{attr}\PY{p}{(}\PY{n}{cls}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{header}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+               \PY{c}{\PYZsh{}\PYZlt{}img src=\PYZdq{}smiley.gif\PYZdq{} alt=\PYZdq{}Smiley face\PYZdq{} height=\PYZdq{}42\PYZdq{} width=\PYZdq{}42\PYZdq{}\PYZgt{}}
+               \PY{n}{h1}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{artcontroldrawsyou!}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+               \PY{n}{img}\PY{p}{(}\PY{n}{scr}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{logo.gif}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+               \PY{n}{h2}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{go away artcontrol}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+               \PY{n}{p}\PY{p}{(}\PY{n}{strftime}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZpc{}}\PY{l+s}{a, }\PY{l+s+si}{\PYZpc{}d}\PY{l+s}{ }\PY{l+s}{\PYZpc{}}\PY{l+s}{b }\PY{l+s}{\PYZpc{}}\PY{l+s}{Y }\PY{l+s}{\PYZpc{}}\PY{l+s}{H:}\PY{l+s}{\PYZpc{}}\PY{l+s}{M:}\PY{l+s}{\PYZpc{}}\PY{l+s}{S +0000}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{gmtime}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+               \PY{n}{a}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{about}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{href}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{https://brobeur.com/artcontroldrawsyou/about}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+               \PY{n}{a}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{contact}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{href}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{http://brobeur.com/artcontroldrawsyou/contact}\PY{l+s}{\PYZsq{}}\PY{p}{)} 
+               \PY{n}{a}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{blog}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{href}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{http://brobeur.com/artcontroldrawsyou/wcmckee.com/wcmckee/output}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+           \PY{k}{with} \PY{n}{div}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+               \PY{n}{attr}\PY{p}{(}\PY{n}{cls}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{header}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+               \PY{c}{\PYZsh{}\PYZlt{}img src=\PYZdq{}smiley.gif\PYZdq{} alt=\PYZdq{}Smiley face\PYZdq{} height=\PYZdq{}42\PYZdq{} width=\PYZdq{}42\PYZdq{}\PYZgt{}}
+               \PY{n}{h1}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{about}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+               \PY{n}{p}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{artcontroldrawsyou is a website that takes RedditGetsDrawn data and posts it here.}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+               \PY{n}{p}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{artcontrol is not allowed to submit artwork to redditgetsdrawn so this was created}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+               \PY{c}{\PYZsh{}for mine in minels:}
+                   \PY{c}{\PYZsh{}h1(mine.author\PYZus{}flair\PYZus{}text())}
+                   \PY{c}{\PYZsh{}p(mine.body)}
+               
+           \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}with div(id=\PYZsq{}author\PYZsq{}):}
+       \PY{l+s+sd}{        for tits in titlis:}
+       \PY{l+s+sd}{            h3(tits)}
+       \PY{l+s+sd}{    }
+       \PY{l+s+sd}{    with div(id=\PYZsq{}body\PYZsq{}).add(p()):}
+       \PY{l+s+sd}{        for mine in minels:}
+       \PY{l+s+sd}{            \PYZsh{}h1(mine.created)}
+       \PY{l+s+sd}{            p(mine.body)}
+       \PY{l+s+sd}{            }
+       
+       
+       
+       \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+       \PY{k}{print} \PY{n}{aboutpage}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{os}\PY{o}{.}\PY{n}{chdir}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{about}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{aboucr} \PY{o}{=} \PY{n+nb}{open}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{index.html}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{w}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+       \PY{n}{aboucr}\PY{o}{.}\PY{n}{write}\PY{p}{(}\PY{n+nb}{str}\PY{p}{(}\PY{n}{aboutpage}\PY{p}{)}\PY{p}{)}
+       \PY{n}{aboucr}\PY{o}{.}\PY{n}{close}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{os}\PY{o}{.}\PY{n}{chdir}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{/var/www/artcontroldrawsyou/}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}

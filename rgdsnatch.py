@@ -22,11 +22,13 @@
 # 
 # more artcontrol
 # 
-# itwillbemine comments to html
+# itwillbemine comments to html - currently being saved in contact 
 # 
 # work on css, div up page, title, side, body, footer
 # 
 # update twitter with ONE IMAGE and announce that the list has been updated.
+# 
+# write blog post and submits to artcontroldrawsyou/blog 
 # 
 # 
 # 
@@ -58,6 +60,26 @@ r = praw.Reddit(user_agent='rgdsnatch')
 # <codecell>
 
 rd = r.get_subreddit('redditgetsdrawn')
+
+# <codecell>
+
+subz = rd.get_hot().next()
+istit = (subz.title)
+istxt = (subz.selftext_html)
+istick = (subz.stickied)
+
+# <codecell>
+
+istit
+
+# <codecell>
+
+istxt
+
+# <codecell>
+
+if istick = True:
+    
 
 # <codecell>
 
