@@ -1,0 +1,3782 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<base href="http://www.intercity.co.nz/"><!--[if lte IE 6]></base><![endif]-->
+		<meta charset="utf-8" />
+		<link rel="shortcut icon" href="/assets/intercity12/main/favicon.ico" /> 
+
+		<title>
+			
+				InterCity® // Bus Tickets From $1 // NZ’s National Network 
+			
+		</title>
+
+	
+		<style>
+			/*#Header {background: transparent url('/assets/intercity/main/header5.jpg') no-repeat !important;}*/
+		</style>
+	
+
+<!--  -->
+	<link rel="stylesheet" type="text/css" href="/framework/thirdparty/jquery-ui-themes/smoothness/jquery-ui.min.css?m=1405944735" />
+<link rel="stylesheet" type="text/css" href="/themes/default/javascript/lib/jquery-fancybox/jquery.fancybox-1.3.1.css?m=1405944743" />
+<link rel="stylesheet" type="text/css" href="/themes/default/css/iealert/style.css?m=1405944743" />
+<link rel="stylesheet" type="text/css" href="/themes/default/css/common.css?m=1405944743" />
+<link rel="stylesheet" type="text/css" href="/themes/intercity12/css/reservations.css?m=1405944743" />
+<link rel="stylesheet" type="text/css" href="/themes/intercity12/css/app.css?m=1405944743" />
+<link rel="stylesheet" type="text/css" href="/themes/intercity12/css/typography.css?m=1405944743" />
+<link rel="stylesheet" type="text/css" href="/bookingelements/css/StopPickerField.css?m=1405944734" />
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-1266228-1']);
+_gaq.push(['_setDomainName', '.intercity.co.nz']);
+_gaq.push(['_setAllowLinker', true]);
+_gaq.push(['_trackPageview']);
+
+(function() {
+	var ga = document.createElement('script'); 
+	ga.type = 'text/javascript'; 
+	ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; 
+	s.parentNode.insertBefore(ga, s);
+})();
+
+(function recordOutboundLink(link, category, action) {
+  try {
+    //var myTracker=_gat._getTrackerByName();
+    //_gaq.push(['myTracker._trackEvent', ' + category + ', ' + action + ']);
+    _gaq.push(['_trackEvent', category , action ]);
+    setTimeout('document.location = "' + link.href + '"', 100)
+  }catch(err){}
+})();
+
+
+</script>
+</head>
+	<body class="typography home HomePage">
+		
+
+		<div id="Container" class="row">
+			<div id="Main" class="twenty columns">
+				
+					<div id="Header" class="row">
+						<div class="twenty columns">
+	<a href="/" class="logo left" onClick="_gaq.push(['_trackEvent', 'HeaderLogo', 'Back Home', 'InterCity Logo']);"><img src="/assets/intercity12/main/iclogo.png" alt="iclogo.png" /></a>
+	<h2 class="left">Low fares, everywhere, everyday.</h2>
+	
+	<ul class="header-link right"><li><a href="http://m.intercity.co.nz">Mobile Site</a></li>
+<li><a href="/info/about-us/">About Us</a></li>
+<li><a href="/contact-us" id="feedback">Contact Us</a></li>
+</ul>
+	<div class="clear"></div>
+</div>
+
+					</div>
+
+					<div id="Navigation" class="row">
+						<div id="Menu" class="twenty columns">
+							
+<ul class="nav-bar">
+	
+		<li class="has-flyout">
+			
+				<a href="/" class="current">H</a>
+				<a href="/#" class="flyout-toggle"><span></span></a>
+				
+		</li>	
+	
+		<li class="has-flyout">
+			
+				<span class="has-a-submenu">Travel Info</span>
+				<a href="/#" class="flyout-toggle"><span></span></a>
+				<ul class="flyout">
+					
+						<div class="subMenuRightColumn"><div class="menu-section">
+<h2><img title="" src="assets/intercity12/main/ICONSMENU/_resampled/ResizedImage2525-timetable_icon2.png" alt="&gt;" width="25" height="25"> Timetables</h2>
+<ul><li><a href="timetable">Timetables and Bus Stops</a></li>
+<li><a href="route-map">Route Map</a></li>
+</ul></div>
+<div class="menu-section">
+<h2><img title="" src="assets/intercity12/main/ICONSMENU/_resampled/ResizedImage2525-changes_icon2.png" alt="&gt;" width="25" height="25"> Changes &amp; Refunds</h2>
+<ul><li><a href="changes-and-refunds">Changes, Cancellations &amp; Refunds</a></li>
+<li><a> </a></li>
+</ul></div>
+<div class="menu-section">
+<h2><img title="" src="assets/intercity12/main/ICONSMENU/_resampled/ResizedImage2828-fare_icon2.png" alt="&gt;" width="28" height="28"> Fares &amp; Bookings</h2>
+<ul><li><a href="getting-a-1-fare">Getting a $1 Fare</a></li>
+<li><a href="non-refundable-vs-flexible">Non Refundable vs Flexible Fares</a></li>
+<li><a href="discount-bus-fares">Student,Backpacker &amp; Senior Fares</a></li>
+</ul></div>
+<div class="menu-section">
+<h2><img title="" src="assets/intercity12/main/ICONSMENU/_resampled/ResizedImage2525-luggage_icon2.png" alt="&gt;" width="25" height="25"> Luggage</h2>
+<ul><li><a href="carryon-checked-luggage">Carry on and Checked Luggage</a></li>
+<li><a href="oversized-items">Oversized Items/Bicycles</a></li>
+<li> </li>
+</ul></div>
+<div class="menu-section">
+<h2><img title="" src="assets/intercity12/main/ICONSMENU/_resampled/ResizedImage2525-agents_icon2.png" alt="&gt;" width="25" height="25"> Booking Agents</h2>
+<ul><li><a href="north-island-booking-agents/">Find a North Island Agent</a></li>
+<li><a href="south-island-booking-agents/">Find a South Island Agent</a></li>
+</ul></div>
+<div class="menu-section">
+<h2><img title="" src="assets/intercity12/main/ICONSMENU/_resampled/ResizedImage2525-delays_icon2.png" alt="&gt;" width="25" height="25"> Service Updates</h2>
+<ul><li><a href="service-updates">View Latest Service Info</a></li>
+<li> </li>
+</ul></div>
+<div class="menu-section">
+<h2><img title="" src="assets/intercity12/main/ICONSMENU/_resampled/ResizedImage2525-special_assistance_icon2.png" alt="&gt;" width="25" height="25"> Special Assistance</h2>
+<ul><li><a href="special-assistance">Special Needs and Assistance</a></li>
+</ul></div>
+<div class="menu-section">
+<h2><img title="" src="assets/intercity12/main/ICONSMENU/_resampled/ResizedImage2525-children_icon2.png" alt="&gt;" width="25" height="25"> Travelling with Children</h2>
+<ul><li><a href="child-fares">Child Fares</a></li>
+<li><a href="http://www.intercity.co.nz/assets/file/intercityunaccompanied.pdf">Unaccompanied Minor Form</a></li>
+</ul></div>
+<div class="menu-section faq">
+<h2><img title="" src="assets/intercity12/main/ICONSMENU/_resampled/ResizedImage2525-faq_icon2.png" alt="&gt;" width="25" height="25"> Frequently Asked Questions</h2>
+</div>
+<div class="menu-section groupbooking">
+<h2><img title="" src="assets/intercity12/main/ICONSMENU/_resampled/ResizedImage2525-groupbookings_icon2.png" alt="&gt;" width="25" height="25"> Group Bookings</h2>
+</div></div>
+					
+				</ul>
+				
+		</li>	
+	
+		<li class="has-flyout">
+			
+				<span class="has-a-submenu">Manage Booking</span>
+				<a href="/#" class="flyout-toggle"><span></span></a>
+				<ul class="flyout">
+					
+						<div class="subMenuRightColumn"><div class="menu-section">
+<h2><img src="assets/intercity12/main/ICONSMENU/manage_icon2.png" alt="&gt;" title=""> Manage your booking</h2>
+<ul><li><a href="/manage-booking/change-cancel-a-booking/">How To Change/Cancel a Booking</a></li>
+<li><a href="managebooking">Login to Manage a booking</a></li>
+</ul></div>
+<div class="menu-section">
+<h2><img src="assets/intercity12/main/ICONSMENU/_resampled/ResizedImage2525-changes_icon2.png" alt="&gt;" height="25" width="25" title=""> Changes &amp; Refunds</h2>
+<ul><li><a href="changes-and-refunds">Changes, Cancellations &amp; Refunds</a></li>
+</ul></div></div>
+					
+				</ul>
+				
+		</li>	
+	
+		<li class="has-flyout">
+			
+				<span class="has-a-submenu">Frequent Travellers</span>
+				<a href="/#" class="flyout-toggle"><span></span></a>
+				<ul class="flyout">
+					
+						<div class="subMenuRightColumn"><div class="menu-section">
+<h2><img title="" src="assets/intercity12/main/ICONSMENU/_resampled/ResizedImage2828-rewards_icon2.png" alt="&gt;" width="28" height="28"> Freeway Travel Rewards</h2>
+<ul><li><a style="line-height: 19.2px;" href="intercity-freeway">Want to earn FREE Travel?</a></li>
+<li><a href="join-club-freeway">Join Freeway now</a></li>
+</ul></div>
+<div class="menu-section">
+<h2><img title="" src="assets/intercity12/main/ICONSMENU/_resampled/ResizedImage2525-freewaymember_icon2.png" alt="&gt;" width="25" height="25"> Freeway Members</h2>
+<ul><li><a href="rewards">Log in to Freeway</a></li>
+<li><a href="clubpasswordreset">Forgotten Password?</a></li>
+</ul></div>
+<div class="menu-section">
+<h2><img title="" src="assets/intercity12/main/ICONSMENU/_resampled/ResizedImage2828-cheapas_icon2.png" alt="&gt;" width="28" height="28"> Cheap-as Seats</h2>
+<ul><li><a href="cheapas">Sign up for special offers</a></li>
+</ul></div></div>
+					
+				</ul>
+				
+		</li>	
+	
+		<li class="has-flyout">
+			
+				<span class="has-a-submenu">Tours</span>
+				<a href="/#" class="flyout-toggle"><span></span></a>
+				<ul class="flyout">
+					
+						<div class="subMenuRightColumn"><div class="menu-section tours-sub"><a href="/intercity-milford-sound-tour/"><img style="float:left;" src="/assets/intercity12/main/ICONSMENU/milford_icon.png" alt="Milford Sound Bus Tour" title=""></a>
+<div style="float:left;" class="menu-dets"><a href="/intercity-milford-sound-tour/">
+<h2>Milford Sound</h2>
+</a> 
+<ul><a href="/intercity-milford-sound-tour/"> </a>
+<li><a href="/intercity-milford-sound-tour/"></a><a href="/intercity-milford-sound-tour/">Day trip from Queenstown from $119*</a></li>
+</ul></div>
+</div>
+<div class="menu-section tours-sub"><a href="/intercity-hobbiton-excursion-auckland-to-auckland/"><img style="float:left" src="/assets/intercity12/main/ICONSMENU/hobbiton_icon.png" alt="Hobbiton Movie Set Day Tour" title=""></a>
+<div style="float:left;" class="menu-dets"><a href="/intercity-hobbiton-excursion-auckland-to-auckland/">
+<h2>Hobbiton Movie Set</h2>
+</a> 
+<ul><a href="/intercity-hobbiton-excursion-auckland-to-auckland/"> </a>
+<li><a href="/intercity-hobbiton-excursion-auckland-to-auckland/"></a><a href="/intercity-hobbiton-excursion-auckland-to-auckland/">Day trip from Auckland from $139*</a></li>
+</ul></div>
+</div>
+<div class="menu-section tours-sub dart"><a href="/dart-river-jet/"><img style="float:left;" src="/assets/intercity12/main/ICONSMENU/Dart-River_icon.png" alt="Dart River Jet Tour" title=""></a>
+<div style="float:left;" class="menu-dets"><a href="/dart-river-jet/">
+<h2>Dart River Jet</h2>
+</a> 
+<ul><a href="/dart-river-jet/"> </a>
+<li><a href="/dart-river-jet/"></a><a href="/dart-river-jet/">Dart River Jet Tour Ex Q'tn from $219*</a></li>
+</ul></div>
+</div>
+<div class="menu-section tours-sub boi"><a href="/tours/waitomo-caves-tour/"><img style="float:left;" src="assets/intercity12/main/ICONSMENU/waitomo_icon.png" alt="Waitomo Caves Day Tour" title=""></a>
+<div style="float:left;" class="menu-dets"><a href="/tours/waitomo-caves-tour/">
+<h2>Waitomo Caves Tour</h2>
+</a> 
+<ul><a href="/tours/waitomo-caves-tour/"> </a>
+<li><a href="/tours/waitomo-caves-tour/"></a><a href="/tours/waitomo-caves-tour/">Day trips to Waitomo Caves From $139*</a></li>
+</ul></div>
+</div>
+<div class="menu-section tours-sub boi"><a href="/intercity-dolphin-cruise-tour/"><img style="float:left;" src="/assets/intercity12/main/ICONSMENU/boi_icon.png" alt="Bay of Islands Day Tour" title=""></a>
+<div style="float:left;" class="menu-dets"><a href="/intercity-dolphin-cruise-tour/">
+<h2>Bay of Islands</h2>
+</a> 
+<ul><a href="/intercity-dolphin-cruise-tour/"> </a>
+<li><a href="/intercity-dolphin-cruise-tour/"></a><a href="/intercity-dolphin-cruise-tour/">Day trip from Auckland from $119*</a></li>
+</ul></div>
+</div>
+<div class="menu-section tours-sub film_locations"><a href="/the-lord-of-the-rings-film-locations/"><img style="float:left;" src="/assets/intercity12/main/ICONSMENU/lotr_thumb.jpg" alt="Lord of the Rings Tour" title=""></a>
+<div style="float:left;" class="menu-dets"><a href="/the-lord-of-the-rings-film-locations/">
+<h2>LOTR Film Locations</h2>
+</a> 
+<ul><a href="/the-lord-of-the-rings-film-locations/"> </a>
+<li><a href="/the-lord-of-the-rings-film-locations/"></a><a href="/the-lord-of-the-rings-film-locations/">Discover the films' locations in NZ</a></li>
+</ul></div>
+</div>
+<div class="menu-section tours-sub AucklandCityTour"><a href="/Auckland-Morning-City-tour/"><img style="float:left;" src="/assets/intercity12/main/auckland-city-sightseeing-tour-thumb.jpg" alt="Auckland City Sightseeing Tour" title=""></a>
+<div style="float:left;" class="menu-dets"><a href="/Auckland-Morning-City-tour/">
+<h2>Auckland City Tour</h2>
+</a> 
+<ul><a href="/Auckland-Monring-City-tour/"> </a>
+<li><a href="/Auckland-Morning-City-tour/"></a><a href="/Auckland-Morning-City-tour/">Half day city tours from $39*</a></li>
+</ul></div>
+</div>
+<div class="menu-section tours-sub huka"><a href="/hukafalls-jet/"><img style="float:left;" src="/assets/intercity12/main/ICONSMENU/huka_icon.png" alt="Huka Jet Tour" title=""></a>
+<div style="float:left;" class="menu-dets"><a href="/hukafalls-jet/">
+<h2>Hukafalls Jet</h2>
+</a> 
+<ul><a href="/hukafalls-jet/"> </a>
+<li><a href="/hukafalls-jet/"></a><a href="/hukafalls-jet/">Daily from Taupo from $109*</a></li>
+</ul></div>
+</div>
+<div class="menu-section tours-sub tamaki"><a href="/tamaki-maori-village-experience/"><img style="float:left;" src="/assets/intercity12/main/ICONSMENU/rotorua_tamaki_icon.jpg" alt="Tamaki Maori Village" title=""></a>
+<div style="float:left;" class="menu-dets"><a href="/tamaki-maori-village-experience/">
+<h2>Tamaki Māori Village</h2>
+</a> 
+<ul><a href="/tamaki-maori-village-experience/"> </a>
+<li><a href="/tamaki-maori-village-experience/"></a><a href="/tamaki-maori-village-experience/">Daily from Rotorua from $110*</a></li>
+</ul></div>
+</div></div>
+					
+				</ul>
+				
+		</li>	
+	
+		<li class="has-flyout">
+			
+				<span class="has-a-submenu">New Zealand Bus Passes</span>
+				<a href="/#" class="flyout-toggle"><span></span></a>
+				<ul class="flyout">
+					
+						<div class="subMenuRightColumn"><div class="menu-section pass-sub clearfix"><a href="/flexi-options/"><img style="float:left;" src="/assets/intercity12/main/ICONSMENU/flexible.jpg" alt="New Zealand Bus Tours and Passes"></a>
+<div class="menu-dets" style="float:left;"><a href="/flexi-options/">
+<h2>Flexible Itinerary Options</h2>
+</a>
+<ul><a href="/flexi-options/"> </a>
+<li><a href="/flexi-options/"></a><a href="/flexi-options/">Our most popular transport passes for independent travellers.  'Travel like a local' NZ's largest Hop-on/Hop-off network.  Total freedom + sightseeing &amp; activity options.</a></li>
+</ul></div>
+</div>
+<div class="menu-section pass-sub clearfix"><a href="/travel-pass/"><img style="float:left" src="/assets/intercity12/main/ICONSMENU/fixed.jpg" alt="New Zealand Bus Pass"></a>
+<div class="menu-dets" style="float:left;"><a href="/travel-pass/">
+<h2>Fixed Itinerary Passes</h2>
+</a>
+<ul><a href="/travel-pass/"> </a>
+<li><a href="/travel-pass/"></a><a href="/travel-pass/">Pre-planned transport passes for those wanting a set itinerary travel.  Choose from a range of passes including sightseeing tour options.</a></li>
+</ul></div>
+</div>
+<div class="menu-section pass-sub huka clearfix"><a href="/intercity-commuter/"><img style="float:left;" src="/assets/intercity12/main/ICONSMENU/commuter.jpg" alt="Auckland to Hamilton Bus Pass New Zealand"></a>
+<div class="menu-dets" style="float:left;">
+<h2>InterCity Commuter</h2>
+<ul><li><a href="/intercity-commuter/">Save up to 38%* on regular fares between Hamilton/Auckland.  Over 20 services per day between cities on NZ's #1 Bus Network.</a></li>
+</ul></div>
+</div>
+<div class="menu-section pass-sub boi"><a href="/student-bus-pass/"><img style="float:left;" src="/assets/intercity12/main/ICONSMENU/student-pass.jpg" alt="Student Bus Pass New Zealand"></a>
+<div class="menu-dets" style="float:left;"><a href="/student-bus-pass/">
+<h2>Student Passes</h2>
+</a>
+<ul><a href="/student-bus-pass/"> </a>
+<li><a href="/student-bus-pass/"></a><a href="/student-bus-pass/">Great savings for students! <br> Passes available for Hawke's Bay, New Plymouth and Dunedin students.</a></li>
+</ul></div>
+</div></div>
+					
+				</ul>
+				
+		</li>	
+	
+		<li class="has-flyout">
+			
+				<a href="http://www.booking.com/index.html?aid=369493" class="link">Accommodation</a>
+				<a href="/#" class="flyout-toggle"><span></span></a>
+				
+		</li>	
+	
+	<!-- HIDING SEARCH BAR FOR PRESENT TIME -->
+	<!-- <li class="search-bar"> 
+		 <form action="#" method="Get">
+		 <input type="textarea" name="enter-search">
+		 <input type="submit" value="">
+		 </form>
+		 </li> -->
+</ul>
+
+
+
+						</div>
+					</div>
+				
+
+				
+					<div id="ResCartSummary" class="row">
+						<div class="typography ">
+	<div id="Container" class="row">
+		<div class="twenty columns">
+			
+<div class="NoCart"></div>
+
+
+		</div>
+	</div>
+</div>
+
+					</div>
+				
+
+				
+				<div id="Layout" class="sidebar row">
+       					 <div id="Sidebar" class="six columns">
+	<p style="display: none;">home</p>
+	<div id="accordion">
+		<h2>Search Timetables & Fares</h2>
+		<div class="SearchForm">
+			<p class="sidebar-blurb">Type in your origin & destination below<br/>OR select from the drop down.</p>
+			
+<form id="SectorSearchForm_Form" action="/search-results/Form" method="post" enctype="application/x-www-form-urlencoded" class="sectorsearchform narrow">
+
+	
+	<p id="SectorSearchForm_Form_error" class="message " style="display: none"></p>
+	
+	
+	<fieldset>
+		 
+		
+			<div data-role="fieldcontain" id="OneWayOrReturn" class="field h5optionset h5optionset isReturnTrip nolabel"><div class="middleColumn"><ul id="SectorSearchForm_Form_OneWayOrReturn" class="optionset h5optionset isReturnTrip nolabel" data-role="controlgroup" data-type="horizontal"><li class="radio odd valOneWay"><input class="radio" id="SectorSearchForm_Form_OneWayOrReturn_OneWay" name="OneWayOrReturn" type="radio" value="OneWay" checked="checked" /><label for="SectorSearchForm_Form_OneWayOrReturn_OneWay">One-Way</label></li><li class="radio even valReturn"><input class="radio" id="SectorSearchForm_Form_OneWayOrReturn_Return" name="OneWayOrReturn" type="radio" value="Return" /><label for="SectorSearchForm_Form_OneWayOrReturn_Return">Return</label></li></ul></div></div>
+		
+			<div class="SearchFields">
+		
+			<div  class="field fieldgroup FromStop stopPicker nolabel">
+	
+	
+	<div class="middleColumn fieldgroup">
+		
+			<div class="fieldgroup-field first odd">
+				<div class="From leftlabel"><label class="leftlabel" for="SectorSearchForm_Form_From">From</label><input type="text" class="text StopName" id="SectorSearchForm_Form_From" name="From" autocomplete="on" required="required" placeholder="From" /></div>
+			</div>
+		
+			<div class="fieldgroup-field last even">
+				<a href='#' class='stoppicker' data-stopfield-id='SectorSearchForm_Form_From' data-title='Travelling from' title='Choose a stop to travel from...' >V</a>
+			</div>
+		
+	</div>
+	
+	
+	
+</div>
+
+		
+			<div  class="field fieldgroup ToStop stopPicker nolabel">
+	
+	
+	<div class="middleColumn fieldgroup">
+		
+			<div class="fieldgroup-field first odd">
+				<div class="To leftlabel"><label class="leftlabel" for="SectorSearchForm_Form_To">To</label><input type="text" class="text StopName" id="SectorSearchForm_Form_To" name="To" autocomplete="on" required="required" placeholder="To" /></div>
+			</div>
+		
+			<div class="fieldgroup-field last even">
+				<a href='#' class='stoppicker' data-stopfield-id='SectorSearchForm_Form_To' data-title='Travelling to' title='Choose a stop to travel to...' >V</a>
+			</div>
+		
+	</div>
+	
+	
+	
+</div>
+
+		
+			<div id="Date_Travel" class="field  datePicker">
+	<label class="left" for="SectorSearchForm_Form_Date_Travel">Departure Date</label>
+	<div class="middleColumn">
+		<input type="date" class="date text" id="SectorSearchForm_Form_Date_Travel" name="Date_Travel" value="2014-08-05" autocomplete="off" min="2014-08-04" juiConfig="{&quot;buttonImage&quot;:&quot;\/assets\/reservations\/button_calender.png&quot;,&quot;buttonImageOnly&quot;:&quot;true&quot;,&quot;dateFormat&quot;:&quot;dd\/mm\/yy&quot;,&quot;locale&quot;:&quot;en-GB&quot;,&quot;minDate&quot;:&quot;+0d&quot;,&quot;showOn&quot;:&quot;both&quot;}" />
+	</div>
+	
+	
+	
+</div>
+
+		
+			<div id="Date_Return" class="field  datePicker">
+	<label class="left" for="SectorSearchForm_Form_Date_Return">Return Date</label>
+	<div class="middleColumn">
+		<input type="date" class="date text" id="SectorSearchForm_Form_Date_Return" name="Date_Return" value="2014-08-11" autocomplete="off" juiConfig="{&quot;buttonImage&quot;:&quot;\/assets\/reservations\/button_calender.png&quot;,&quot;buttonImageOnly&quot;:&quot;true&quot;,&quot;dateFormat&quot;:&quot;dd\/mm\/yy&quot;,&quot;locale&quot;:&quot;en-GB&quot;,&quot;minDate&quot;:&quot;+0d&quot;,&quot;showOn&quot;:&quot;both&quot;}" />
+	</div>
+	
+	
+	
+</div>
+
+		
+			
+		
+			<div class="PaxComp">
+		
+			<h3 id="SectorSearchForm_Form_Pax">Passengers</h3>
+		
+			<div id="ADCHGA" class="field fieldgroup nolabel">
+	
+	
+	<div class="middleColumn fieldgroup">
+		
+			<div class="fieldgroup-field first odd">
+				<div class="fieldholder-small">
+	<label class="fieldholder-small-label" for="SectorSearchForm_Form_AD">Adult</label>
+	<select name="AD" class="faretypedropdown disctype" id="SectorSearchForm_Form_AD">
+
+	<option value="">0</option>
+
+	<option value="1AD">1</option>
+
+	<option value="2AD">2</option>
+
+	<option value="3AD">3</option>
+
+	<option value="4AD">4</option>
+
+	<option value="5AD">5</option>
+
+	<option value="6AD">6</option>
+
+	<option value="7AD">7</option>
+
+	<option value="8AD">8</option>
+
+	<option value="9AD">9</option>
+
+	<option value="10AD">10</option>
+
+</select>
+
+	
+</div>
+			</div>
+		
+			<div class="fieldgroup-field  even">
+				<div class="fieldholder-small">
+	<label class="fieldholder-small-label" for="SectorSearchForm_Form_CH">Child (3-12 yrs)</label>
+	<select name="CH" class="faretypedropdown disctype" id="SectorSearchForm_Form_CH">
+
+	<option value="">0</option>
+
+	<option value="1CH">1</option>
+
+	<option value="2CH">2</option>
+
+	<option value="3CH">3</option>
+
+	<option value="4CH">4</option>
+
+	<option value="5CH">5</option>
+
+	<option value="6CH">6</option>
+
+	<option value="7CH">7</option>
+
+	<option value="8CH">8</option>
+
+	<option value="9CH">9</option>
+
+	<option value="10CH">10</option>
+
+</select>
+
+	
+</div>
+			</div>
+		
+			<div class="fieldgroup-field last odd">
+				<div class="fieldholder-small">
+	<label class="fieldholder-small-label" for="SectorSearchForm_Form_GA">Golden Age (60+)</label>
+	<select name="GA" class="faretypedropdown disctype" id="SectorSearchForm_Form_GA">
+
+	<option value="">0</option>
+
+	<option value="1GA">1</option>
+
+	<option value="2GA">2</option>
+
+	<option value="3GA">3</option>
+
+	<option value="4GA">4</option>
+
+	<option value="5GA">5</option>
+
+	<option value="6GA">6</option>
+
+	<option value="7GA">7</option>
+
+	<option value="8GA">8</option>
+
+	<option value="9GA">9</option>
+
+	<option value="10GA">10</option>
+
+</select>
+
+	
+</div>
+			</div>
+		
+	</div>
+	
+	
+	
+</div>
+
+		
+			<p class="ShowDiscTypes">Other fare types </p>
+		
+			<div id="STBPIN" class="field fieldgroup extraPaxTypes nolabel">
+	
+	
+	<div class="middleColumn fieldgroup">
+		
+			<div class="fieldgroup-field first odd">
+				<div class="fieldholder-small">
+	<label class="fieldholder-small-label" for="SectorSearchForm_Form_ST">Student (13+)</label>
+	<select name="ST" class="faretypedropdown disctype" id="SectorSearchForm_Form_ST">
+
+	<option value="">0</option>
+
+	<option value="1ST">1</option>
+
+	<option value="2ST">2</option>
+
+	<option value="3ST">3</option>
+
+	<option value="4ST">4</option>
+
+	<option value="5ST">5</option>
+
+	<option value="6ST">6</option>
+
+	<option value="7ST">7</option>
+
+	<option value="8ST">8</option>
+
+	<option value="9ST">9</option>
+
+	<option value="10ST">10</option>
+
+</select>
+
+	
+</div>
+			</div>
+		
+			<div class="fieldgroup-field  even">
+				<div class="fieldholder-small">
+	<label class="fieldholder-small-label" for="SectorSearchForm_Form_BP">Backpacker (Valid ID)</label>
+	<select name="BP" class="faretypedropdown disctype" id="SectorSearchForm_Form_BP">
+
+	<option value="">0</option>
+
+	<option value="1BP">1</option>
+
+	<option value="2BP">2</option>
+
+	<option value="3BP">3</option>
+
+	<option value="4BP">4</option>
+
+	<option value="5BP">5</option>
+
+	<option value="6BP">6</option>
+
+	<option value="7BP">7</option>
+
+	<option value="8BP">8</option>
+
+	<option value="9BP">9</option>
+
+	<option value="10BP">10</option>
+
+</select>
+
+	
+</div>
+			</div>
+		
+			<div class="fieldgroup-field last odd">
+				<div class="fieldholder-small">
+	<label class="fieldholder-small-label" for="SectorSearchForm_Form_IN">Infant (0-2 yrs no seat)</label>
+	<select name="IN" class="faretypedropdown disctype" id="SectorSearchForm_Form_IN">
+
+	<option value="">0</option>
+
+	<option value="1IN">1</option>
+
+	<option value="2IN">2</option>
+
+	<option value="3IN">3</option>
+
+	<option value="4IN">4</option>
+
+	<option value="5IN">5</option>
+
+	<option value="6IN">6</option>
+
+	<option value="7IN">7</option>
+
+	<option value="8IN">8</option>
+
+	<option value="9IN">9</option>
+
+	<option value="10IN">10</option>
+
+</select>
+
+	
+</div>
+			</div>
+		
+	</div>
+	
+	
+	
+</div>
+
+		
+			</div>
+		
+			<div class="clear"></div></div>
+		
+			<div id="action_search" class="field fieldgroup nolabel">
+	
+	
+	<div class="middleColumn fieldgroup">
+		
+			<div class="fieldgroup-field first last odd">
+				<div class="fieldholder-small">
+	<label class="fieldholder-small-label" for="SectorSearchForm_Form_action_search">Search</label>
+	
+	<input type="submit" name="action_search" value="Search" class="action" id="SectorSearchForm_Form_action_search" />
+
+
+	
+</div>
+			</div>
+		
+	</div>
+	
+	
+	
+</div>
+
+		
+			<div id="stoppickerdialog">
+	<ul>
+		<li><a href='#stoppickerdialog-main'>Main Stops</a></li>
+		<li><a href='#stoppickerdialog-ni'>North Island All Stops</a></li>
+		<li><a href='#stoppickerdialog-si'>South Island All Stops</a></li>
+	</ul>
+	<div id="stoppickerdialog-main">
+
+		<div class="stoppickerdialog-col leftcol">
+
+<h3 title="Most Popular stops in the North Island">North Island </h3>
+<a data-stop-code="PIH"  title="Maritime Building, Adjacent Wharf">Paihia</a>
+<a data-stop-code="AKL"  title="Sky City Coach Terminal, 102 Hobson Street">Auckland</a>
+<a data-stop-code="AIR"  title="Bus Stop 2008 International Terminal, Ray Emery Drive.">Auckland International Airport</a>
+<a data-stop-code="MNK"  title="Leyton Way near foodcourt">Manukau City</a>
+<a data-stop-code="HLZ"  title="Hamilton Transport Centre, Cnr Bryce &amp; Anglesea, Platforms A - D.">Hamilton</a>
+<a data-stop-code="ROT"  title="Tourism Rotorua, 1167 Fenton Street">Rotorua</a>
+<a data-stop-code="TUO"  title="Taupo Travel Centre, 16 Gascoigne Street">Taupo</a>
+<a data-stop-code="GIS"  title="Outside Gisborne I-Site, 209 Grey Street">Gisborne</a>
+<a data-stop-code="NPE"  title="135 Dalton St (Nearest Intersection - Station Street)">Napier</a>
+<a data-stop-code="NPL"  title="19 Ariki Street, New Plymouth">New Plymouth</a>
+<a data-stop-code="PMR"  title="Travel Centre Corner Pitt &amp; Main Streets">Palmerston Nth</a>
+<a data-stop-code="WLG"  title="Railway Station, Platform 9">Wellington</a>
+
+</div>
+<div class="stoppickerdialog-col rightcol">
+
+<h3 title="Most Popular stops in the South Island">South Island </h3>
+<a data-stop-code="PCN"  title="Outside Main Entrance of Interislander Ferry Terminal">Picton</a>
+<a data-stop-code="NSN"  title="Outside Travel Centre, 27 Bridge Street">Nelson</a>
+<a data-stop-code="GRM"  title="Greymouth Railway Station, 164 MacKay St">Greymouth</a>
+<a data-stop-code="CHC"  title="118 Bealey Ave (between Colombo St and Durham St intersections)">Christchurch</a>
+<a data-stop-code="DUD"  title="Ritchies/InterCity Travel, 7 Halsey Street, near the corner of Sturdee Street">Dunedin</a>
+<a data-stop-code="ZQN"  title="Athol Street in the middle of the car park">Queenstown</a>
+<a data-stop-code="WHO"  title="Franz Josef Bus Stop, Main Road">Franz Josef</a>
+<a data-stop-code="MFN"  title="Front Entrance of Visitors Centre, Milford Wharf">Milford Sound</a>
+<a data-stop-code="IVC"  title="Invercargill Information Centre Car Park, 108 Gala Street">Invercargill</a>
+
+</div>
+
+
+
+	</div>
+	<div id="stoppickerdialog-ni">
+		
+			<div class="stoppickerdialog-letter">
+				<h3>A</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="ABF">Aberfeldy</a>
+					
+						<a href='#' data-stop-code="AHT">Ahititi Turn Off</a>
+					
+						<a href='#' data-stop-code="AKO">Akoranga (Auckland)</a>
+					
+						<a href='#' data-stop-code="ALY">Albany (Auckland)</a>
+					
+						<a href='#' data-stop-code="ACL">Anchor Lodge Backpackers (Coromandel)</a>
+					
+						<a href='#' data-stop-code="ASH">Ashhurst</a>
+					
+						<a href='#' data-stop-code="ATI">Atiamuri</a>
+					
+						<a href='#' data-stop-code="AKL">Auckland - Central</a>
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="ADA">Auckland Domestic Airport</a>
+					
+						<a href='#' data-stop-code="AIR">Auckland International Airport</a>
+					
+						<a href='#' data-stop-code="AVC">Auckland Vector Arena</a>
+					
+						<a href='#' data-stop-code="AWH">Awahuri</a>
+					
+						<a href='#' data-stop-code="AWK">Awakeri</a>
+					
+						<a href='#' data-stop-code="AKN">Awakino</a>
+					
+						<a href='#' data-stop-code="AAI">Awanui</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>B</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="MMB">Bayfair</a>
+					
+						<a href='#' data-stop-code="BVW">Bayview</a>
+					
+						<a href='#' data-stop-code="BBK">Bell Block</a>
+					
+						<a href='#' data-stop-code="BOX">Bombay (Auckland)</a>
+					
+						
+					
+						
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="BRY">Brynderwyn</a>
+					
+						<a href='#' data-stop-code="BLS">Bulls</a>
+					
+						<a href='#' data-stop-code="GBW">BW Campground (for Rhythm and Vines Festival - Gisborne)</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>C</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="CAB">Cable Bay</a>
+					
+						<a href='#' data-stop-code="CBC">Cambridge</a>
+					
+						<a href='#' data-stop-code="WPJ">Cats Pajamas Backpackers (Whitianga)</a>
+					
+						<a href='#' data-stop-code="CLV">Clive</a>
+					
+						<a href='#' data-stop-code="COP">Coopers Beach</a>
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="COG">Coroglen</a>
+					
+						<a href='#' data-stop-code="CML">Coromandel</a>
+					
+						<a href='#' data-stop-code="CMP">Coromandel Kapanga Road</a>
+					
+						<a href='#' data-stop-code="CTB">Coromandel Town Backpackers (Coromandel)</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>D</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="DVK">Dannevirke</a>
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						<a href='#' data-stop-code="TDO">Dinos (Tokoroa)</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>E</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="EDG">Edgecumbe</a>
+					
+						<a href='#' data-stop-code="EGV">Egmont Village</a>
+					
+						<a href='#' data-stop-code="EMJ">Eight Mile Junction</a>
+					
+						
+					
+						
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="EKT">Eketahuna</a>
+					
+						<a href='#' data-stop-code="ELT">Eltham</a>
+					
+						<a href='#' data-stop-code="ESK">Eskdale</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>F</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="FNR">Featherston</a>
+					
+						<a href='#' data-stop-code="FLG">Feilding</a>
+					
+						<a href='#' data-stop-code="FTZ">Fitzroy</a>
+					
+						
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="FLT">Flat Hills Tea Rooms</a>
+					
+						<a href='#' data-stop-code="FXN">Foxton</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>G</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="GCF">Gateway Cafe (Kaiwaka)</a>
+					
+						<a href='#' data-stop-code="GIS">Gisborne</a>
+					
+						<a href='#' data-stop-code="ARP">Glenview Farm Hostel (Tangoio)</a>
+					
+						<a href='#' data-stop-code="GSP">Golden Springs</a>
+					
+						
+					
+						
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="GTN">Greerton</a>
+					
+						<a href='#' data-stop-code="GRT">Greytown</a>
+					
+						<a href='#' data-stop-code="GUM">Gumboot Manor Restaurant Taihape</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>H</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="HLZ">Hamilton - Central</a>
+					
+						<a href='#' data-stop-code="HGT">Hangatiki</a>
+					
+						<a href='#' data-stop-code="CHW">Hannafords Wharf (Coromandel)</a>
+					
+						<a href='#' data-stop-code="HST">Hastings</a>
+					
+						<a href='#' data-stop-code="HWA">Hawera</a>
+					
+						<a href='#' data-stop-code="HKI">Hikuai</a>
+					
+						<a href='#' data-stop-code="HKR">Hikurangi</a>
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="HLC">Hillcrest (Hamilton)</a>
+					
+						<a href='#' data-stop-code="HMT">Himatangi</a>
+					
+						<a href='#' data-stop-code="HOX">Hobbiton Movie Set</a>
+					
+						<a href='#' data-stop-code="HOB">Hobbiton Movie Set</a>
+					
+						<a href='#' data-stop-code="HUK">Hukerenui</a>
+					
+						<a href='#' data-stop-code="HVL">Hunterville</a>
+					
+						<a href='#' data-stop-code="HLY">Huntly</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>I</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="IGD">Inglewood</a>
+					
+						<a href='#' data-stop-code="INL">INLAND</a>
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="IWT">Iwitahi</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>J</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="JVL">Johnsonville (Wellington)</a>
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						<a href='#' data-stop-code="WCJ">Juno Hall</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>K</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="KAE">Kaeo</a>
+					
+						<a href='#' data-stop-code="KHE">Kahoe</a>
+					
+						<a href='#' data-stop-code="KAI">Kai Iwi</a>
+					
+						<a href='#' data-stop-code="KOH">Kaikohe</a>
+					
+						<a href='#' data-stop-code="KAT">Kaitaia</a>
+					
+						<a href='#' data-stop-code="KWK">Kaiwaka</a>
+					
+						<a href='#' data-stop-code="KRM">Kakaramea</a>
+					
+						<a href='#' data-stop-code="KKT">Kakatahi</a>
+					
+						<a href='#' data-stop-code="KAM">Kamo</a>
+					
+						<a href='#' data-stop-code="KAR">Karapiro</a>
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="KTK">Katikati</a>
+					
+						<a href='#' data-stop-code="KAK">Kawakawa</a>
+					
+						<a href='#' data-stop-code="KAW">Kawerau</a>
+					
+						<a href='#' data-stop-code="KER">Kerikeri</a>
+					
+						<a href='#' data-stop-code="KIH">Kihikihi</a>
+					
+						<a href='#' data-stop-code="KHK">Kohukohu</a>
+					
+						<a href='#' data-stop-code="KOP">Kopu</a>
+					
+						<a href='#' data-stop-code="KOT">Kotemaori</a>
+					
+						<a href='#' data-stop-code="KUO">Kuaotunu Turn Off</a>
+					
+						<a href='#' data-stop-code="KTR">Kutarere</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>L</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="LAL">Lake Alice</a>
+					
+						<a href='#' data-stop-code="LVN">Levin</a>
+					
+						<a href='#' data-stop-code="LFD">Lichfield</a>
+					
+						
+					
+						
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="LIN">Linton</a>
+					
+						<a href='#' data-stop-code="LID">Lions Den</a>
+					
+						<a href='#' data-stop-code="LKM">Lower Kaimai</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>M</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="MHN">Mahoenui</a>
+					
+						<a href='#' data-stop-code="MKA">Makaraka</a>
+					
+						<a href='#' data-stop-code="MMK">Mamaku</a>
+					
+						<a href='#' data-stop-code="MNA">Mana (Wellington)</a>
+					
+						<a href='#' data-stop-code="MRT">Mana Retreat Centre</a>
+					
+						<a href='#' data-stop-code="MAA">Manaia</a>
+					
+						<a href='#' data-stop-code="MGK">Mangaweka</a>
+					
+						<a href='#' data-stop-code="MNG">Mangonui</a>
+					
+						<a href='#' data-stop-code="MNK">Manukau City (Auckland)</a>
+					
+						<a href='#' data-stop-code="MNT">Manutahi</a>
+					
+						<a href='#' data-stop-code="MKE">Manutuke</a>
+					
+						<a href='#' data-stop-code="MPU">Mapiu</a>
+					
+						<a href='#' data-stop-code="MUA">Maramarua</a>
+					
+						<a href='#' data-stop-code="MTN">Marton</a>
+					
+						<a href='#' data-stop-code="MSY">Massey University (Palmerston Nth)</a>
+					
+						<a href='#' data-stop-code="MRO">Masterton</a>
+					
+						<a href='#' data-stop-code="MKH">Matakohe</a>
+					
+						<a href='#' data-stop-code="MAM">Matamata</a>
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="MMU">Matamau</a>
+					
+						<a href='#' data-stop-code="MTG">Matarangi Turn Off</a>
+					
+						<a href='#' data-stop-code="MWI">Matawai</a>
+					
+						<a href='#' data-stop-code="MAX">Maxwell</a>
+					
+						<a href='#' data-stop-code="MID">Midhurst</a>
+					
+						<a href='#' data-stop-code="MIS">Mission Bay (Lake Taupo)</a>
+					
+						<a href='#' data-stop-code="MOE">Moerewa</a>
+					
+						<a href='#' data-stop-code="MKU">Mokau</a>
+					
+						<a href='#' data-stop-code="MRR">Morere Hot Springs</a>
+					
+						<a href='#' data-stop-code="MOV">Morrinsville</a>
+					
+						<a href='#' data-stop-code="MPA">Motuoapa</a>
+					
+						<a href='#' data-stop-code="LTP">Motutere Bay</a>
+					
+						<a href='#' data-stop-code="MVY">Mountain Valley</a>
+					
+						<a href='#' data-stop-code="NWC">Mt Bruce National Wildlife Centre</a>
+					
+						<a href='#' data-stop-code="MMN">Mt Maunganui</a>
+					
+						<a href='#' data-stop-code="MVW">Mt View</a>
+					
+						<a href='#' data-stop-code="MRW">Muriwai</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>N</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="NPE">Napier</a>
+					
+						<a href='#' data-stop-code="NPA">Napier Airport</a>
+					
+						<a href='#' data-stop-code="NAT">National Park</a>
+					
+						<a href='#' data-stop-code="NPL">New Plymouth</a>
+					
+						<a href='#' data-stop-code="NBH">New Plymouth Boys High</a>
+					
+						<a href='#' data-stop-code="NGR">Ngarua</a>
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="NGA">Ngaruawahia</a>
+					
+						<a href='#' data-stop-code="NON">Ngongotaha</a>
+					
+						<a href='#' data-stop-code="NBY">Normanby</a>
+					
+						<a href='#' data-stop-code="NWD">Norsewood</a>
+					
+						<a href='#' data-stop-code="NHK">Nuhaka</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>O</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="OAK">Oakleigh</a>
+					
+						<a href='#' data-stop-code="OHW">Ohaeawai</a>
+					
+						<a href='#' data-stop-code="OKN">Ohakune</a>
+					
+						<a href='#' data-stop-code="OHP">Ohaupo</a>
+					
+						<a href='#' data-stop-code="OGT">Ohingaiti</a>
+					
+						<a href='#' data-stop-code="OHE">Ohope</a>
+					
+						<a href='#' data-stop-code="OHR">Ohura Turn Off</a>
+					
+						<a href='#' data-stop-code="OKR">Okahukura</a>
+					
+						<a href='#' data-stop-code="OKF">Okere Falls</a>
+					
+						<a href='#' data-stop-code="OMP">Omapere</a>
+					
+						<a href='#' data-stop-code="WOB">On the Beach Backpackers aka WHT YHA (Whitianga)</a>
+					
+						<a href='#' data-stop-code="OGU">Ongarue Turn Off</a>
+					
+						<a href='#' data-stop-code="OPN">Opononi</a>
+					
+						<a href='#' data-stop-code="OPW">Opononi Wharf</a>
+					
+						<a href='#' data-stop-code="OYH">Opononi YHA</a>
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="OPO">Opotiki</a>
+					
+						<a href='#' data-stop-code="OPT">Opoutere</a>
+					
+						<a href='#' data-stop-code="OPU">Opua Hill</a>
+					
+						<a href='#' data-stop-code="OKK">Orakei Korako Turn off</a>
+					
+						<a href='#' data-stop-code="OWA">Orewa (Auckland)</a>
+					
+						<a href='#' data-stop-code="OMD">Ormond</a>
+					
+						<a href='#' data-stop-code="ORT">Oruaiti</a>
+					
+						<a href='#' data-stop-code="OTI">Otaika</a>
+					
+						<a href='#' data-stop-code="OTK">Otaki</a>
+					
+						<a href='#' data-stop-code="OTN">Otane</a>
+					
+						<a href='#' data-stop-code="OTW">Otangiwai Turn-off</a>
+					
+						<a href='#' data-stop-code="OTO">Otoko (Poverty Bay)</a>
+					
+						<a href='#' data-stop-code="OKO">Otoko (Wanganui)</a>
+					
+						<a href='#' data-stop-code="OHA">Otorohanga</a>
+					
+						<a href='#' data-stop-code="OWH">Owhango</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>P</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="BBP">Pacific International Hotel Management School (Bell Block)</a>
+					
+						<a href='#' data-stop-code="PAE">Paekakariki (Wellington)</a>
+					
+						<a href='#' data-stop-code="PGR">Paengaroa</a>
+					
+						<a href='#' data-stop-code="POA">Paeroa</a>
+					
+						<a href='#' data-stop-code="PAH">Pahiatua</a>
+					
+						<a href='#' data-stop-code="PIH">Paihia (Bay of Islands)</a>
+					
+						<a href='#' data-stop-code="PMR">Palmerston North</a>
+					
+						<a href='#' data-stop-code="PAK">Papakura (Auckland)</a>
+					
+						<a href='#' data-stop-code="PPM">Papamoa</a>
+					
+						<a href='#' data-stop-code="PPR">Paparoa</a>
+					
+						<a href='#' data-stop-code="PPT">Papatoetoe (Auckland)</a>
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="PPQ">Paraparaumu (Wellington)</a>
+					
+						<a href='#' data-stop-code="PAT">Patea</a>
+					
+						<a href='#' data-stop-code="PIO">Piopio</a>
+					
+						<a href='#' data-stop-code="PIK">Piriaka</a>
+					
+						<a href='#' data-stop-code="PLM">Plimmerton (Wellington)</a>
+					
+						<a href='#' data-stop-code="POK">Pokeno (Auckland)</a>
+					
+						<a href='#' data-stop-code="PRO">Porirua (Wellington)</a>
+					
+						<a href='#' data-stop-code="PUH">Puhoi</a>
+					
+						<a href='#' data-stop-code="PKB">Pukerua Bay (Wellington)</a>
+					
+						<a href='#' data-stop-code="PUT">Putaruru</a>
+					
+						<a href='#' data-stop-code="PTR">Putorino</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>R</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="RAE">Raetihi</a>
+					
+						<a href='#' data-stop-code="RSP">Rainbow Springs (Rotorua)</a>
+					
+						<a href='#' data-stop-code="RRR">Rangiriri</a>
+					
+						<a href='#' data-stop-code="RGT">Rangitaiki</a>
+					
+						<a href='#' data-stop-code="RAN">Ratana Turn Off</a>
+					
+						<a href='#' data-stop-code="RPG">Raupunga</a>
+					
+						<a href='#' data-stop-code="RRM">Raurimu</a>
+					
+						<a href='#' data-stop-code="REP">Reporoa Turn Off</a>
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="RAV">Rhythm & Vines Festival Entrance (Gisborne)</a>
+					
+						<a href='#' data-stop-code="RTI">Rotoiti</a>
+					
+						<a href='#' data-stop-code="ROM">Rotoma</a>
+					
+						<a href='#' data-stop-code="ROT">Rotorua</a>
+					
+						<a href='#' data-stop-code="ROA">Rotorua Airport</a>
+					
+						<a href='#' data-stop-code="RAK">Ruakaka</a>
+					
+						<a href='#' data-stop-code="RKH">Rukuhia</a>
+					
+						<a href='#' data-stop-code="RUS">Russell (Bay of Islands)</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>S</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="SAN">Sanson</a>
+					
+						<a href='#' data-stop-code="SBT">Sea Breeze Holiday Park</a>
+					
+						<a href='#' data-stop-code="SHN">Shannon</a>
+					
+						<a href='#' data-stop-code="SHP">SheepWorld (near Warkworth)</a>
+					
+						<a href='#' data-stop-code="SKG">Skyline Gondola (Rotorua)</a>
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="SFM">St Marys Diocesan School (Taranaki)</a>
+					
+						<a href='#' data-stop-code="SPC">St Peters School (Cambridge)</a>
+					
+						<a href='#' data-stop-code="SFD">Stratford</a>
+					
+						<a href='#' data-stop-code="TMS">Sunkist Backpackers Lodge (Thames)</a>
+					
+						<a href='#' data-stop-code="SYC">Sycamore Lodge (Gisborne)</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>T</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="TPE">Taihape</a>
+					
+						<a href='#' data-stop-code="TPA">Taipa</a>
+					
+						<a href='#' data-stop-code="TRU">Tairua</a>
+					
+						<a href='#' data-stop-code="TKP">Takapau</a>
+					
+						<a href='#' data-stop-code="TIO">Tangoio</a>
+					
+						<a href='#' data-stop-code="TGN">Tangowahine</a>
+					
+						<a href='#' data-stop-code="TPP">Tapapa</a>
+					
+						<a href='#' data-stop-code="TAP">Tapu</a>
+					
+						<a href='#' data-stop-code="TRW">Tarawera</a>
+					
+						<a href='#' data-stop-code="TAR">Tariki</a>
+					
+						<a href='#' data-stop-code="TMN">Taumarunui</a>
+					
+						<a href='#' data-stop-code="TPR">Taupiri</a>
+					
+						<a href='#' data-stop-code="TUO">Taupo</a>
+					
+						<a href='#' data-stop-code="TRG">Tauranga</a>
+					
+						<a href='#' data-stop-code="TUR">Tauriko</a>
+					
+						<a href='#' data-stop-code="TRH">Te Aroha</a>
+					
+						<a href='#' data-stop-code="TUT">Te Aute</a>
+					
+						<a href='#' data-stop-code="TAW">Te Awamutu</a>
+					
+						<a href='#' data-stop-code="TEH">Te Hana</a>
+					
+						<a href='#' data-stop-code="THT">Te Haroto</a>
+					
+						<a href='#' data-stop-code="THO">Te Horo (Wellington)</a>
+					
+						<a href='#' data-stop-code="TEK">Te Karaka</a>
+					
+						<a href='#' data-stop-code="TKX">Te Kawa Crossroads</a>
+					
+						<a href='#' data-stop-code="TEA">Te Kouma Turn Off</a>
+					
+						<a href='#' data-stop-code="TKT">Te Kuiti</a>
+					
+						<a href='#' data-stop-code="TKF">Te Kuiti Tiffany's Tearooms</a>
+					
+						<a href='#' data-stop-code="TEM">Te Mata</a>
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="TNG">Te Ngae</a>
+					
+						<a href='#' data-stop-code="TPH">Te Pohue</a>
+					
+						<a href='#' data-stop-code="TOI">Te Poi</a>
+					
+						<a href='#' data-stop-code="TPI">Te Puia</a>
+					
+						<a href='#' data-stop-code="TPK">Te Puke</a>
+					
+						<a href='#' data-stop-code="TEP">Te Puna</a>
+					
+						<a href='#' data-stop-code="TPU">Te Puru</a>
+					
+						<a href='#' data-stop-code="TRI">Te Rangiita</a>
+					
+						<a href='#' data-stop-code="TRP">Te Rapa</a>
+					
+						<a href='#' data-stop-code="TKO">Te Teko</a>
+					
+						<a href='#' data-stop-code="TMZ">Thames</a>
+					
+						<a href='#' data-stop-code="TBA">The Big Apple (Otorohanga)</a>
+					
+						<a href='#' data-stop-code="CHT">The Chateau (Whakapapa)</a>
+					
+						<a href='#' data-stop-code="THB">Thorntons Bay</a>
+					
+						<a href='#' data-stop-code="TDW">Tidewater Tourist Park YHA (Coromandel)</a>
+					
+						<a href='#' data-stop-code="TIR">Tirau</a>
+					
+						<a href='#' data-stop-code="TKM">Tokomaru</a>
+					
+						<a href='#' data-stop-code="TOK">Tokoroa</a>
+					
+						<a href='#' data-stop-code="TGP">Tongaporutu</a>
+					
+						<a href='#' data-stop-code="TTN">Totara North</a>
+					
+						<a href='#' data-stop-code="TOW">Towai</a>
+					
+						<a href='#' data-stop-code="TUL">Tui Lodge</a>
+					
+						<a href='#' data-stop-code="TRK">Turakina</a>
+					
+						<a href='#' data-stop-code="TGI">Turangi</a>
+					
+						<a href='#' data-stop-code="TCV">Turtlecove Accommodation (Whitianga)</a>
+					
+						<a href='#' data-stop-code="TTR">Tutira</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>U</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="URN">Urenui</a>
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						<a href='#' data-stop-code="URT">Uruti</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>W</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="WAH">Waihi</a>
+					
+						<a href='#' data-stop-code="WBI">Waihi Beach Island View</a>
+					
+						<a href='#' data-stop-code="WHB">Waihi Beach Reserve</a>
+					
+						<a href='#' data-stop-code="WAE">Waikanae (Wellington)</a>
+					
+						<a href='#' data-stop-code="HLU">Waikato University (Hamilton)</a>
+					
+						<a href='#' data-stop-code="WKW">Waikawau</a>
+					
+						<a href='#' data-stop-code="WMM">Waimamaku</a>
+					
+						<a href='#' data-stop-code="WTN">Waimate North</a>
+					
+						<a href='#' data-stop-code="WNW">Waingawa</a>
+					
+						<a href='#' data-stop-code="WKP">Waioeka Pa</a>
+					
+						<a href='#' data-stop-code="WIO">Waiomu</a>
+					
+						<a href='#' data-stop-code="WTP">Waiotapu</a>
+					
+						<a href='#' data-stop-code="WIR">Waiouru</a>
+					
+						<a href='#' data-stop-code="WAP">Waipapa</a>
+					
+						<a href='#' data-stop-code="WPW">Waipawa</a>
+					
+						<a href='#' data-stop-code="WPU">Waipu</a>
+					
+						<a href='#' data-stop-code="WPK">Waipukurau</a>
+					
+						<a href='#' data-stop-code="WRK">Wairakei</a>
+					
+						<a href='#' data-stop-code="WRT">Wairata</a>
+					
+						<a href='#' data-stop-code="WAR">Wairoa</a>
+					
+						<a href='#' data-stop-code="WIT">Waitahanui</a>
+					
+						<a href='#' data-stop-code="WTK">Waitakaruru</a>
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="WTG">Waitangi Treaty Grounds (Bay of Islands)</a>
+					
+						<a href='#' data-stop-code="WAT">Waitara</a>
+					
+						<a href='#' data-stop-code="WOA">Waitoa</a>
+					
+						<a href='#' data-stop-code="WCX">Waitomo Glowworm Caves</a>
+					
+						<a href='#' data-stop-code="WCC">Waitomo Township</a>
+					
+						<a href='#' data-stop-code="WTT">Waitotara</a>
+					
+						<a href='#' data-stop-code="WWA">Waiwera (Auckland)</a>
+					
+						<a href='#' data-stop-code="WAG">Wanganui</a>
+					
+						<a href='#' data-stop-code="WWC">Warkworth (Auckland)</a>
+					
+						<a href='#' data-stop-code="WVY">Waverley</a>
+					
+						<a href='#' data-stop-code="WLG">Wellington - Central</a>
+					
+						<a href='#' data-stop-code="WLA">Wellington Airport</a>
+					
+						<a href='#' data-stop-code="WFD">Wellsford</a>
+					
+						<a href='#' data-stop-code="WSS">Westshore (Napier)</a>
+					
+						<a href='#' data-stop-code="WHK">Whakatane</a>
+					
+						<a href='#' data-stop-code="WGH">Whangaehu</a>
+					
+						<a href='#' data-stop-code="WGP">Whangapoua Turn Off</a>
+					
+						<a href='#' data-stop-code="WRE">Whangarei</a>
+					
+						<a href='#' data-stop-code="WKT">Whenuakite</a>
+					
+						<a href='#' data-stop-code="WKI">Whirinaki (Hawkes Bay)</a>
+					
+						<a href='#' data-stop-code="WHT">Whitianga</a>
+					
+						<a href='#' data-stop-code="WDV">Woodville</a>
+					
+				</div>
+			</div>
+		
+	</div>
+	<div id="stoppickerdialog-si">
+		
+			<div class="stoppickerdialog-letter">
+				<h3>A</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="AKA">Akaroa</a>
+					
+						<a href='#' data-stop-code="ALX">Alexandra</a>
+					
+						<a href='#' data-stop-code="ALN">Allanton</a>
+					
+						<a href='#' data-stop-code="WBC">Alpine Glacier Motel (Franz Josef)</a>
+					
+						<a href='#' data-stop-code="AMB">Amberley</a>
+					
+						<a href='#' data-stop-code="MYA">Aoraki Alpine Lodge (Mt Cook)</a>
+					
+						<a href='#' data-stop-code="AWJ">Arrow Junction</a>
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="AWN">Arrowtown</a>
+					
+						<a href='#' data-stop-code="ART">Arthurs Pass</a>
+					
+						<a href='#' data-stop-code="ASG">Ashburton</a>
+					
+						<a href='#' data-stop-code="ATA">Atawhai</a>
+					
+						<a href='#' data-stop-code="ATH">Athol</a>
+					
+						<a href='#' data-stop-code="AWA">Awatuna</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>B</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="BAL">Balclutha</a>
+					
+						<a href='#' data-stop-code="BFR">Balfour</a>
+					
+						<a href='#' data-stop-code="BYT">Barrytown</a>
+					
+						<a href='#' data-stop-code="BLF">Belfast</a>
+					
+						<a href='#' data-stop-code="BEL">Belgrove</a>
+					
+						<a href='#' data-stop-code="WPB">Bella Vist Motel (Franz Josef)</a>
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="BHE">Blenheim</a>
+					
+						<a href='#' data-stop-code="BKS">Botanic Gardens (Dunedin)</a>
+					
+						<a href='#' data-stop-code="BTW">Brightwater</a>
+					
+						<a href='#' data-stop-code="BNM">Burnham</a>
+					
+						<a href='#' data-stop-code="BMC">Bushmans Centre</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>C</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="CVN">Canvastown</a>
+					
+						<a href='#' data-stop-code="CEB">Centre Bush</a>
+					
+						<a href='#' data-stop-code="CST">Charleston</a>
+					
+						<a href='#' data-stop-code="CVT">Cheviot</a>
+					
+						<a href='#' data-stop-code="CHC">Christchurch</a>
+					
+						<a href='#' data-stop-code="CHZ">Christchurch Airport</a>
+					
+						<a href='#' data-stop-code="CCR">Church Corner (Christchurch)</a>
+					
+						<a href='#' data-stop-code="CLN">Clarence</a>
+					
+						<a href='#' data-stop-code="CNT">Clinton</a>
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="CYD">Clyde</a>
+					
+						<a href='#' data-stop-code="CLD">Clyde (Rail Trail Terminus)</a>
+					
+						<a href='#' data-stop-code="CWD">Collingwood</a>
+					
+						<a href='#' data-stop-code="CFT">Conway Flat Turn-off for Kaikoura Coast Track</a>
+					
+						<a href='#' data-stop-code="CPT">Copeland Track (Karangarua)</a>
+					
+						<a href='#' data-stop-code="CMW">Cromwell</a>
+					
+						<a href='#' data-stop-code="PCT">Crow Tavern (Picton)</a>
+					
+						<a href='#' data-stop-code="CVD">Culverden</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>D</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="DCR">Dacre</a>
+					
+						<a href='#' data-stop-code="DIP">Dipton</a>
+					
+						<a href='#' data-stop-code="DUD">Dunedin</a>
+					
+						<a href='#' data-stop-code="DNA">Dunedin Airport</a>
+					
+						
+					
+						
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="DPH">Dunedin Public Hospital</a>
+					
+						<a href='#' data-stop-code="DRS">Dunedin Railway Station</a>
+					
+						<a href='#' data-stop-code="DSD">Dunsandel</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>E</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="EDN">Edendale</a>
+					
+						<a href='#' data-stop-code="ETT">Ettrick</a>
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="EVD">Evansdale</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>F</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="FRY">Fairfield</a>
+					
+						<a href='#' data-stop-code="FRL">Fairlie</a>
+					
+						<a href='#' data-stop-code="FRV">Five Rivers</a>
+					
+						<a href='#' data-stop-code="FGL">Fox Glacier</a>
+					
+						<a href='#' data-stop-code="FXR">Fox River</a>
+					
+						<a href='#' data-stop-code="FKT">Frankton</a>
+					
+						<a href='#' data-stop-code="WHO">Franz Josef</a>
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="WOC">Franz Josef 58 On Cron Motel</a>
+					
+						<a href='#' data-stop-code="WMI">Franz Josef Hotel Douglas Graham Wings</a>
+					
+						<a href='#' data-stop-code="WHF">Franz Josef Hotel Meuller Wing</a>
+					
+						<a href='#' data-stop-code="WHM">Franz Josef Motel</a>
+					
+						<a href='#' data-stop-code="FYH">Franz Josef YHA (Franz Josef)</a>
+					
+						<a href='#' data-stop-code="WFY">Franz Josef Youth Hostel</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>G</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="GAR">Garston</a>
+					
+						<a href='#' data-stop-code="GLD">Geraldine</a>
+					
+						<a href='#' data-stop-code="FGR">Glacier Country Hotels (Fox Glacier)</a>
+					
+						<a href='#' data-stop-code="WGG">Glacier Gateway Motel</a>
+					
+						<a href='#' data-stop-code="WGF">Glacierview Motel</a>
+					
+						<a href='#' data-stop-code="GFV">Glen Fern Villas (Franz Josef)</a>
+					
+						<a href='#' data-stop-code="GVY">Glenavy</a>
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="GNY">Glenorchy</a>
+					
+						<a href='#' data-stop-code="GLP">Glentanner Park</a>
+					
+						<a href='#' data-stop-code="WGR">Glow Worm Cottages (Franz Josef)</a>
+					
+						<a href='#' data-stop-code="GOR">Gore</a>
+					
+						<a href='#' data-stop-code="GRI">Green Island (Dunedin)</a>
+					
+						<a href='#' data-stop-code="GTV">Greta Valley</a>
+					
+						<a href='#' data-stop-code="GRM">Greymouth</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>H</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="HAS">Haast Township (Opposite Wilderness Backpackers)</a>
+					
+						<a href='#' data-stop-code="HMP">Hampden</a>
+					
+						<a href='#' data-stop-code="HPS">Hanmer Springs</a>
+					
+						<a href='#' data-stop-code="HAR">Harihari</a>
+					
+						<a href='#' data-stop-code="HAV">Havelock (South Island)</a>
+					
+						<a href='#' data-stop-code="HAW">Hawarden</a>
+					
+						<a href='#' data-stop-code="HND">Hinds</a>
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="HIR">Hira</a>
+					
+						<a href='#' data-stop-code="HKK">Hokitika</a>
+					
+						<a href='#' data-stop-code="HKT">Hokitika i-SITE</a>
+					
+						<a href='#' data-stop-code="HPE">Hope</a>
+					
+						<a href='#' data-stop-code="HBY">Hornby (Christchurch)</a>
+					
+						<a href='#' data-stop-code="HRN">Hurunui Hotel</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>I</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="INJ">Inangahua Junction</a>
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						<a href='#' data-stop-code="IVC">Invercargill</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>J</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="JCB">Jacobs River</a>
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>K</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="KPI">Kaiapoi</a>
+					
+						<a href='#' data-stop-code="KKR">Kaikoura</a>
+					
+						<a href='#' data-stop-code="KKY">Kaikoura YHA</a>
+					
+						<a href='#' data-stop-code="KRI">Kaiteriteri</a>
+					
+						<a href='#' data-stop-code="KWT">Kawatiri</a>
+					
+						<a href='#' data-stop-code="KEK">Kekerengu</a>
+					
+						<a href='#' data-stop-code="KEN">Kennington</a>
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="NKH">Kingsgate Motel (Nelson)</a>
+					
+						<a href='#' data-stop-code="KIN">Kingston</a>
+					
+						<a href='#' data-stop-code="KWL">Knightswood Lodge (Franz Josef)</a>
+					
+						<a href='#' data-stop-code="KTU">Kohatu</a>
+					
+						<a href='#' data-stop-code="KOR">Korere</a>
+					
+						<a href='#' data-stop-code="KMO">Koromiko</a>
+					
+						<a href='#' data-stop-code="KMJ">Kumara Junction</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>L</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="YHQ">Lake Esplanade YHA (Queenstown)</a>
+					
+						<a href='#' data-stop-code="LHD">Lake Hawea Dam</a>
+					
+						<a href='#' data-stop-code="LHY">Lake Hayes</a>
+					
+						<a href='#' data-stop-code="LOU">Lake Ohau Turn-off</a>
+					
+						<a href='#' data-stop-code="LPK">Lake Pukaki</a>
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="LAW">Lawrence</a>
+					
+						<a href='#' data-stop-code="LTF">Leithfield</a>
+					
+						<a href='#' data-stop-code="LUG">Luggate</a>
+					
+						<a href='#' data-stop-code="LMS">Lumsden</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>M</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="MHE">Maheno</a>
+					
+						<a href='#' data-stop-code="MHT">Mahitahi Lodge</a>
+					
+						<a href='#' data-stop-code="MKR">Makarora</a>
+					
+						<a href='#' data-stop-code="MCC">Makarora Country Cafe</a>
+					
+						<a href='#' data-stop-code="MKK">Makikihi</a>
+					
+						<a href='#' data-stop-code="MNP">Manapouri</a>
+					
+						<a href='#' data-stop-code="MAP">Mapua</a>
+					
+						<a href='#' data-stop-code="MRH">Marahau</a>
+					
+						<a href='#' data-stop-code="MSC">Mararoa School</a>
+					
+						<a href='#' data-stop-code="MAT">Mataura</a>
+					
+						<a href='#' data-stop-code="MYF">Mayfield</a>
+					
+						<a href='#' data-stop-code="MVL">Merivale Mall (Christchurch)</a>
+					
+						<a href='#' data-stop-code="MFN">Milford Sound</a>
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="MFT">Millers Flat</a>
+					
+						<a href='#' data-stop-code="MIL">Milton</a>
+					
+						<a href='#' data-stop-code="MLD">Moeraki Lodge</a>
+					
+						<a href='#' data-stop-code="MRK">Moeraki Turn Off</a>
+					
+						<a href='#' data-stop-code="MSG">Mosgiel</a>
+					
+						<a href='#' data-stop-code="MOS">Mossburn</a>
+					
+						<a href='#' data-stop-code="MZP">Motueka</a>
+					
+						<a href='#' data-stop-code="MTS">Mount Somers</a>
+					
+						<a href='#' data-stop-code="MVH">Mountain View Top 10 Holiday Park (Franz Josef)</a>
+					
+						<a href='#' data-stop-code="MON">Mt Cook</a>
+					
+						<a href='#' data-stop-code="MYH">Mt Cook YHA</a>
+					
+						<a href='#' data-stop-code="MCH">Murchison</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>N</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="NSN">Nelson</a>
+					
+						<a href='#' data-stop-code="NBC">Nelson College</a>
+					
+						<a href='#' data-stop-code="NGC">Nelson Girls College</a>
+					
+						
+					
+						
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="NSI">Nelson i-SITE</a>
+					
+						<a href='#' data-stop-code="NML">Northlands Mall (Christchurch)</a>
+					
+						<a href='#' data-stop-code="NTW">Northwood (Christchurch)</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>O</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="OAM">Oamaru</a>
+					
+						<a href='#' data-stop-code="OAR">Oaro</a>
+					
+						<a href='#' data-stop-code="OKA">Okarito Turn Off</a>
+					
+						<a href='#' data-stop-code="OGL">Olive Grove Lodge</a>
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="OMA">Omarama</a>
+					
+						<a href='#' data-stop-code="ORR">Orari</a>
+					
+						<a href='#' data-stop-code="DUU">Otago University (Dunedin)</a>
+					
+						<a href='#' data-stop-code="ORV">Owen River</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>P</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="PAL">Palmerston</a>
+					
+						<a href='#' data-stop-code="NXP">Paradiso Backpackers</a>
+					
+						<a href='#' data-stop-code="PRR">Pareora</a>
+					
+						<a href='#' data-stop-code="PNG">Paringa</a>
+					
+						<a href='#' data-stop-code="PAO">Paroa</a>
+					
+						<a href='#' data-stop-code="PEG">Peggydale</a>
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="PLB">Pelorus Bridge</a>
+					
+						<a href='#' data-stop-code="PCN">Picton</a>
+					
+						<a href='#' data-stop-code="PIN">Picton Information Centre</a>
+					
+						<a href='#' data-stop-code="PKR">Pukerau</a>
+					
+						<a href='#' data-stop-code="PNK">Punakaiki</a>
+					
+						<a href='#' data-stop-code="PRV">Punakaiki Resort</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>Q</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="ZQN">Queenstown</a>
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						<a href='#' data-stop-code="ZQA">Queenstown Airport</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>R</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="RAJ">Raes Junction</a>
+					
+						<a href='#' data-stop-code="RAI">Rai Valley</a>
+					
+						<a href='#' data-stop-code="WHP">Rainforest Backpackers (Franz Josef)</a>
+					
+						<a href='#' data-stop-code="FGF">Rainforest Motel (Fox Glacier)</a>
+					
+						<a href='#' data-stop-code="RKA">Rakaia</a>
+					
+						<a href='#' data-stop-code="RGR">Rangiora</a>
+					
+						<a href='#' data-stop-code="RTT">Rangitata</a>
+					
+						<a href='#' data-stop-code="RED">Redwood</a>
+					
+						<a href='#' data-stop-code="REN">Renwick</a>
+					
+						<a href='#' data-stop-code="RIC">Riccarton Rd (Christchurch)</a>
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="RCH">Richmond</a>
+					
+						<a href='#' data-stop-code="NRM">Riverlodge Motel (Nelson)</a>
+					
+						<a href='#' data-stop-code="RDL">Riversdale</a>
+					
+						<a href='#' data-stop-code="ROL">Rolleston</a>
+					
+						<a href='#' data-stop-code="CHN">Rolleston Ave (Christchurch)</a>
+					
+						<a href='#' data-stop-code="ROS">Ross</a>
+					
+						<a href='#' data-stop-code="RTM">Rotherham</a>
+					
+						<a href='#' data-stop-code="ROX">Roxburgh</a>
+					
+						<a href='#' data-stop-code="RUN">Runanga</a>
+					
+						<a href='#' data-stop-code="NCR">Rutherford Hotel</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>S</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="SDN">Seddon</a>
+					
+						<a href='#' data-stop-code="SPK">Spring Creek</a>
+					
+						<a href='#' data-stop-code="STA">St Andrews</a>
+					
+						<a href='#' data-stop-code="SAC">St Andrews College (Christchurch)</a>
+					
+						
+					
+						
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="SBC">St Bedes College (Papanui)</a>
+					
+						<a href='#' data-stop-code="SMC">St Margarets College (Christchurch)</a>
+					
+						<a href='#' data-stop-code="STK">Stoke</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>T</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="TAN">Tahunanui</a>
+					
+						<a href='#' data-stop-code="KTF">Takaka</a>
+					
+						<a href='#' data-stop-code="TRS">Tarras</a>
+					
+						<a href='#' data-stop-code="TAS">Tasman</a>
+					
+						<a href='#' data-stop-code="NTT">Tasman Bay Backpackers</a>
+					
+						<a href='#' data-stop-code="TEU">Te Anau</a>
+					
+						<a href='#' data-stop-code="FWH">Te Weheka Inn (Fox Glacier)</a>
+					
+						<a href='#' data-stop-code="TPO">Tekapo</a>
+					
+						<a href='#' data-stop-code="TMP">Templeton</a>
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="TMK">Temuka</a>
+					
+						<a href='#' data-stop-code="WTM">Terrace Motel (Franz Jozef)</a>
+					
+						<a href='#' data-stop-code="ZQT">The Station (Queenstown)</a>
+					
+						<a href='#' data-stop-code="TIU">Timaru</a>
+					
+						<a href='#' data-stop-code="TIN">Tinwald</a>
+					
+						<a href='#' data-stop-code="TRM">Tiromoana</a>
+					
+						<a href='#' data-stop-code="NTM">Trailways Motor Inn</a>
+					
+						<a href='#' data-stop-code="TUM">Tua Marina</a>
+					
+						<a href='#' data-stop-code="TWZ">Twizel</a>
+					
+				</div>
+			</div>
+		
+			<div class="stoppickerdialog-letter">
+				<h3>W</h3>
+				<div class="stoppickerdialog-col leftcol">
+					
+						<a href='#' data-stop-code="WPS">Waihi Prep School (South Island)</a>
+					
+						<a href='#' data-stop-code="WHL">Waihola</a>
+					
+						<a href='#' data-stop-code="WIK">Waikari</a>
+					
+						<a href='#' data-stop-code="WKO">Waikouaiti</a>
+					
+						<a href='#' data-stop-code="WKU">Waikuku</a>
+					
+						<a href='#' data-stop-code="WMT">Waimate</a>
+					
+						<a href='#' data-stop-code="WET">Waimate Turn Off</a>
+					
+						<a href='#' data-stop-code="WAI">Waipahi</a>
+					
+						<a href='#' data-stop-code="WPA">Waipara</a>
+					
+						<a href='#' data-stop-code="WTH">Waitahuna</a>
+					
+						<a href='#' data-stop-code="WTA">Waitati</a>
+					
+						<a href='#' data-stop-code="WKF">Wakefield</a>
+					
+						<a href='#' data-stop-code="WKA">Wanaka</a>
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				</div>
+				<div class="stoppickerdialog-col rightcol">
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						<a href='#' data-stop-code="WKY">Wanaka YHA</a>
+					
+						<a href='#' data-stop-code="WRD">Ward</a>
+					
+						<a href='#' data-stop-code="WDK">Washdyke</a>
+					
+						<a href='#' data-stop-code="WSI">Westport</a>
+					
+						<a href='#' data-stop-code="WSZ">Westport Caltex</a>
+					
+						<a href='#' data-stop-code="WWL">Westwood Lodge</a>
+					
+						<a href='#' data-stop-code="WTO">Whataroa</a>
+					
+						<a href='#' data-stop-code="WCH">Winchester</a>
+					
+						<a href='#' data-stop-code="WIN">Winton</a>
+					
+						<a href='#' data-stop-code="WDB">Woodbourne (Blenheim Airport)</a>
+					
+						<a href='#' data-stop-code="WDD">Woodend</a>
+					
+						<a href='#' data-stop-code="WDL">Woodlands</a>
+					
+				</div>
+			</div>
+		
+	</div>
+</div>
+
+		
+		<div class="clear"><!-- --></div>
+	</fieldset>
+
+	
+
+</form>
+
+
+		</div>
+		<h2>Manage My Booking</h2>
+		<div class="mbForm">
+			<p>To amend an existing fare please enter booking reference &amp; email address.</p>
+			
+<form id="ICGLoginResForm_ResLoginForm" action="https://www.intercity.co.nz/managebooking/ResLoginForm" method="post" enctype="application/x-www-form-urlencoded" class="LoginRes">
+
+	
+	<p id="ICGLoginResForm_ResLoginForm_error" class="message " style="display: none"></p>
+	
+	
+	<fieldset>
+		 
+		
+			<div class="CompositeField composite nolabel ">
+	
+	
+	
+		
+			<div id="Email" class="field">
+	<label class="left" for="ICGLoginResForm_ResLoginForm_Email">Email address used to book</label>
+	<div class="middleColumn">
+		<input type="email" class="text Email" id="ICGLoginResForm_ResLoginForm_Email" name="Email" value="" autocomplete="on" placeholder="Email" title="Email" />
+	</div>
+	
+	
+	
+</div>
+
+		
+	
+		
+			<div id="PNR" class="field">
+	<label class="left" for="ICGLoginResForm_ResLoginForm_PNR">Booking Reference</label>
+	<div class="middleColumn">
+		<input type="text" class="text PNR" id="ICGLoginResForm_ResLoginForm_PNR" name="PNR" value="" autocomplete="off" placeholder="Booking reference" title="Booking reference" />
+	</div>
+	
+	
+	
+</div>
+
+		
+	
+
+	
+</div>
+
+		
+		<div class="clear"><!-- --></div>
+	</fieldset>
+
+	
+	<div class="Actions">
+		
+			
+	<input type="submit" name="action_loginRes" value="Login" class="action" id="ICGLoginResForm_ResLoginForm_action_loginRes" />
+
+
+		
+	</div>
+	
+
+</form>
+
+
+		</div>
+		<h2>Got a Pass? Book Your Travel Here</h2>
+		<div class="passForm">
+			<p>Enter your pass number &amp; access code below to book travel &amp; manage your pass.</p>
+			
+<form id="ICGLoginPassForm_PassLoginForm" action="https://www.intercity.co.nz/managebooking/PassLoginForm" method="post" enctype="application/x-www-form-urlencoded" class="LoginPass">
+
+	
+	<p id="ICGLoginPassForm_PassLoginForm_error" class="message " style="display: none"></p>
+	
+	
+	<fieldset>
+		 
+		
+			<div class="CompositeField composite nolabel ">
+	
+	
+	
+		
+			<div id="PassNo" class="field">
+	<label class="left" for="ICGLoginPassForm_PassLoginForm_PassNo">Pass Number</label>
+	<div class="middleColumn">
+		<input type="text" class="text PassNo" id="ICGLoginPassForm_PassLoginForm_PassNo" name="PassNo" value="" autocomplete="off" placeholder="Pass Number" title="Pass Number" />
+	</div>
+	
+	
+	
+</div>
+
+		
+	
+		
+			<div id="AccessCode" class="field">
+	<label class="left" for="ICGLoginPassForm_PassLoginForm_AccessCode">Access Code</label>
+	<div class="middleColumn">
+		<input type="text" class="text PassAccess" id="ICGLoginPassForm_PassLoginForm_AccessCode" name="AccessCode" value="" autocomplete="off" placeholder="Access Code" title="Access Code" />
+	</div>
+	
+	
+	
+</div>
+
+		
+	
+
+	
+</div>
+
+		
+		<div class="clear"><!-- --></div>
+	</fieldset>
+
+	
+	<div class="Actions">
+		
+			
+	<input type="submit" name="action_loginPass" value="Login" class="action" id="ICGLoginPassForm_PassLoginForm_action_loginPass" />
+
+
+		
+	</div>
+	
+
+</form>
+
+
+		</div>
+		<h2>Freeway Club Member? Login Here</h2>
+		<div class="mbForm clubForm">
+			<p>Enter your Freeway number &amp; password below to manage your bookings.</p>
+			
+<form id="ICGLoginClubForm_ClubMemberLoginForm" action="https://www.intercity.co.nz/managebooking/ClubMemberLoginForm" method="post" enctype="application/x-www-form-urlencoded" class="LoginClub">
+
+	
+	<p id="ICGLoginClubForm_ClubMemberLoginForm_error" class="message " style="display: none"></p>
+	
+	
+	<fieldset>
+		 
+		
+			<div class="CompositeField composite nolabel ">
+	
+	
+	
+		
+			<div id="ClubMemberCode" class="field">
+	<label class="left" for="ICGLoginClubForm_ClubMemberLoginForm_ClubMemberCode">Freeway Number</label>
+	<div class="middleColumn">
+		<input type="text" class="text CmbCode" id="ICGLoginClubForm_ClubMemberLoginForm_ClubMemberCode" name="ClubMemberCode" value="" autocomplete="off" placeholder="Freeway Number" title="Freeway Number" />
+	</div>
+	
+	
+	
+</div>
+
+		
+	
+		
+			<div id="Password" class="field">
+	<label class="left" for="ICGLoginClubForm_ClubMemberLoginForm_Password">Password</label>
+	<div class="middleColumn">
+		<input type="password" class="text Password" id="ICGLoginClubForm_ClubMemberLoginForm_Password" name="Password" value="" autocomplete="off" placeholder="Password" title="Password" />
+	</div>
+	
+	
+	
+</div>
+
+		
+	
+
+	
+</div>
+
+		
+		<div class="clear"><!-- --></div>
+	</fieldset>
+
+	
+	<div class="Actions">
+		
+			
+	<input type="submit" name="action_loginClub" value="Login" class="action" id="ICGLoginClubForm_ClubMemberLoginForm_action_loginClub" />
+
+
+		
+	</div>
+	
+
+</form>
+
+
+		</div>
+	</div>
+	
+
+		<div id="Hitwise" style="text-align: center;">
+		</div>
+	
+</div>
+
+					<div class="fourteen columns last">
+				
+						
+						<div id="HomePage">
+
+	
+	<div id="slideshow" class="new-slideshow">
+		<ul class="slideshow-nav">
+			<li data-id="1109">1</li><li data-id="1111">2</li><li data-id="1113">3</li>
+		</ul>
+		<div class="slideshow-slides">
+			
+				<div class="slideshow-slide first" data-id="1109">
+					<img src="/assets/intercity12/Promo-Pages/intercity-airport-bus-700.jpg" width="700" height="288" alt="" class="first image" />
+					<a href="/bus-to-auckland-airport" onclick="_gaq.push([&#039;_trackEvent&#039;, &#039;HP Slider&#039;, &#039;Find Out More&#039;, &#039;Slide - airport&#039;]);">
+<div class="slideshow-text">
+<h1>Auckland Airport Connections</h1>
+<p>Travel to Auckland with InterCity and connect to domestic and international airport buses</p>
+<div class="grey-btn">Find Out More</div>
+</div>
+</a>
+				</div>
+			
+				<div class="slideshow-slide " data-id="1111">
+					<img src="/assets/intercity12/slideshow/dollarfares-slider.jpg" width="700" height="288" alt="" class=" image" />
+					<a href="/#" onclick="_gaq.push([&#039;_trackEvent&#039;, &#039;HP Slider&#039;, &#039;Find Out More&#039;, &#039;Slide - $1fare&#039;]);">
+<div class="slideshow-text">
+<h1>$1* fares with InterCity</h1>
+<p>Everyone loves a bargain!  <br><br>And we've got at least one $1* fare available on each and every InterCity® bus service. <br><br>*+ Booking Fee.</p>
+<!-- <div class="grey-btn">Find tours now</div> -->
+</div>
+</a>
+				</div>
+			
+				<div class="slideshow-slide " data-id="1113">
+					<img src="/assets/intercity12/slideshow/passes-slider.jpg" width="700" height="288" alt="" class="last image" />
+					<a href="/passes/flexi-options" onclick="_gaq.push([&#039;_trackEvent&#039;, &#039;HP Slider&#039;, &#039;Find Out More&#039;, &#039;Slide - flexiOptions&#039;]);">
+<div class="slideshow-text">
+<h1>NZ's National Bus Passes</h1>
+<p>See more of New Zealand! Travel on NZ's largest national network with our flexible bus pass options.</p>
+<div class="grey-btn">Search Passes Now</div>
+</div>
+</a>
+				</div>
+			
+		</div>
+	</div>
+
+
+	
+
+	<div class="twenty columns"></div>
+
+	<div class="row">
+		
+			<div class=" promo ten columns ">
+				<div class="content-box  ">
+					<p class="content-box-tagline"><a href="/tours/" style="text-decoration:none"><span class="content-box-highlight-red"></span> Discounted tours from $105</a></p>
+
+					<div class="content-box-thumbnail"><img src="/assets/intercity12/Promo-Pages/ic_hukajet_thumb.jpg" alt="ic_hukajet_thumb.jpg" /></div>
+					<p class="content-box-description">Great value tours to Huka Falls, Milford Sound, Hobbiton and more. </p>
+
+					<div class="content-box-textlink"><a href="/tours/" onClick="_gaq.push(['_trackEvent', 'HP Promo', 'Find Out More', 'Discounted tours from $105']);">Search New Zealand Tours</a></div>
+				</div>
+			</div>
+		
+			<div class=" promo ten columns content-box-right">
+				<div class="content-box  content-box-right">
+					<p class="content-box-tagline"><a href="/events" style="text-decoration:none"><span class="content-box-highlight-red"></span> Events without the hassle</a></p>
+
+					<div class="content-box-thumbnail"><img src="/assets/intercity12/Promo-Pages/ic_rv_promotile.jpg" alt="ic_rv_promotile.jpg" /></div>
+					<p class="content-box-description">Did you know you can travel with us to events all around New Zealand?</p>
+
+					<div class="content-box-textlink"><a href="/events" onClick="_gaq.push(['_trackEvent', 'HP Promo', 'Find Out More', 'Events without the hassle']);">Find out more</a></div>
+				</div>
+			</div>
+		
+			<div class=" promo ten columns ">
+				<div class="content-box  ">
+					<p class="content-box-tagline"><a href="bus-and-ferry-combos/" style="text-decoration:none"><span class="content-box-highlight-red"></span> Bus &amp; Ferry Combos</a></p>
+
+					<div class="content-box-thumbnail"><img src="/assets/intercity12/Promo-Pages/ic_interislander_thumb.jpg" alt="ic_interislander_thumb.jpg" /></div>
+					<p class="content-box-description">Combine bus rides and Interislander passenger ferry travel with our combo passes.</p>
+
+					<div class="content-box-textlink"><a href="bus-and-ferry-combos/" onClick="_gaq.push(['_trackEvent', 'HP Promo', 'Find Out More', 'Bus &amp; Ferry Combos']);">Buy combo passes</a></div>
+				</div>
+			</div>
+		
+			<div class=" promo ten columns content-box-right">
+				<div class="content-box  content-box-right">
+					<p class="content-box-tagline"><a href="http://www.milford-sound.co.nz/" style="text-decoration:none"><span class="content-box-highlight-red"></span> Featured Destination - Milford Sound</a></p>
+
+					<div class="content-box-thumbnail"><img src="/assets/intercity12/main/milford-sound-promo-tile.jpg" alt="milford sound promo tile" /></div>
+					<p class="content-box-description">Take an unforgettable journey into this breathtaking region - a must-see destination.</p>
+
+					<div class="content-box-textlink"><a href="http://www.milford-sound.co.nz/" onClick="_gaq.push(['_trackEvent', 'HP Promo', 'Find Out More', 'Featured Destination - Milford Sound']);">Visit milford-sound.co.nz</a></div>
+				</div>
+			</div>
+		
+			<div class=" promo ten columns ">
+				<div class="content-box  ">
+					<p class="content-box-tagline"><a href="/passes/flexi-options/" style="text-decoration:none"><span class="content-box-highlight-red"></span> NZ Bus Passes from just $39</a></p>
+
+					<div class="content-box-thumbnail"><img src="/assets/Uploads/backpacker-new-zealand.jpg" alt="backpacker new zealand" /></div>
+					<p class="content-box-description">Looking for a way to explore NZ? InterCity passes offer great savings on travel.</p>
+
+					<div class="content-box-textlink"><a href="/passes/flexi-options/" onClick="_gaq.push(['_trackEvent', 'HP Promo', 'Find Out More', 'NZ Bus Passes from just $39']);">Search NZ Bus Passes</a></div>
+				</div>
+			</div>
+		
+			<div class=" promo ten columns content-box-right">
+				<div class="content-box  content-box-right">
+					<p class="content-box-tagline"><a href="http://www.booking.com/index.html?aid=369493" style="text-decoration:none"><span class="content-box-highlight-red"></span> Need Accommodation?</a></p>
+
+					<div class="content-box-thumbnail"><img src="/assets/intercity12/main/ic_bus-and-beds_thumb.jpg" alt="ic_bus-and-beds_thumb.jpg" /></div>
+					<p class="content-box-description">Search &amp; book over 2,400 properties across NZ with the best rates guaranteed.</p>
+
+					<div class="content-box-textlink"><a href="http://www.booking.com/index.html?aid=369493" onClick="_gaq.push(['_trackEvent', 'HP Promo', 'Find Out More', 'Need Accommodation?']);">Search accommodation now</a></div>
+				</div>
+			</div>
+		
+	</div>
+	
+	
+</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="Footer" class="row">
+			<div class="footer-content twenty columns">
+
+	<div class="footer-column left">
+		<h3>About InterCity</h3>
+		<p><a href="/about-us">About Us</a> . <a href="/about-us/media-releases">Media</a>. <a href="/privacy-policy">Privacy</a> . <a href="booking-agents/">Booking Agents</a> . <a href="/whatsnew/">What's New</a> . <a href="/help/">Site Map</a> </p>
+		<h3>Get Info</h3>
+		<p><a href="/managebooking/" onClick="_gaq.push(['_trackEvent', 'Footer Link', 'Go To', 'Manage my Booking']);">Manage my booking</a> . <a href="/frequently-asked-questions/">FAQs</a> . <a href="/delays-and-cancellations/">Delays &amp; Disruptions</a> . <a href="/terms-and-conditions">Terms &amp; Conditions</a></p>
+		<h3>Get Onboard</h3>
+		<p><a href="/rewards">Freeway Login</a> . <a href="/about-us/affiliate/">Affiliate Programme</a> . <a href="/feedback">Feedback</a> . <a href="/feedback">Contact Us</a></p>
+	</div>
+	<div class="footer-column right">
+		<h3>Tours</h3>
+		<p> <a href="/tours">Tours</a> . <a href="http://www.greatsights.co.nz/" target="blank">Great Sights</a> . <a href="http://www.awesomenz.com/" target="blank">Awesome NZ</a> . <a href="http://www.dolphincruises.co.nz/" target="blank">Dolphin Cruise</a></p>
+		<h3>Passes</h3>
+		<p><a href="http://flexipass.intercity.co.nz/" target="blank">Flexipass</a> . <a href="http://www.flexitrips.co.nz" target="blank">Flexitrips</a> . <a href="http://travelpass.intercity.co.nz">TravelPass</a> . <a href="/passes/intercity-commuter/">InterCity Commuter</a> . <a href="/passes/student-bus-pass/">Student Pass</a></p>
+		<h3>Connect</h3>
+		<div class="social-media">
+			<p><a target="blank" href="http://www.facebook.com/intercity.coachlines"><img class="left" src="assets/intercity12/main/ic_facebookIcon.png" alt="Facebook" width="27" height="27" title=""></a><a target="blank" href="http://www.twitter.com/InterCityBUS"><img class="left" src="assets/intercity12/main/ic_twitterIcon.png" alt="Twitter" width="26" height="27" title=""></a><a target="blank" href="http://plus.google.com/100713504200361907253"><img class="left" src="assets/intercity12/main/ic_googleplusIcon.png" alt="Google+" width="27" height="27" title=""></a>Copyright © 2014 InterCity Group (NZ) Ltd.</p>
+		</div>
+	</div>
+</div>	
+
+		</div>
+
+	<script type="text/javascript" src="/framework/thirdparty/jquery/jquery.min.js?m=1405944735"></script><script type="text/javascript" src="/framework/thirdparty/jquery-ui/jquery-ui.min.js?m=1405944735"></script><script type="text/javascript" src="/assets/intercity12/js/jslibs.js?m=1405977474"></script><script type="text/javascript" src="/assets/intercity12/js/global.js?m=1405977474"></script><script type="text/javascript" src="/themes/default/javascript/iealert.min.js?m=1405944743"></script><script type="text/javascript" src="/themes/default/javascript/page.js?m=1405944743"></script><script type="text/javascript" src="/assets/intercity12/js/foundation.js?m=1405977474"></script><script type="text/javascript" src="/bookingelements/javascript/SectorSearchForm.js?m=1405944734"></script><script type="text/javascript" src="/assets/_stops/stop_autocomplete_field.js?m=1403223372"></script><script type="text/javascript" src="/bookingelements/javascript/StopPickerField.js?m=1405944734"></script><script type="text/javascript">//<![CDATA[
+intercity.stopautocomplete('SectorSearchForm_Form_From');
+
+//]]></script><script type="text/javascript">//<![CDATA[
+intercity.stopautocomplete('SectorSearchForm_Form_To');
+
+//]]></script></body>
+</html>
