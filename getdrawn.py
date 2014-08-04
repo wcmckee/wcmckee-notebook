@@ -358,8 +358,8 @@ dizusr
 
 # <codecell>
 
-#r.login('snatchrgd', 'camp123')
-r.login('artcontrol', 'test123')
+r.login('snatchrgd', 'camp123')
+#r.login('artcontrol', 'test123')
 
 # <codecell>
 
@@ -689,10 +689,6 @@ print arlik()
 
 # <codecell>
 
-ls
-
-# <codecell>
-
 drzu = r.get_subreddit('artcontroldrawsyou')
 
 # <codecell>
@@ -702,6 +698,9 @@ drzu
 # <codecell>
 
 drzu.upload_image()
+
+# <codecell>
+
 
 # <codecell>
 

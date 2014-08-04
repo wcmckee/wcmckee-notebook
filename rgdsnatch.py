@@ -26,6 +26,10 @@
 # 
 # work on css, div up page, title, side, body, footer
 # 
+# update twitter with ONE IMAGE and announce that the list has been updated.
+# 
+# 
+# 
 
 # <codecell>
 
@@ -49,7 +53,7 @@ r = praw.Reddit(user_agent='rgdsnatch')
 
 # <codecell>
 
-#r.login()
+#r.login('artcontrol', 'taylor123vag!')
 
 # <codecell>
 
@@ -134,9 +138,9 @@ with doc:
         img(scr='logo.gif')
         h2('go away artcontrol')
         p(strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime()))
-        a('about', href='about')
-        a('contact', href='contact') 
-        a('blog', href='blog')
+        a('about', href='http://brobeur.com/artcontroldrawsyou/about')
+        a('contact', href='http://brobeur.com/artcontroldrawsyou/contact') 
+        a('blog', href='http://brobeur.com/wcmckee.com/wcmckee/output')
         
     with div(id='authors'):
         for tits in titlis:
@@ -150,7 +154,7 @@ with doc:
             (a(i.lower(), href='%s' % i))
             
     with div(id='footer'):
-        p(a('artcontroldrawsyou is opensource', href='https://github.com/wcmckee/wcmckee-notebook'))
+        p(a('artcontroldrawsyou is open source', href='https://github.com/wcmckee/wcmckee-notebook'))
 
 
             
@@ -241,6 +245,141 @@ for usz in titlis:
 
 # <codecell>
 
+ransubz = random.randint(0,24)
+
+# <codecell>
+
+print ransubz
+
+# <codecell>
+
+ransev = rdnew[ransubz]
+
+# <codecell>
+
+rgdautoz = str(ransev.author)
+
+# <codecell>
+
+rgdsubred = str(ransev.subreddit)
+
+# <codecell>
+
+sutit = ('[' + rgdsubred + ']')
+
+# <codecell>
+
+sutit
+
+# <codecell>
+
+rgdaqwew = ('xpost[RGD]' + rgdautoz)
+
+# <codecell>
+
+rgdaturo = str(ransev.url)
+
+# <codecell>
+
+rgdatit = str(ransev.title)
+
+# <codecell>
+
+rgdatit
+
+# <codecell>
+
+#rd.get_top
+
+# <codecell>
+
+linkdict = {}
+
+# <codecell>
+
+ady = r.get_subreddit('artcontroldrawsyou')
+
+# <codecell>
+
+comrgd =  rgdatit + ' ' + rgdaturo
+
+# <codecell>
+
+loctime = time.localtime()
+
+# <codecell>
+
+loctime.tm_mday
+
+# <codecell>
+
+loctime.tm_mon
+
+# <codecell>
+
+thedat = (str(loctime.tm_mday) + '/' + str(loctime.tm_mon))
+
+# <codecell>
+
+thedat
+
+# <codecell>
+
+mixtut = (thedat + sutit + rgdautoz)
+
+# <codecell>
+
+loctime
+
+# <codecell>
+
+#ady.submit(mixtut , (rgdaqwew, comrgd))
+
+# <codecell>
+
+'''for newa in rdnew:
+    #rint newa.url
+    print len(newa)
+    htmstr = (str(newa.title) + '<a href="' + 
+                 str(newa.url) + 
+                 '"><img class="aligncenter size-large wp-image-5723" alt="' +
+                 str(newa.author) +
+                 '" src="' + 
+                 str(newa.url) + 
+                 '" /></a>')
+    #ophtml.write(htmstr)
+    #ady.submit(('[RGD]' + newa.author), newa.url)
+    print newa.author
+    #print newa.media
+    ophtml.write(htmstr)
+    print newa.selftext
+    print newa.url
+    print newa.num_comments
+    
+    linkdict.update({str(newa.author): str(newa.url)})
+'''
+
+# <codecell>
+
+#print str(newa.title)
+
+# <codecell>
+
+import json
+
+# <codecell>
+
+newzjson = json.dumps(linkdict)
+
+# <codecell>
+
+#newzjson
+
+# <codecell>
+
+
+# <codecell>
+
 rmine = r.get_redditor('itwillbemine')
 
 # <codecell>
@@ -268,6 +407,20 @@ dausr = {}
 
 # <codecell>
 
+for newa in rdnew:
+    #rint newa.url
+    #print newa.author
+    linkdict.update({str(newa.author): str(newa.url)})
+
+# <codecell>
+
+for con in mincom:
+    #print con.body
+    minels.append(con)
+    dausr.update({str(con.id): str(con.body)})
+
+# <codecell>
+
 itwillbemine = dominate.document(title='itwillbemine')
 
 # <codecell>
@@ -277,6 +430,17 @@ with itwillbemine.head:
     script(type='text/javascript', src='script.js')
 
 with itwillbemine:
+    with div():
+        attr(cls='header')
+        #<img src="smiley.gif" alt="Smiley face" height="42" width="42">
+        h1('itwillbemine')
+        img(scr='logo.gif')
+        h2('go away artcontrol')
+        p(strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime()))
+        a('about', href='http://brobeur.com/artcontroldrawsyou/about')
+        a('contact', href='http://brobeur.com/artcontroldrawsyou/contact') 
+        a('blog', href='http://brobeur.com/artcontroldrawsyou/wcmckee.com/wcmckee/output')
+    
     with div():
         attr(cls='header')
         #<img src="smiley.gif" alt="Smiley face" height="42" width="42">
@@ -309,6 +473,17 @@ savmine.close()
 # <codecell>
 
 noizjson = json.dumps(dausr)
+
+# <codecell>
+
+newposts = open('userurl.json', 'a')
+newposts.write(newzjson)
+print ('file userurl.json updated')
+newcomments = open('idcomt.json', 'a')
+newcomments.write(noizjson)
+print ('user comments updated')
+newposts.close()
+newcomments.close()
 
 # <codecell>
 
@@ -351,9 +526,17 @@ for em in emcs:
 
 # <codecell>
 
+tumlis = []
+
+# <codecell>
+
 for em in emcs:
-    print len(em['summary_detail']['value'])
+    tumlis.append((em['summary_detail']['value']))
     
+
+# <codecell>
+
+tumlis
 
 # <codecell>
 
@@ -367,27 +550,40 @@ with contactpage.head:
 
 with contactpage:
     with div():
+        attr(cls='top')
+        #<img src="smiley.gif" alt="Smiley face" height="42" width="42">
+        h1('artcontroldrawsyou!')
+        img(scr='logo.gif')
+        h2('go away artcontrol')
+        p(strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime()))
+        a('about', href='http://brobeur.com/artcontroldrawsyou/about')
+        a('contact', href='http://brobeur.com/artcontroldrawsyou/contact') 
+        a('blog', href='http://brobeur.com/artcontroldrawsyou/wcmckee.com/wcmckee/output')
+
+    with div():
         attr(cls='header')
         #<img src="smiley.gif" alt="Smiley face" height="42" width="42">
         h1('contact')
         p('email: will@artcontrol.me twitter: art_control')
+        p('Recent comments from itwillbemine:')
         #for mine in minels:
             #h1(mine.author_flair_text())
             #p(mine.body)
         
-    '''with div(id='author'):
-        for tits in titlis:
-            h3(tits)
+ #   with div(id='author'):
+  #     for tum in tumlis:
+   #         p(tum)
     
-    with div(id='body').add(p()):
+    
+    with div(id='body'):
         for mine in minels:
             #h1(mine.created)
-            p(mine.body)
+            li(mine.body)
             
 
 
 
-'''
+
 print contactpage
 
 # <codecell>
@@ -419,8 +615,19 @@ with aboutpage:
     with div():
         attr(cls='header')
         #<img src="smiley.gif" alt="Smiley face" height="42" width="42">
+        h1('artcontroldrawsyou!')
+        img(scr='logo.gif')
+        h2('go away artcontrol')
+        p(strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime()))
+        a('about', href='https://brobeur.com/artcontroldrawsyou/about')
+        a('contact', href='http://brobeur.com/artcontroldrawsyou/contact') 
+        a('blog', href='http://brobeur.com/artcontroldrawsyou/wcmckee.com/wcmckee/output')
+    with div():
+        attr(cls='header')
+        #<img src="smiley.gif" alt="Smiley face" height="42" width="42">
         h1('about')
         p('artcontroldrawsyou is a website that takes RedditGetsDrawn data and posts it here.')
+        p('artcontrol is not allowed to submit artwork to redditgetsdrawn so this was created')
         #for mine in minels:
             #h1(mine.author_flair_text())
             #p(mine.body)
@@ -453,12 +660,4 @@ aboucr.close()
 # <codecell>
 
 os.chdir('/var/www/artcontroldrawsyou/')
-
-# <codecell>
-
-import requests
-
-# <codecell>
-
-requests.get('https://github.com/wcmckee/hamiltoncomputerclub.org.nz/archive/master.zip')
 

@@ -1672,10 +1672,36 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>RedditGetsDrawn Snatch</p>
+<p>This is a Python script that takes data from reddit and posts it to another subreddit. It also creates a html file with the images embed into. The images are the most recent 25 on r/redditgetsdrawn.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>TODO</p>
+<p>submit art to users via website</p>
+<p>fix image sizes (need to scale down to 550px)</p>
+<p>Save to server rather than imgur</p>
+<p>Archieve, snapshots of rgd</p>
+<p>more artcontrol</p>
+<p>itwillbemine comments to html</p>
+<p>work on css, div up page, title, side, body, footer</p>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[328]:
+In&nbsp;[701]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1684,7 +1710,10 @@ In&nbsp;[328]:
 <span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">praw</span>
+<span class="kn">import</span> <span class="nn">dominate</span>
+<span class="kn">from</span> <span class="nn">dominate.tags</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 
 </div>
@@ -1695,11 +1724,11 @@ In&nbsp;[328]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[329]:
+In&nbsp;[702]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#os.chdir(&#39;~/.rgd&#39;)</span>
+<div class="highlight"><pre><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s">&#39;/var/www/artcontroldrawsyou&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -1710,7 +1739,7 @@ In&nbsp;[329]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[330]:
+In&nbsp;[703]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1721,31 +1750,15 @@ In&nbsp;[330]:
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-Version 2.1.16 of praw is outdated. Version 2.1.17 was released Wednesday June 18, 2014.
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[331]:
+In&nbsp;[704]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">r</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s">&#39;artcontrol&#39;</span><span class="p">,</span> <span class="s">&#39;zipit123&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span class="c">#r.login(&#39;artcontrol&#39;, &#39;taylor123vag!&#39;)</span>
 </pre></div>
 
 </div>
@@ -1756,260 +1769,7 @@ In&nbsp;[331]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[332]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="n">usrd</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">get_my_subreddits</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[333]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="n">suls</span> <span class="o">=</span> <span class="p">[]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[334]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="k">for</span> <span class="n">subs</span> <span class="ow">in</span> <span class="n">usrd</span><span class="p">:</span>
-    <span class="k">print</span> <span class="n">subs</span>
-    <span class="n">suls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">subs</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-todayilearned
-blog
-science
-IAmA
-videos
-technology
-bestof
-askscience
-books
-television
-food
-photoshopbattles
-GetMotivated
-listentothis
-Documentaries
-Art
-trees
-programming
-gameofthrones
-Android
-Minecraft
-comics
-skyrim
-breakingbad
-buildapc
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[335]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="n">suls</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">
-    Out[335]:</div>
-
-
-<div class="output_text output_subarea output_pyout">
-<pre>
-[Subreddit(display_name=&apos;todayilearned&apos;),
- Subreddit(display_name=&apos;blog&apos;),
- Subreddit(display_name=&apos;science&apos;),
- Subreddit(display_name=&apos;IAmA&apos;),
- Subreddit(display_name=&apos;videos&apos;),
- Subreddit(display_name=&apos;technology&apos;),
- Subreddit(display_name=&apos;bestof&apos;),
- Subreddit(display_name=&apos;askscience&apos;),
- Subreddit(display_name=&apos;books&apos;),
- Subreddit(display_name=&apos;television&apos;),
- Subreddit(display_name=&apos;food&apos;),
- Subreddit(display_name=&apos;photoshopbattles&apos;),
- Subreddit(display_name=&apos;GetMotivated&apos;),
- Subreddit(display_name=&apos;listentothis&apos;),
- Subreddit(display_name=&apos;Documentaries&apos;),
- Subreddit(display_name=&apos;Art&apos;),
- Subreddit(display_name=&apos;trees&apos;),
- Subreddit(display_name=&apos;programming&apos;),
- Subreddit(display_name=&apos;gameofthrones&apos;),
- Subreddit(display_name=&apos;Android&apos;),
- Subreddit(display_name=&apos;Minecraft&apos;),
- Subreddit(display_name=&apos;comics&apos;),
- Subreddit(display_name=&apos;skyrim&apos;),
- Subreddit(display_name=&apos;breakingbad&apos;),
- Subreddit(display_name=&apos;buildapc&apos;)]
-</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[336]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="n">lesuls</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">suls</span><span class="p">)</span>
-
-<span class="n">ransuz</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">lesuls</span><span class="p">)</span>
-
-<span class="n">thesubraz</span> <span class="o">=</span> <span class="n">suls</span><span class="p">[</span><span class="n">ransuz</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[337]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="n">suls</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">
-    Out[337]:</div>
-
-
-<div class="output_text output_subarea output_pyout">
-<pre>
-[Subreddit(display_name=&apos;todayilearned&apos;),
- Subreddit(display_name=&apos;blog&apos;),
- Subreddit(display_name=&apos;science&apos;),
- Subreddit(display_name=&apos;IAmA&apos;),
- Subreddit(display_name=&apos;videos&apos;),
- Subreddit(display_name=&apos;technology&apos;),
- Subreddit(display_name=&apos;bestof&apos;),
- Subreddit(display_name=&apos;askscience&apos;),
- Subreddit(display_name=&apos;books&apos;),
- Subreddit(display_name=&apos;television&apos;),
- Subreddit(display_name=&apos;food&apos;),
- Subreddit(display_name=&apos;photoshopbattles&apos;),
- Subreddit(display_name=&apos;GetMotivated&apos;),
- Subreddit(display_name=&apos;listentothis&apos;),
- Subreddit(display_name=&apos;Documentaries&apos;),
- Subreddit(display_name=&apos;Art&apos;),
- Subreddit(display_name=&apos;trees&apos;),
- Subreddit(display_name=&apos;programming&apos;),
- Subreddit(display_name=&apos;gameofthrones&apos;),
- Subreddit(display_name=&apos;Android&apos;),
- Subreddit(display_name=&apos;Minecraft&apos;),
- Subreddit(display_name=&apos;comics&apos;),
- Subreddit(display_name=&apos;skyrim&apos;),
- Subreddit(display_name=&apos;breakingbad&apos;),
- Subreddit(display_name=&apos;buildapc&apos;)]
-</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[338]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="k">print</span> <span class="n">thesubraz</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-programming
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[339]:
+In&nbsp;[705]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2024,7 +1784,7 @@ In&nbsp;[339]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[340]:
+In&nbsp;[706]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2039,7 +1799,7 @@ In&nbsp;[340]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[341]:
+In&nbsp;[707]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2054,7 +1814,7 @@ In&nbsp;[341]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[342]:
+In&nbsp;[708]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2070,7 +1830,7 @@ In&nbsp;[342]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[342]:</div>
+    Out[708]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
@@ -2088,7 +1848,7 @@ In&nbsp;[342]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[343]:
+In&nbsp;[709]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2105,69 +1865,12 @@ In&nbsp;[343]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[344]:
+In&nbsp;[710]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">rdnew</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">
-    Out[344]:</div>
-
-
-<div class="output_text output_subarea output_pyout">
-<pre>
-[&lt;praw.objects.Submission at 0x7fd2b086afd0&gt;,
- &lt;praw.objects.Submission at 0x7fd2b0886150&gt;,
- &lt;praw.objects.Submission at 0x7fd2b0886250&gt;,
- &lt;praw.objects.Submission at 0x7fd2b0886390&gt;,
- &lt;praw.objects.Submission at 0x7fd2b0886490&gt;,
- &lt;praw.objects.Submission at 0x7fd2b0886590&gt;,
- &lt;praw.objects.Submission at 0x7fd2b0886690&gt;,
- &lt;praw.objects.Submission at 0x7fd2b0886790&gt;,
- &lt;praw.objects.Submission at 0x7fd2b0886890&gt;,
- &lt;praw.objects.Submission at 0x7fd2b08869d0&gt;,
- &lt;praw.objects.Submission at 0x7fd2b0886ad0&gt;,
- &lt;praw.objects.Submission at 0x7fd2b0886b90&gt;,
- &lt;praw.objects.Submission at 0x7fd2b0886c90&gt;,
- &lt;praw.objects.Submission at 0x7fd2b0886d90&gt;,
- &lt;praw.objects.Submission at 0x7fd2b0886e90&gt;,
- &lt;praw.objects.Submission at 0x7fd2b0886f90&gt;,
- &lt;praw.objects.Submission at 0x7fd2b08920d0&gt;,
- &lt;praw.objects.Submission at 0x7fd2b0892210&gt;,
- &lt;praw.objects.Submission at 0x7fd2b0892310&gt;,
- &lt;praw.objects.Submission at 0x7fd2b0892450&gt;,
- &lt;praw.objects.Submission at 0x7fd2b0892550&gt;,
- &lt;praw.objects.Submission at 0x7fd2b0892650&gt;,
- &lt;praw.objects.Submission at 0x7fd2b0892750&gt;,
- &lt;praw.objects.Submission at 0x7fd2b0892810&gt;,
- &lt;praw.objects.Submission at 0x7fd2b0892950&gt;]
-</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[345]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="n">ransubz</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">24</span><span class="p">)</span>
+<div class="highlight"><pre><span class="n">urzlis</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">titlis</span> <span class="o">=</span> <span class="p">[]</span>
 </pre></div>
 
 </div>
@@ -2178,11 +1881,30 @@ In&nbsp;[345]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[346]:
+In&nbsp;[711]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="k">print</span> <span class="n">ransubz</span>
+<div class="highlight"><pre><span class="c">#os.chdir(&#39;imgs&#39;)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[712]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="k">for</span> <span class="n">rdn</span> <span class="ow">in</span> <span class="n">rdnew</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">rdn</span><span class="o">.</span><span class="n">url</span>
+    <span class="n">urzlis</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rdn</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">titlis</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rdn</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    
 </pre></div>
 
 </div>
@@ -2196,7 +1918,31 @@ In&nbsp;[346]:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-5
+http://imgur.com/a/op1j9
+http://i.imgur.com/4CEDav6.jpg
+http://i.imgur.com/EmlglE1.jpg
+http://i.imgur.com/zijZ4kH.jpg
+http://i.imgur.com/OBaE1nh.jpg
+http://i.imgur.com/m67ppXJ.jpg
+http://imgur.com/ns7BqUX
+http://i.imgur.com/hqMUPgd.jpg
+http://i.imgur.com/5jJDyQi.jpg?1
+http://i.imgur.com/t0i70v2.jpg
+http://imgur.com/dtAoEns
+http://i.imgur.com/ozdr7oG.jpg
+http://imgur.com/9jrKMgt
+http://i.imgur.com/NRhvGTT.jpg
+http://i.imgur.com/F8cF3Ir.jpg
+http://imgur.com/JZuGhEj
+http://imgur.com/9FitYtZ
+http://i.imgur.com/8WayMWY.jpg
+http://i.imgur.com/z7tOXSo.jpg
+http://i.imgur.com/emFoqGx.png
+http://i.imgur.com/W6UdtsP.jpg
+http://imgur.com/u5rFwNA
+http://i.imgur.com/wv6bDxa.jpg
+http://i.imgur.com/P5q3wg3.jpg
+http://imgur.com/AsGYmfo
 
 </pre>
 </div>
@@ -2209,71 +1955,11 @@ In&nbsp;[346]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[347]:
+In&nbsp;[713]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">ransev</span> <span class="o">=</span> <span class="n">rdnew</span><span class="p">[</span><span class="n">ransubz</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[348]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="n">rgdautoz</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">ransev</span><span class="o">.</span><span class="n">author</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[349]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="n">rgdsubred</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">ransev</span><span class="o">.</span><span class="n">subreddit</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[350]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="n">sutit</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;[&#39;</span> <span class="o">+</span> <span class="n">rgdsubred</span> <span class="o">+</span> <span class="s">&#39;]&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[351]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="n">sutit</span>
+<div class="highlight"><pre><span class="n">titlis</span>
 </pre></div>
 
 </div>
@@ -2285,12 +1971,36 @@ In&nbsp;[351]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[351]:</div>
+    Out[713]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
 <pre>
-&apos;[redditgetsdrawn]&apos;
+[u&apos;Nathan-Sharp&apos;,
+ u&apos;PinchMyPapayas&apos;,
+ u&apos;oodlethepoodle&apos;,
+ u&apos;peter-park0ur&apos;,
+ u&apos;avalanchethethird&apos;,
+ u&apos;fdjohna&apos;,
+ u&apos;Cannabrain&apos;,
+ u&apos;Droseph88&apos;,
+ u&apos;PG_Glenwood&apos;,
+ u&apos;x_xdoodlex_x&apos;,
+ u&apos;jdtatum&apos;,
+ u&apos;feelthesunnow&apos;,
+ u&apos;AkumaLamprey&apos;,
+ u&apos;DanimalHouse&apos;,
+ u&apos;DarwinsApostle&apos;,
+ u&apos;Urgrimm&apos;,
+ u&apos;Whistlerrr&apos;,
+ u&apos;patorjk--&apos;,
+ u&apos;pruffer9&apos;,
+ u&apos;johnisbob&apos;,
+ u&apos;bunrn&apos;,
+ u&apos;calilock&apos;,
+ u&apos;spinny37&apos;,
+ u&apos;Vikingspaceprogram&apos;,
+ u&apos;Le7els1&apos;]
 </pre>
 </div>
 
@@ -2303,11 +2013,11 @@ In&nbsp;[351]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[352]:
+In&nbsp;[714]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">rgdaqwew</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;xpost[RGD]&#39;</span> <span class="o">+</span> <span class="n">rgdautoz</span><span class="p">)</span>
+<div class="highlight"><pre><span class="n">jplis</span> <span class="o">=</span> <span class="p">[]</span>
 </pre></div>
 
 </div>
@@ -2318,11 +2028,11 @@ In&nbsp;[352]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[353]:
+In&nbsp;[715]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">rgdaturo</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">ransev</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">gmtime</span><span class="p">,</span> <span class="n">strftime</span>
 </pre></div>
 
 </div>
@@ -2333,11 +2043,12 @@ In&nbsp;[353]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[354]:
+In&nbsp;[716]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">rgdatit</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">ransev</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+<div class="highlight"><pre><span class="k">for</span> <span class="n">iz</span> <span class="ow">in</span> <span class="n">jplis</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">iz</span>
 </pre></div>
 
 </div>
@@ -2348,11 +2059,263 @@ In&nbsp;[354]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[355]:
+In&nbsp;[717]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">rgdatit</span>
+<div class="highlight"><pre><span class="k">for</span> <span class="n">urz</span> <span class="ow">in</span> <span class="n">urzlis</span><span class="p">:</span>
+    <span class="k">if</span> <span class="s">&#39;.jpg&#39;</span> <span class="ow">in</span> <span class="n">urz</span><span class="p">:</span>
+        <span class="n">jplis</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">urz</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[718]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">doc</span> <span class="o">=</span> <span class="n">dominate</span><span class="o">.</span><span class="n">document</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&#39;artcontroldrawsyou&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[718]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[719]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="k">with</span> <span class="n">doc</span><span class="o">.</span><span class="n">head</span><span class="p">:</span>
+    <span class="n">link</span><span class="p">(</span><span class="n">rel</span><span class="o">=</span><span class="s">&#39;stylesheet&#39;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s">&#39;style.css&#39;</span><span class="p">)</span>
+    <span class="n">script</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s">&#39;text/javascript&#39;</span><span class="p">,</span> <span class="n">src</span><span class="o">=</span><span class="s">&#39;script.js&#39;</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">doc</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">div</span><span class="p">():</span>
+        <span class="n">attr</span><span class="p">(</span><span class="n">cls</span><span class="o">=</span><span class="s">&#39;header&#39;</span><span class="p">)</span>
+        <span class="c">#&lt;img src=&quot;smiley.gif&quot; alt=&quot;Smiley face&quot; height=&quot;42&quot; width=&quot;42&quot;&gt;</span>
+        <span class="n">h1</span><span class="p">(</span><span class="s">&#39;artcontroldrawsyou!&#39;</span><span class="p">)</span>
+        <span class="n">img</span><span class="p">(</span><span class="n">scr</span><span class="o">=</span><span class="s">&#39;logo.gif&#39;</span><span class="p">)</span>
+        <span class="n">h2</span><span class="p">(</span><span class="s">&#39;go away artcontrol&#39;</span><span class="p">)</span>
+        <span class="n">p</span><span class="p">(</span><span class="n">strftime</span><span class="p">(</span><span class="s">&quot;%a, </span><span class="si">%d</span><span class="s"> %b %Y %H:%M:%S +0000&quot;</span><span class="p">,</span> <span class="n">gmtime</span><span class="p">()))</span>
+        <span class="n">a</span><span class="p">(</span><span class="s">&#39;about&#39;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s">&#39;http://brobeur.com/artcontroldrawsyou/about&#39;</span><span class="p">)</span>
+        <span class="n">a</span><span class="p">(</span><span class="s">&#39;contact&#39;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s">&#39;http://brobeur.com/artcontroldrawsyou/contact&#39;</span><span class="p">)</span> 
+        <span class="n">a</span><span class="p">(</span><span class="s">&#39;blog&#39;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s">&#39;http://brobeur.com/wcmckee.com/wcmckee/output&#39;</span><span class="p">)</span>
+        
+    <span class="k">with</span> <span class="n">div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s">&#39;authors&#39;</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">tits</span> <span class="ow">in</span> <span class="n">titlis</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">tits</span><span class="p">)</span>
+            <span class="p">(</span><span class="n">a</span><span class="p">(</span><span class="n">tits</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s">&#39;https://reddit.com/u/</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">tits</span><span class="p">))</span>
+            
+    
+    <span class="k">with</span> <span class="n">div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s">&#39;body&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">p</span><span class="p">()):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">jplis</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">img</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="n">src</span><span class="o">=</span><span class="s">&#39;</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">))</span>
+            <span class="p">(</span><span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="n">href</span><span class="o">=</span><span class="s">&#39;</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">))</span>
+            
+    <span class="k">with</span> <span class="n">div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s">&#39;footer&#39;</span><span class="p">):</span>
+        <span class="n">p</span><span class="p">(</span><span class="n">a</span><span class="p">(</span><span class="s">&#39;artcontroldrawsyou is open source&#39;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s">&#39;https://github.com/wcmckee/wcmckee-notebook&#39;</span><span class="p">))</span>
+
+
+            
+
+<span class="k">print</span> <span class="n">doc</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;artcontroldrawsyou&lt;/title&gt;
+    &lt;link href=&quot;style.css&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;script src=&quot;script.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class=&quot;header&quot;&gt;
+      &lt;h1&gt;artcontroldrawsyou!&lt;/h1&gt;
+      &lt;img scr=&quot;logo.gif&quot;&gt;
+      &lt;h2&gt;go away artcontrol&lt;/h2&gt;
+      &lt;p&gt;Mon, 04 Aug 2014 23:01:46 +0000&lt;/p&gt;
+      &lt;a href=&quot;http://brobeur.com/artcontroldrawsyou/about&quot;&gt;about&lt;/a&gt;
+      &lt;a href=&quot;http://brobeur.com/artcontroldrawsyou/contact&quot;&gt;contact&lt;/a&gt;
+      &lt;a href=&quot;http://brobeur.com/wcmckee.com/wcmckee/output&quot;&gt;blog&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;authors&quot;&gt;
+      &lt;a href=&quot;https://reddit.com/u/Nathan-Sharp&quot;&gt;Nathan-Sharp&lt;/a&gt;
+      &lt;a href=&quot;https://reddit.com/u/PinchMyPapayas&quot;&gt;PinchMyPapayas&lt;/a&gt;
+      &lt;a href=&quot;https://reddit.com/u/oodlethepoodle&quot;&gt;oodlethepoodle&lt;/a&gt;
+      &lt;a href=&quot;https://reddit.com/u/peter-park0ur&quot;&gt;peter-park0ur&lt;/a&gt;
+      &lt;a href=&quot;https://reddit.com/u/avalanchethethird&quot;&gt;avalanchethethird&lt;/a&gt;
+      &lt;a href=&quot;https://reddit.com/u/fdjohna&quot;&gt;fdjohna&lt;/a&gt;
+      &lt;a href=&quot;https://reddit.com/u/Cannabrain&quot;&gt;Cannabrain&lt;/a&gt;
+      &lt;a href=&quot;https://reddit.com/u/Droseph88&quot;&gt;Droseph88&lt;/a&gt;
+      &lt;a href=&quot;https://reddit.com/u/PG_Glenwood&quot;&gt;PG_Glenwood&lt;/a&gt;
+      &lt;a href=&quot;https://reddit.com/u/x_xdoodlex_x&quot;&gt;x_xdoodlex_x&lt;/a&gt;
+      &lt;a href=&quot;https://reddit.com/u/jdtatum&quot;&gt;jdtatum&lt;/a&gt;
+      &lt;a href=&quot;https://reddit.com/u/feelthesunnow&quot;&gt;feelthesunnow&lt;/a&gt;
+      &lt;a href=&quot;https://reddit.com/u/AkumaLamprey&quot;&gt;AkumaLamprey&lt;/a&gt;
+      &lt;a href=&quot;https://reddit.com/u/DanimalHouse&quot;&gt;DanimalHouse&lt;/a&gt;
+      &lt;a href=&quot;https://reddit.com/u/DarwinsApostle&quot;&gt;DarwinsApostle&lt;/a&gt;
+      &lt;a href=&quot;https://reddit.com/u/Urgrimm&quot;&gt;Urgrimm&lt;/a&gt;
+      &lt;a href=&quot;https://reddit.com/u/Whistlerrr&quot;&gt;Whistlerrr&lt;/a&gt;
+      &lt;a href=&quot;https://reddit.com/u/patorjk--&quot;&gt;patorjk--&lt;/a&gt;
+      &lt;a href=&quot;https://reddit.com/u/pruffer9&quot;&gt;pruffer9&lt;/a&gt;
+      &lt;a href=&quot;https://reddit.com/u/johnisbob&quot;&gt;johnisbob&lt;/a&gt;
+      &lt;a href=&quot;https://reddit.com/u/bunrn&quot;&gt;bunrn&lt;/a&gt;
+      &lt;a href=&quot;https://reddit.com/u/calilock&quot;&gt;calilock&lt;/a&gt;
+      &lt;a href=&quot;https://reddit.com/u/spinny37&quot;&gt;spinny37&lt;/a&gt;
+      &lt;a href=&quot;https://reddit.com/u/Vikingspaceprogram&quot;&gt;Vikingspaceprogram&lt;/a&gt;
+      &lt;a href=&quot;https://reddit.com/u/Le7els1&quot;&gt;Le7els1&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;body&quot;&gt;
+      &lt;p&gt;
+        &lt;img src=&quot;http://i.imgur.com/4CEDav6.jpg&quot;&gt;
+        &lt;a href=&quot;http://i.imgur.com/4CEDav6.jpg&quot;&gt;http://i.imgur.com/4cedav6.jpg&lt;/a&gt;
+        &lt;img src=&quot;http://i.imgur.com/EmlglE1.jpg&quot;&gt;
+        &lt;a href=&quot;http://i.imgur.com/EmlglE1.jpg&quot;&gt;http://i.imgur.com/emlgle1.jpg&lt;/a&gt;
+        &lt;img src=&quot;http://i.imgur.com/zijZ4kH.jpg&quot;&gt;
+        &lt;a href=&quot;http://i.imgur.com/zijZ4kH.jpg&quot;&gt;http://i.imgur.com/zijz4kh.jpg&lt;/a&gt;
+        &lt;img src=&quot;http://i.imgur.com/OBaE1nh.jpg&quot;&gt;
+        &lt;a href=&quot;http://i.imgur.com/OBaE1nh.jpg&quot;&gt;http://i.imgur.com/obae1nh.jpg&lt;/a&gt;
+        &lt;img src=&quot;http://i.imgur.com/m67ppXJ.jpg&quot;&gt;
+        &lt;a href=&quot;http://i.imgur.com/m67ppXJ.jpg&quot;&gt;http://i.imgur.com/m67ppxj.jpg&lt;/a&gt;
+        &lt;img src=&quot;http://i.imgur.com/hqMUPgd.jpg&quot;&gt;
+        &lt;a href=&quot;http://i.imgur.com/hqMUPgd.jpg&quot;&gt;http://i.imgur.com/hqmupgd.jpg&lt;/a&gt;
+        &lt;img src=&quot;http://i.imgur.com/5jJDyQi.jpg?1&quot;&gt;
+        &lt;a href=&quot;http://i.imgur.com/5jJDyQi.jpg?1&quot;&gt;http://i.imgur.com/5jjdyqi.jpg?1&lt;/a&gt;
+        &lt;img src=&quot;http://i.imgur.com/t0i70v2.jpg&quot;&gt;
+        &lt;a href=&quot;http://i.imgur.com/t0i70v2.jpg&quot;&gt;http://i.imgur.com/t0i70v2.jpg&lt;/a&gt;
+        &lt;img src=&quot;http://i.imgur.com/ozdr7oG.jpg&quot;&gt;
+        &lt;a href=&quot;http://i.imgur.com/ozdr7oG.jpg&quot;&gt;http://i.imgur.com/ozdr7og.jpg&lt;/a&gt;
+        &lt;img src=&quot;http://i.imgur.com/NRhvGTT.jpg&quot;&gt;
+        &lt;a href=&quot;http://i.imgur.com/NRhvGTT.jpg&quot;&gt;http://i.imgur.com/nrhvgtt.jpg&lt;/a&gt;
+        &lt;img src=&quot;http://i.imgur.com/F8cF3Ir.jpg&quot;&gt;
+        &lt;a href=&quot;http://i.imgur.com/F8cF3Ir.jpg&quot;&gt;http://i.imgur.com/f8cf3ir.jpg&lt;/a&gt;
+        &lt;img src=&quot;http://i.imgur.com/8WayMWY.jpg&quot;&gt;
+        &lt;a href=&quot;http://i.imgur.com/8WayMWY.jpg&quot;&gt;http://i.imgur.com/8waymwy.jpg&lt;/a&gt;
+        &lt;img src=&quot;http://i.imgur.com/z7tOXSo.jpg&quot;&gt;
+        &lt;a href=&quot;http://i.imgur.com/z7tOXSo.jpg&quot;&gt;http://i.imgur.com/z7toxso.jpg&lt;/a&gt;
+        &lt;img src=&quot;http://i.imgur.com/W6UdtsP.jpg&quot;&gt;
+        &lt;a href=&quot;http://i.imgur.com/W6UdtsP.jpg&quot;&gt;http://i.imgur.com/w6udtsp.jpg&lt;/a&gt;
+        &lt;img src=&quot;http://i.imgur.com/wv6bDxa.jpg&quot;&gt;
+        &lt;a href=&quot;http://i.imgur.com/wv6bDxa.jpg&quot;&gt;http://i.imgur.com/wv6bdxa.jpg&lt;/a&gt;
+        &lt;img src=&quot;http://i.imgur.com/P5q3wg3.jpg&quot;&gt;
+        &lt;a href=&quot;http://i.imgur.com/P5q3wg3.jpg&quot;&gt;http://i.imgur.com/p5q3wg3.jpg&lt;/a&gt;
+      &lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;footer&quot;&gt;
+      &lt;p&gt;
+        &lt;a href=&quot;https://github.com/wcmckee/wcmckee-notebook&quot;&gt;artcontroldrawsyou is open source&lt;/a&gt;
+      &lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[720]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">ophtml</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;index.html&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[721]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">ophtml</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">doc</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[722]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">ophtml</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[723]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="sd">&#39;&#39;&#39;def fcopy(src,dest):</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    Copy file from source to dest.  dest can include an absolute or relative path</span>
+<span class="sd">    If the path doesn&#39;t exist, it gets created</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    dest_dir = os.path.dirname(dest)</span>
+<span class="sd">    try:</span>
+<span class="sd">        os.makedirs(dest_dir)</span>
+<span class="sd">    except os.error as e:</span>
+<span class="sd">        pass #Assume it exists.  This could fail if you don&#39;t have permissions, etc...</span>
+<span class="sd">    shutil.copy(src,dest)&#39;&#39;&#39;</span>
 </pre></div>
 
 </div>
@@ -2364,12 +2327,12 @@ In&nbsp;[355]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[355]:</div>
+    Out[723]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
 <pre>
-&quot;Draw me like one of your french girls... Wait, don&apos;t do that.&quot;
+&apos;def fcopy(src,dest):\n    &quot;&quot;&quot;\n    Copy file from source to dest.  dest can include an absolute or relative path\n    If the path doesn\&apos;t exist, it gets created\n    &quot;&quot;&quot;\n    dest_dir = os.path.dirname(dest)\n    try:\n        os.makedirs(dest_dir)\n    except os.error as e:\n        pass #Assume it exists.  This could fail if you don\&apos;t have permissions, etc...\n    shutil.copy(src,dest)&apos;
 </pre>
 </div>
 
@@ -2379,14 +2342,23 @@ In&nbsp;[355]:
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>cycle though folder and create file in each folder</p>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[324]:
+In&nbsp;[724]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#rd.get_top</span>
+<div class="highlight"><pre><span class="c">#fcopy(&#39;/var/www/artcontroldrawsyou/home/&#39;)</span>
 </pre></div>
 
 </div>
@@ -2397,14 +2369,57 @@ In&nbsp;[324]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[325]:
+In&nbsp;[725]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">linkdict</span> <span class="o">=</span> <span class="p">{}</span>
+<div class="highlight"><pre><span class="k">for</span> <span class="n">usz</span> <span class="ow">in</span> <span class="n">titlis</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">usz</span>
+    <span class="c">#os.mkdir(usz)</span>
+    <span class="c">#os.chdir(&#39;/var/www/artcontroldrawsyou/home/&#39; + usz)</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+Nathan-Sharp
+PinchMyPapayas
+oodlethepoodle
+peter-park0ur
+avalanchethethird
+fdjohna
+Cannabrain
+Droseph88
+PG_Glenwood
+x_xdoodlex_x
+jdtatum
+feelthesunnow
+AkumaLamprey
+DanimalHouse
+DarwinsApostle
+Urgrimm
+Whistlerrr
+patorjk--
+pruffer9
+johnisbob
+bunrn
+calilock
+spinny37
+Vikingspaceprogram
+Le7els1
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -2412,22 +2427,7 @@ In&nbsp;[325]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[326]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="n">ophtml</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;index.html&#39;</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[327]:
+In&nbsp;[726]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2445,9 +2445,8 @@ In&nbsp;[327]:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-<span class="ansibold ansipurple">Flchick.jpg</span>             <span class="ansibold ansipurple">file01.jpg</span>   <span class="ansibold ansipurple">iwasfresh.jpg</span>     style.css
-<span class="ansibold ansipurple">IT4EtjR.jpg</span>             idcomt.json  <span class="ansibold ansipurple">jarwastudios.jpg</span>  userurl.json
-<span class="ansibold ansipurple">TheSuperAwesomeKAT.jpg</span>  index.html   <span class="ansibold ansipurple">lairlu.jpg</span>        wiki.md
+<span class="ansibold ansiblue">about</span>/  <span class="ansibold ansiblue">contact</span>/  idcomt.json  reddit.html  userurl.json
+<span class="ansibold ansiblue">blog</span>/   <span class="ansibold ansiblue">home</span>/     index.html   style.css    <span class="ansibold ansiblue">wcmckee.com</span>/
 
 </pre>
 </div>
@@ -2460,7 +2459,327 @@ In&nbsp;[327]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[274]:
+In&nbsp;[727]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="sd">&#39;&#39;&#39;for filz in titlis:</span>
+<span class="sd">    print filz</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    #os.chdir(&#39;/var/www/artcontroldrawsyou/home&#39; + usz)</span>
+<span class="sd">    bulkc = dominate.document(title=filz)</span>
+<span class="sd">    with bulkc.head:</span>
+<span class="sd">        link(rel=&#39;stylesheet&#39;, href=&#39;style.css&#39;)</span>
+<span class="sd">        script(type=&#39;text/javascript&#39;, src=&#39;script.js&#39;)</span>
+
+<span class="sd">    with bulkc:</span>
+<span class="sd">        with div():</span>
+<span class="sd">            attr(cls=&#39;header&#39;)</span>
+<span class="sd">            #&lt;img src=&quot;smiley.gif&quot; alt=&quot;Smiley face&quot; height=&quot;42&quot; width=&quot;42&quot;&gt;</span>
+<span class="sd">            h1(filz)</span>
+<span class="sd">            img(scr=&#39;http://artcontrol.me/wp-content/uploads/2014/08/daenuhlyn-headcoloe.png&#39;)</span>
+<span class="sd">            h2(&#39;go away artcontrol&#39;)</span>
+<span class="sd">        </span>
+<span class="sd">        with div(id=&#39;photographs&#39;):</span>
+<span class="sd">            for tits in titlis:</span>
+<span class="sd">                h3(tits)</span>
+<span class="sd">                (a(tits, href=&#39;%s&#39; % tits.lower))</span>
+<span class="sd">            </span>
+<span class="sd">    </span>
+<span class="sd">        with div(id=&#39;body&#39;).add(p()):</span>
+<span class="sd">            for i in jplis:</span>
+<span class="sd">                li(img(i.lower(), src=&#39;%s&#39; % i))</span>
+<span class="sd">                li(a(i.lower(), href=&#39;%s&#39; % i))</span>
+<span class="sd">                </span>
+<span class="sd">        with div(id=&#39;footer&#39;):</span>
+<span class="sd">            p(a(&#39;artcontroldrawsyou is opensource&#39;, href=&#39;https://github.com/wcmckee/wcmckee-notebook&#39;))</span>
+<span class="sd">        </span>
+<span class="sd">        with open(&#39;/var/www/artcontroldrawsyou/home/&#39; + filz + &#39;/index.html&#39;, &#39;w&#39;) as fout:</span>
+<span class="sd">            fout.write(str(bulkc))</span>
+<span class="sd">            </span>
+<span class="sd">    #with open(&#39;index.html&#39;, &#39;w&#39;) as indx:</span>
+<span class="sd">       #bulkc = indx.write() </span>
+<span class="sd">        #print bulkc&#39;&#39;&#39;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">
+    Out[727]:</div>
+
+
+<div class="output_text output_subarea output_pyout">
+<pre>
+&apos;for filz in titlis:\n    print filz\n    \n    \n    #os.chdir(\&apos;/var/www/artcontroldrawsyou/home\&apos; + usz)\n    bulkc = dominate.document(title=filz)\n    with bulkc.head:\n        link(rel=\&apos;stylesheet\&apos;, href=\&apos;style.css\&apos;)\n        script(type=\&apos;text/javascript\&apos;, src=\&apos;script.js\&apos;)\n\n    with bulkc:\n        with div():\n            attr(cls=\&apos;header\&apos;)\n            #&lt;img src=&quot;smiley.gif&quot; alt=&quot;Smiley face&quot; height=&quot;42&quot; width=&quot;42&quot;&gt;\n            h1(filz)\n            img(scr=\&apos;http://artcontrol.me/wp-content/uploads/2014/08/daenuhlyn-headcoloe.png\&apos;)\n            h2(\&apos;go away artcontrol\&apos;)\n        \n        with div(id=\&apos;photographs\&apos;):\n            for tits in titlis:\n                h3(tits)\n                (a(tits, href=\&apos;%s\&apos; % tits.lower))\n            \n    \n        with div(id=\&apos;body\&apos;).add(p()):\n            for i in jplis:\n                li(img(i.lower(), src=\&apos;%s\&apos; % i))\n                li(a(i.lower(), href=\&apos;%s\&apos; % i))\n                \n        with div(id=\&apos;footer\&apos;):\n            p(a(\&apos;artcontroldrawsyou is opensource\&apos;, href=\&apos;https://github.com/wcmckee/wcmckee-notebook\&apos;))\n        \n        with open(\&apos;/var/www/artcontroldrawsyou/home/\&apos; + filz + \&apos;/index.html\&apos;, \&apos;w\&apos;) as fout:\n            fout.write(str(bulkc))\n            \n    #with open(\&apos;index.html\&apos;, \&apos;w\&apos;) as indx:\n       #bulkc = indx.write() \n        #print bulkc&apos;
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[728]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">ransubz</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">24</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[729]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="k">print</span> <span class="n">ransubz</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+19
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[730]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">ransev</span> <span class="o">=</span> <span class="n">rdnew</span><span class="p">[</span><span class="n">ransubz</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[731]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">rgdautoz</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">ransev</span><span class="o">.</span><span class="n">author</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[732]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">rgdsubred</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">ransev</span><span class="o">.</span><span class="n">subreddit</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[733]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">sutit</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;[&#39;</span> <span class="o">+</span> <span class="n">rgdsubred</span> <span class="o">+</span> <span class="s">&#39;]&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[734]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">sutit</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">
+    Out[734]:</div>
+
+
+<div class="output_text output_subarea output_pyout">
+<pre>
+&apos;[redditgetsdrawn]&apos;
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[735]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">rgdaqwew</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;xpost[RGD]&#39;</span> <span class="o">+</span> <span class="n">rgdautoz</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[736]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">rgdaturo</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">ransev</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[737]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">rgdatit</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">ransev</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[738]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">rgdatit</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">
+    Out[738]:</div>
+
+
+<div class="output_text output_subarea output_pyout">
+<pre>
+&apos;I would love if one of you talented people would have the go at the portraits of my two beautiful nephews, in any style you see fit!&apos;
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[739]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="c">#rd.get_top</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[740]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">linkdict</span> <span class="o">=</span> <span class="p">{}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[741]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2475,7 +2794,7 @@ In&nbsp;[274]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[275]:
+In&nbsp;[742]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2490,56 +2809,7 @@ In&nbsp;[275]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[276]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="n">comrgd</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">
-    Out[276]:</div>
-
-
-<div class="output_text output_subarea output_pyout">
-<pre>
-&apos;[F]irst post. Showing off my new bra. http://i.imgur.com/crD7Ivw.jpg&apos;
-</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[277]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">time</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[278]:
+In&nbsp;[743]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2554,7 +2824,7 @@ In&nbsp;[278]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[279]:
+In&nbsp;[744]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2570,12 +2840,12 @@ In&nbsp;[279]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[279]:</div>
+    Out[744]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
 <pre>
-9
+4
 </pre>
 </div>
 
@@ -2588,7 +2858,7 @@ In&nbsp;[279]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[280]:
+In&nbsp;[745]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2604,12 +2874,12 @@ In&nbsp;[280]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[280]:</div>
+    Out[745]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
 <pre>
-7
+8
 </pre>
 </div>
 
@@ -2622,7 +2892,7 @@ In&nbsp;[280]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[281]:
+In&nbsp;[746]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2637,7 +2907,7 @@ In&nbsp;[281]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[282]:
+In&nbsp;[747]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2653,12 +2923,12 @@ In&nbsp;[282]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[282]:</div>
+    Out[747]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
 <pre>
-&apos;9/7&apos;
+&apos;4/8&apos;
 </pre>
 </div>
 
@@ -2671,7 +2941,7 @@ In&nbsp;[282]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[283]:
+In&nbsp;[748]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2686,7 +2956,7 @@ In&nbsp;[283]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[284]:
+In&nbsp;[749]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2702,12 +2972,12 @@ In&nbsp;[284]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[284]:</div>
+    Out[749]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
 <pre>
-time.struct_time(tm_year=2014, tm_mon=7, tm_mday=9, tm_hour=4, tm_min=54, tm_sec=52, tm_wday=2, tm_yday=190, tm_isdst=0)
+time.struct_time(tm_year=2014, tm_mon=8, tm_mday=4, tm_hour=23, tm_min=1, tm_sec=49, tm_wday=0, tm_yday=216, tm_isdst=0)
 </pre>
 </div>
 
@@ -2720,33 +2990,14 @@ time.struct_time(tm_year=2014, tm_mon=7, tm_mday=9, tm_hour=4, tm_min=54, tm_sec
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[285]:
+In&nbsp;[750]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">ady</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">mixtut</span> <span class="p">,</span> <span class="p">(</span><span class="n">rgdaqwew</span><span class="p">,</span> <span class="n">comrgd</span><span class="p">))</span>
+<div class="highlight"><pre><span class="c">#ady.submit(mixtut , (rgdaqwew, comrgd))</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">
-    Out[285]:</div>
-
-
-<div class="output_text output_subarea output_pyout">
-<pre>
-&lt;praw.objects.Submission at 0x2d1a990&gt;
-</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -2767,7 +3018,6 @@ In&nbsp;[285]:
     #print newa.media
     ophtml.write(htmstr)
     print newa.selftext
-    print newa.title
     print newa.url
     print newa.num_comments
     
@@ -2777,7 +3027,7 @@ In&nbsp;[285]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[286]:
+In&nbsp;[751]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2792,7 +3042,7 @@ In&nbsp;[286]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[287]:
+In&nbsp;[752]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2807,7 +3057,7 @@ In&nbsp;[287]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[288]:
+In&nbsp;[753]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2822,7 +3072,7 @@ In&nbsp;[288]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[289]:
+In&nbsp;[754]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2837,7 +3087,7 @@ In&nbsp;[289]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[289]:
+In&nbsp;[754]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2852,7 +3102,7 @@ In&nbsp;[289]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[290]:
+In&nbsp;[755]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2867,7 +3117,7 @@ In&nbsp;[290]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[291]:
+In&nbsp;[756]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2884,7 +3134,7 @@ In&nbsp;[291]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[292]:
+In&nbsp;[757]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2899,7 +3149,7 @@ In&nbsp;[292]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[293]:
+In&nbsp;[758]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2914,7 +3164,7 @@ In&nbsp;[293]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[759]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2929,7 +3179,7 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[760]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2944,7 +3194,7 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[761]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2962,7 +3212,7 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[762]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2980,11 +3230,11 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[763]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">minels</span>
+<div class="highlight"><pre><span class="n">itwillbemine</span> <span class="o">=</span> <span class="n">dominate</span><span class="o">.</span><span class="n">document</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&#39;itwillbemine&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -2995,7 +3245,194 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[764]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="k">with</span> <span class="n">itwillbemine</span><span class="o">.</span><span class="n">head</span><span class="p">:</span>
+    <span class="n">link</span><span class="p">(</span><span class="n">rel</span><span class="o">=</span><span class="s">&#39;stylesheet&#39;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s">&#39;style.css&#39;</span><span class="p">)</span>
+    <span class="n">script</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s">&#39;text/javascript&#39;</span><span class="p">,</span> <span class="n">src</span><span class="o">=</span><span class="s">&#39;script.js&#39;</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">itwillbemine</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">div</span><span class="p">():</span>
+        <span class="n">attr</span><span class="p">(</span><span class="n">cls</span><span class="o">=</span><span class="s">&#39;header&#39;</span><span class="p">)</span>
+        <span class="c">#&lt;img src=&quot;smiley.gif&quot; alt=&quot;Smiley face&quot; height=&quot;42&quot; width=&quot;42&quot;&gt;</span>
+        <span class="n">h1</span><span class="p">(</span><span class="s">&#39;itwillbemine&#39;</span><span class="p">)</span>
+        <span class="n">img</span><span class="p">(</span><span class="n">scr</span><span class="o">=</span><span class="s">&#39;logo.gif&#39;</span><span class="p">)</span>
+        <span class="n">h2</span><span class="p">(</span><span class="s">&#39;go away artcontrol&#39;</span><span class="p">)</span>
+        <span class="n">p</span><span class="p">(</span><span class="n">strftime</span><span class="p">(</span><span class="s">&quot;%a, </span><span class="si">%d</span><span class="s"> %b %Y %H:%M:%S +0000&quot;</span><span class="p">,</span> <span class="n">gmtime</span><span class="p">()))</span>
+        <span class="n">a</span><span class="p">(</span><span class="s">&#39;about&#39;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s">&#39;http://brobeur.com/artcontroldrawsyou/about&#39;</span><span class="p">)</span>
+        <span class="n">a</span><span class="p">(</span><span class="s">&#39;contact&#39;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s">&#39;http://brobeur.com/artcontroldrawsyou/contact&#39;</span><span class="p">)</span> 
+        <span class="n">a</span><span class="p">(</span><span class="s">&#39;blog&#39;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s">&#39;http://brobeur.com/artcontroldrawsyou/wcmckee.com/wcmckee/output&#39;</span><span class="p">)</span>
+    
+    <span class="k">with</span> <span class="n">div</span><span class="p">():</span>
+        <span class="n">attr</span><span class="p">(</span><span class="n">cls</span><span class="o">=</span><span class="s">&#39;header&#39;</span><span class="p">)</span>
+        <span class="c">#&lt;img src=&quot;smiley.gif&quot; alt=&quot;Smiley face&quot; height=&quot;42&quot; width=&quot;42&quot;&gt;</span>
+        <span class="n">h1</span><span class="p">(</span><span class="s">&#39;itwillbemine&#39;</span><span class="p">)</span>
+        <span class="n">p</span><span class="p">(</span><span class="n">img</span><span class="p">(</span><span class="n">scr</span><span class="o">=</span><span class="s">&#39;http://brobeur.com/artcontroldrawsyou/logo.gif&#39;</span><span class="p">))</span>
+        <span class="c">#for mine in minels:</span>
+            <span class="c">#h1(mine.author_flair_text())</span>
+            <span class="c">#p(mine.body)</span>
+        
+    <span class="k">with</span> <span class="n">div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s">&#39;author&#39;</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">tits</span> <span class="ow">in</span> <span class="n">titlis</span><span class="p">:</span>
+            <span class="n">h3</span><span class="p">(</span><span class="n">tits</span><span class="p">)</span>
+    
+    <span class="k">with</span> <span class="n">div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s">&#39;body&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">p</span><span class="p">()):</span>
+        <span class="k">for</span> <span class="n">mine</span> <span class="ow">in</span> <span class="n">minels</span><span class="p">:</span>
+            <span class="c">#h1(mine.created)</span>
+            <span class="n">p</span><span class="p">(</span><span class="n">mine</span><span class="o">.</span><span class="n">body</span><span class="p">)</span>
+            
+
+
+
+<span class="k">print</span> <span class="n">itwillbemine</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;itwillbemine&lt;/title&gt;
+    &lt;link href=&quot;style.css&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;script src=&quot;script.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class=&quot;header&quot;&gt;
+      &lt;h1&gt;itwillbemine&lt;/h1&gt;
+      &lt;img scr=&quot;logo.gif&quot;&gt;
+      &lt;h2&gt;go away artcontrol&lt;/h2&gt;
+      &lt;p&gt;Mon, 04 Aug 2014 23:01:55 +0000&lt;/p&gt;
+      &lt;a href=&quot;http://brobeur.com/artcontroldrawsyou/about&quot;&gt;about&lt;/a&gt;
+      &lt;a href=&quot;http://brobeur.com/artcontroldrawsyou/contact&quot;&gt;contact&lt;/a&gt;
+      &lt;a href=&quot;http://brobeur.com/artcontroldrawsyou/wcmckee.com/wcmckee/output&quot;&gt;blog&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;header&quot;&gt;
+      &lt;h1&gt;itwillbemine&lt;/h1&gt;
+      &lt;p&gt;
+        &lt;img scr=&quot;http://brobeur.com/artcontroldrawsyou/logo.gif&quot;&gt;
+      &lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;author&quot;&gt;
+      &lt;h3&gt;Nathan-Sharp&lt;/h3&gt;
+      &lt;h3&gt;PinchMyPapayas&lt;/h3&gt;
+      &lt;h3&gt;oodlethepoodle&lt;/h3&gt;
+      &lt;h3&gt;peter-park0ur&lt;/h3&gt;
+      &lt;h3&gt;avalanchethethird&lt;/h3&gt;
+      &lt;h3&gt;fdjohna&lt;/h3&gt;
+      &lt;h3&gt;Cannabrain&lt;/h3&gt;
+      &lt;h3&gt;Droseph88&lt;/h3&gt;
+      &lt;h3&gt;PG_Glenwood&lt;/h3&gt;
+      &lt;h3&gt;x_xdoodlex_x&lt;/h3&gt;
+      &lt;h3&gt;jdtatum&lt;/h3&gt;
+      &lt;h3&gt;feelthesunnow&lt;/h3&gt;
+      &lt;h3&gt;AkumaLamprey&lt;/h3&gt;
+      &lt;h3&gt;DanimalHouse&lt;/h3&gt;
+      &lt;h3&gt;DarwinsApostle&lt;/h3&gt;
+      &lt;h3&gt;Urgrimm&lt;/h3&gt;
+      &lt;h3&gt;Whistlerrr&lt;/h3&gt;
+      &lt;h3&gt;patorjk--&lt;/h3&gt;
+      &lt;h3&gt;pruffer9&lt;/h3&gt;
+      &lt;h3&gt;johnisbob&lt;/h3&gt;
+      &lt;h3&gt;bunrn&lt;/h3&gt;
+      &lt;h3&gt;calilock&lt;/h3&gt;
+      &lt;h3&gt;spinny37&lt;/h3&gt;
+      &lt;h3&gt;Vikingspaceprogram&lt;/h3&gt;
+      &lt;h3&gt;Le7els1&lt;/h3&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;body&quot;&gt;
+      &lt;p&gt;
+        &lt;p&gt;All children should be clothed in this sub, so this post was removed.&lt;/p&gt;
+        &lt;p&gt;Please submit a different photo that doesn&apos;t have such blatant advertising.&lt;/p&gt;
+        &lt;p&gt;This breaks two sub rules, and was removed.&lt;/p&gt;
+        &lt;p&gt;Sorry it took so long. Feel free to try again in three days with a new photo if this one doesn&apos;t get any responses.  You won&apos;t have to verify next time.&lt;/p&gt;
+        &lt;p&gt;Post removed. You can&apos;t use your birthday to get art here. Please review our rules.&lt;/p&gt;
+        &lt;p&gt;Titles that elicit sympathy aren&apos;t allowed, and gift posts aren&apos;t allowed. Please review our rules.&lt;/p&gt;
+        &lt;p&gt;Post removed; please review our list of approved relationships.&lt;/p&gt;
+        &lt;p&gt;Post removed. Please review our list of approved relationships.&lt;/p&gt;
+        &lt;p&gt;Your post is visible. :)&lt;/p&gt;
+        &lt;p&gt;(Your post was removed since you were banned fo&apos; attitude).&lt;/p&gt;
+        &lt;p&gt;Please repost without the bit about being thousands of miles apart.&lt;/p&gt;
+        &lt;p&gt;Gift posts aren&apos;t allowed, so your post was removed.&lt;/p&gt;
+        &lt;p&gt;Reposting and frequent posting are not allowed, so your post was removed.&lt;/p&gt;
+        &lt;p&gt;Gift posts aren&apos;t allowed, so your post was removed.&lt;/p&gt;
+        &lt;p&gt;Sad posts are not allowed. Please read our rules before posting.&lt;/p&gt;
+        &lt;p&gt;Gift posts aren&apos;t allowed. Please review our rules.&lt;/p&gt;
+        &lt;p&gt;Your post was removed. Please review our list of approved relationships.&lt;/p&gt;
+        &lt;p&gt;Sorry, this breaks sub rules and was removed. Please review our rules.&lt;/p&gt;
+        &lt;p&gt;You should see the ones that never make it out of the gate!
+
+&amp;quot;My dog just died of cancer, pls draw him, I&apos;m so sad.&amp;quot;
+
+&amp;quot;I took a picture of my grandma&apos;s cactus, show me what you can do!&amp;quot;
+
+&amp;quot;This is my cousin&apos;s husband&apos;s neighbor, can you draw him?&amp;quot;
+
+I&apos;ll definitely give it a try, just for you! Prepare your eyeballs! For the suck!&lt;/p&gt;
+        &lt;p&gt;You know me, sometimes I just like to fuck a lil&apos; shit up on a Monday...
+
+Seriously, tho, I believe that person has received the highest number of warnings prior to a ban ever in the history of RGD. I would say that person has received 12-15 warnings about rule-breaking, easily. Normally I give 0-2. :)
+
+P.S. I would draw you if I could! Have you ever seen my feeble art attempts before? I like to think of them as endearing. :D&lt;/p&gt;
+        &lt;p&gt;Please send it to modmail - I am at work and cannot open it right now. I won&apos;t be able to open that link until tonight (my time).&lt;/p&gt;
+        &lt;p&gt;Beautiful! Now remember, you are either a 15% shit artist or a 5% pretty good artist. This is the result of POYINK&apos;s quantitative analysis, conducted with the most stringent of psychometric properties. ;D&lt;/p&gt;
+        &lt;p&gt;Yeah. I don&apos;t think this will work out, alas. I will leave your comment up, though, because I actually find it a little amusing. I wonder where you would place yourself on that spectrum.&lt;/p&gt;
+        &lt;p&gt;If you want to participate, you have to follow our rules. I don&apos;t care if you are Obama himself. There are no exceptions. If you follow the rules, you&apos;ll be just fine.&lt;/p&gt;
+        &lt;p&gt;I remember speaking to your other account - [redacted] - many times because you broke so many rules before, some of them multiple times, seemingly ignoring our warnings. Make sure you follow all of our rules. You already broke yet another rule with this submission since you didn&apos;t zoom in, so it&apos;s been temporarily hidden until you crop it.
+
+BTW, when I was on your other profile I noticed this comment you made:
+
+&amp;quot;Girls dont rly mean what they say. She either wants you to chase her or shes testing you. 
+
+Ppl will usually never absolutely make up their mind so u can definetly change it. Girls dont make the decisions, you do because ur masculine and in control.&amp;quot;
+
+I&apos;m pretty sure I&apos;m more masculine than you. :) Kudos on your flagrant sexism.
+
+[Run Forrest Run](http://i.imgur.com/LtIVjnB.gif)&lt;/p&gt;
+      &lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[765]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">savmine</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;reddit.html&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">savmine</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">itwillbemine</span><span class="p">))</span>
+<span class="n">savmine</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[766]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3010,7 +3447,7 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[767]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3025,6 +3462,23 @@ In&nbsp;[]:
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+file userurl.json updated
+user comments updated
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -3062,22 +3516,7 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[678]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3094,7 +3533,7 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[679]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3109,7 +3548,7 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[680]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3124,7 +3563,644 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[681]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">feedparser</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[682]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">mcs</span> <span class="o">=</span> <span class="n">feedparser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s">&#39;http://mcsteffen.tumblr.com/rss&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[683]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">emcs</span> <span class="o">=</span> <span class="n">mcs</span><span class="p">[</span><span class="s">&#39;entries&#39;</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[684]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="k">for</span> <span class="n">em</span> <span class="ow">in</span> <span class="n">emcs</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">em</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+{&apos;summary_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;value&apos;: u&apos;&lt;img src=&quot;http://31.media.tumblr.com/11e436f1af1931cdaa3eb52ce80d4304/tumblr_n9pz76J7DB1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;Rim Fire 2, 40 x 26\xa01/2 inches, pencil and graphite on paper&lt;/p&gt;&apos;, &apos;language&apos;: None}, &apos;published_parsed&apos;: time.struct_time(tm_year=2014, tm_mon=8, tm_mday=3, tm_hour=7, tm_min=23, tm_sec=30, tm_wday=6, tm_yday=215, tm_isdst=0), &apos;links&apos;: [{&apos;href&apos;: u&apos;http://mcsteffen.tumblr.com/post/93663063144&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;rel&apos;: u&apos;alternate&apos;}], &apos;title&apos;: u&apos;Rim Fire 2, 40 x 26\xa01/2 inches, pencil and graphite on...&apos;, &apos;tags&apos;: [{&apos;term&apos;: u&apos;landscapedrawing&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;landscape drawing&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;pencilandgraphite&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;pencil&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;artistlounge&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;redditartistnetwork&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;yosemite&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;rim fire&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;rimfire&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;landscape&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;reddit&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;forestfire&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;california&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;drawing&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}], &apos;summary&apos;: u&apos;&lt;img src=&quot;http://31.media.tumblr.com/11e436f1af1931cdaa3eb52ce80d4304/tumblr_n9pz76J7DB1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;Rim Fire 2, 40 x 26\xa01/2 inches, pencil and graphite on paper&lt;/p&gt;&apos;, &apos;guidislink&apos;: False, &apos;title_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/plain&apos;, &apos;value&apos;: u&apos;Rim Fire 2, 40 x 26\xa01/2 inches, pencil and graphite on...&apos;, &apos;language&apos;: None}, &apos;link&apos;: u&apos;http://mcsteffen.tumblr.com/post/93663063144&apos;, &apos;published&apos;: u&apos;Sun, 03 Aug 2014 03:23:30 -0400&apos;, &apos;id&apos;: u&apos;http://mcsteffen.tumblr.com/post/93663063144&apos;}
+{&apos;summary_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;value&apos;: u&apos;&lt;img src=&quot;http://38.media.tumblr.com/f3817e5e8c03f24a535814e75c7203d2/tumblr_n9mzq4fl9R1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;Rim Fire 1, pencil and graphite on paper&lt;/p&gt;&apos;, &apos;language&apos;: None}, &apos;published_parsed&apos;: time.struct_time(tm_year=2014, tm_mon=8, tm_mday=1, tm_hour=16, tm_min=42, tm_sec=4, tm_wday=4, tm_yday=213, tm_isdst=0), &apos;links&apos;: [{&apos;href&apos;: u&apos;http://mcsteffen.tumblr.com/post/93509038514&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;rel&apos;: u&apos;alternate&apos;}], &apos;title&apos;: u&apos;Rim Fire 1, pencil and graphite on paper&apos;, &apos;tags&apos;: [{&apos;term&apos;: u&apos;landscape&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;landscape drawing&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;rim fire&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;rimfire&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;yosemite&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;california&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;artist lounge&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;redditartistnetwork&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;reddit artist network&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;drawing&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;pencil drawing&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;funisher&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;hiking&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;art&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}], &apos;summary&apos;: u&apos;&lt;img src=&quot;http://38.media.tumblr.com/f3817e5e8c03f24a535814e75c7203d2/tumblr_n9mzq4fl9R1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;Rim Fire 1, pencil and graphite on paper&lt;/p&gt;&apos;, &apos;guidislink&apos;: False, &apos;title_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/plain&apos;, &apos;value&apos;: u&apos;Rim Fire 1, pencil and graphite on paper&apos;, &apos;language&apos;: None}, &apos;link&apos;: u&apos;http://mcsteffen.tumblr.com/post/93509038514&apos;, &apos;published&apos;: u&apos;Fri, 01 Aug 2014 12:42:04 -0400&apos;, &apos;id&apos;: u&apos;http://mcsteffen.tumblr.com/post/93509038514&apos;}
+{&apos;summary_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;value&apos;: u&apos;&lt;img src=&quot;http://38.media.tumblr.com/018b0938fde692ff0ca2bc19db18bab4/tumblr_n85fm3Z6uq1qg45pdo1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;&lt;a class=&quot;tumblr_blog&quot; href=&quot;http://osaft.tumblr.com/post/90677710590/comedy-gold-with-mcsteffen-nottherogeruknow-and&quot;&gt;osaft&lt;/a&gt;:&lt;/p&gt;\n\n&lt;blockquote&gt;&lt;p&gt;Comedy Gold with &lt;a class=&quot;tumblelog&quot; href=&quot;http://tmblr.co/mrHolH0AaL0YBsXWUyZeEWQ&quot;&gt;mcsteffen&lt;/a&gt; , &lt;a class=&quot;tumblelog&quot; href=&quot;http://tmblr.co/mPPcQWm7xfpLmnCPFo36taQ&quot;&gt;nottherogeruknow&lt;/a&gt; and moi&lt;u&gt;&lt;br /&gt;&lt;/u&gt;&lt;/p&gt;&lt;/blockquote&gt;\n\nBringing it back the way it shoulda been! Beautiful drawing by the beautiful &lt;a class=&quot;tumblelog&quot; href=&quot;http://tmblr.co/mvmqaltOPNXNRufmqAn2xBg&quot;&gt;osaft&lt;/a&gt;!&apos;, &apos;language&apos;: None}, &apos;published_parsed&apos;: time.struct_time(tm_year=2014, tm_mon=7, tm_mday=3, tm_hour=18, tm_min=50, tm_sec=21, tm_wday=3, tm_yday=184, tm_isdst=0), &apos;links&apos;: [{&apos;href&apos;: u&apos;http://mcsteffen.tumblr.com/post/90678988129&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;rel&apos;: u&apos;alternate&apos;}], &apos;title&apos;: u&apos;osaft:\n\nComedy Gold with mcsteffen , nottherogeruknow and...&apos;, &apos;tags&apos;: [{&apos;term&apos;: u&apos;TGAGAAPP&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;2G1G1P&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;cartooning&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;roadtohollywood&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;boobs&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;bff&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;comedygoldmine&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}], &apos;summary&apos;: u&apos;&lt;img src=&quot;http://38.media.tumblr.com/018b0938fde692ff0ca2bc19db18bab4/tumblr_n85fm3Z6uq1qg45pdo1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;&lt;a class=&quot;tumblr_blog&quot; href=&quot;http://osaft.tumblr.com/post/90677710590/comedy-gold-with-mcsteffen-nottherogeruknow-and&quot;&gt;osaft&lt;/a&gt;:&lt;/p&gt;\n\n&lt;blockquote&gt;&lt;p&gt;Comedy Gold with &lt;a class=&quot;tumblelog&quot; href=&quot;http://tmblr.co/mrHolH0AaL0YBsXWUyZeEWQ&quot;&gt;mcsteffen&lt;/a&gt; , &lt;a class=&quot;tumblelog&quot; href=&quot;http://tmblr.co/mPPcQWm7xfpLmnCPFo36taQ&quot;&gt;nottherogeruknow&lt;/a&gt; and moi&lt;u&gt;&lt;br /&gt;&lt;/u&gt;&lt;/p&gt;&lt;/blockquote&gt;\n\nBringing it back the way it shoulda been! Beautiful drawing by the beautiful &lt;a class=&quot;tumblelog&quot; href=&quot;http://tmblr.co/mvmqaltOPNXNRufmqAn2xBg&quot;&gt;osaft&lt;/a&gt;!&apos;, &apos;guidislink&apos;: False, &apos;title_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/plain&apos;, &apos;value&apos;: u&apos;osaft:\n\nComedy Gold with mcsteffen , nottherogeruknow and...&apos;, &apos;language&apos;: None}, &apos;link&apos;: u&apos;http://mcsteffen.tumblr.com/post/90678988129&apos;, &apos;published&apos;: u&apos;Thu, 03 Jul 2014 14:50:21 -0400&apos;, &apos;id&apos;: u&apos;http://mcsteffen.tumblr.com/post/90678988129&apos;}
+{&apos;summary_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;value&apos;: u&apos;&lt;img src=&quot;http://38.media.tumblr.com/4b193ced537b2169b7f3c64de342e768/tumblr_n83ohf0fzv1qg45pdo1_500.jpg&quot; /&gt;&lt;br /&gt; &lt;br /&gt;&lt;img src=&quot;http://37.media.tumblr.com/02275e50e6e4ed89676eb61e350575c0/tumblr_n83ohf0fzv1qg45pdo2_500.jpg&quot; /&gt;&lt;br /&gt; &lt;br /&gt;&lt;p&gt;Portrait of\xa0&lt;a class=&quot;tumblelog&quot; href=&quot;http://tmblr.co/mdKApUvkTXycUmehUhDw4DA&quot;&gt;katlix&lt;/a&gt;\xa0and myself by the ridiculously talented and wonderful\xa0&lt;a class=&quot;tumblr_blog&quot; href=&quot;http://osaft.tumblr.com/post/90582945065/katlix-and-mcsteffen-3-3-3-3-3-3-3-3-3&quot;&gt;osaft&lt;/a&gt;!&lt;/p&gt;&apos;, &apos;language&apos;: None}, &apos;published_parsed&apos;: time.struct_time(tm_year=2014, tm_mon=7, tm_mday=3, tm_hour=6, tm_min=49, tm_sec=20, tm_wday=3, tm_yday=184, tm_isdst=0), &apos;links&apos;: [{&apos;href&apos;: u&apos;http://mcsteffen.tumblr.com/post/90637782104&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;rel&apos;: u&apos;alternate&apos;}], &apos;title&apos;: u&apos;Portrait of\xa0katlix\xa0and myself by the ridiculously talented and...&apos;, &apos;tags&apos;: [{&apos;term&apos;: u&apos;reddit&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;redditartistnetwork&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;skateboarding&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;portraiture&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;batman&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}], &apos;summary&apos;: u&apos;&lt;img src=&quot;http://38.media.tumblr.com/4b193ced537b2169b7f3c64de342e768/tumblr_n83ohf0fzv1qg45pdo1_500.jpg&quot; /&gt;&lt;br /&gt; &lt;br /&gt;&lt;img src=&quot;http://37.media.tumblr.com/02275e50e6e4ed89676eb61e350575c0/tumblr_n83ohf0fzv1qg45pdo2_500.jpg&quot; /&gt;&lt;br /&gt; &lt;br /&gt;&lt;p&gt;Portrait of\xa0&lt;a class=&quot;tumblelog&quot; href=&quot;http://tmblr.co/mdKApUvkTXycUmehUhDw4DA&quot;&gt;katlix&lt;/a&gt;\xa0and myself by the ridiculously talented and wonderful\xa0&lt;a class=&quot;tumblr_blog&quot; href=&quot;http://osaft.tumblr.com/post/90582945065/katlix-and-mcsteffen-3-3-3-3-3-3-3-3-3&quot;&gt;osaft&lt;/a&gt;!&lt;/p&gt;&apos;, &apos;guidislink&apos;: False, &apos;title_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/plain&apos;, &apos;value&apos;: u&apos;Portrait of\xa0katlix\xa0and myself by the ridiculously talented and...&apos;, &apos;language&apos;: None}, &apos;link&apos;: u&apos;http://mcsteffen.tumblr.com/post/90637782104&apos;, &apos;published&apos;: u&apos;Thu, 03 Jul 2014 02:49:20 -0400&apos;, &apos;id&apos;: u&apos;http://mcsteffen.tumblr.com/post/90637782104&apos;}
+{&apos;summary_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;value&apos;: u&apos;&lt;img src=&quot;http://31.media.tumblr.com/03a08772c9c3cbea84383f5a27eb2c43/tumblr_n6zybli8gr1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;Portrait of /u/Daven2ude&lt;/p&gt;&apos;, &apos;language&apos;: None}, &apos;published_parsed&apos;: time.struct_time(tm_year=2014, tm_mon=6, tm_mday=11, tm_hour=8, tm_min=59, tm_sec=45, tm_wday=2, tm_yday=162, tm_isdst=0), &apos;links&apos;: [{&apos;href&apos;: u&apos;http://mcsteffen.tumblr.com/post/88459616224&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;rel&apos;: u&apos;alternate&apos;}], &apos;title&apos;: u&apos;Portrait of /u/Daven2ude&apos;, &apos;tags&apos;: [{&apos;term&apos;: u&apos;RedditGetsDrawn&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;copic markers&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;prismacolor markers&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;prismacolor&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;copic&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;pencil&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;portraiture&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;drawing&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;sketching&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;reddit&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;redditartistnetwork&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}], &apos;summary&apos;: u&apos;&lt;img src=&quot;http://31.media.tumblr.com/03a08772c9c3cbea84383f5a27eb2c43/tumblr_n6zybli8gr1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;Portrait of /u/Daven2ude&lt;/p&gt;&apos;, &apos;guidislink&apos;: False, &apos;title_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/plain&apos;, &apos;value&apos;: u&apos;Portrait of /u/Daven2ude&apos;, &apos;language&apos;: None}, &apos;link&apos;: u&apos;http://mcsteffen.tumblr.com/post/88459616224&apos;, &apos;published&apos;: u&apos;Wed, 11 Jun 2014 04:59:45 -0400&apos;, &apos;id&apos;: u&apos;http://mcsteffen.tumblr.com/post/88459616224&apos;}
+{&apos;summary_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;value&apos;: u&apos;&lt;img src=&quot;http://31.media.tumblr.com/c062a07836c7873309643aacebb03409/tumblr_n6tvo9efMl1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;Portrait of /u/ChardeeMacdennisTime. \xa0Pencil and Marker on paper.&lt;/p&gt;&apos;, &apos;language&apos;: None}, &apos;published_parsed&apos;: time.struct_time(tm_year=2014, tm_mon=6, tm_mday=8, tm_hour=2, tm_min=16, tm_sec=57, tm_wday=6, tm_yday=159, tm_isdst=0), &apos;links&apos;: [{&apos;href&apos;: u&apos;http://mcsteffen.tumblr.com/post/88132869394&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;rel&apos;: u&apos;alternate&apos;}], &apos;title&apos;: u&apos;Portrait of /u/ChardeeMacdennisTime. \xa0Pencil and Marker on...&apos;, &apos;tags&apos;: [{&apos;term&apos;: u&apos;redditartistnetwork&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;redditgetsdrawn&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;artistlounge&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;reddit&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;portraiture&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;copic&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;markers&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;prismacolor&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;pencil&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;sketching&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;copicmarkers&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;copic markers&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;rgd&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}], &apos;summary&apos;: u&apos;&lt;img src=&quot;http://31.media.tumblr.com/c062a07836c7873309643aacebb03409/tumblr_n6tvo9efMl1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;Portrait of /u/ChardeeMacdennisTime. \xa0Pencil and Marker on paper.&lt;/p&gt;&apos;, &apos;guidislink&apos;: False, &apos;title_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/plain&apos;, &apos;value&apos;: u&apos;Portrait of /u/ChardeeMacdennisTime. \xa0Pencil and Marker on...&apos;, &apos;language&apos;: None}, &apos;link&apos;: u&apos;http://mcsteffen.tumblr.com/post/88132869394&apos;, &apos;published&apos;: u&apos;Sat, 07 Jun 2014 22:16:57 -0400&apos;, &apos;id&apos;: u&apos;http://mcsteffen.tumblr.com/post/88132869394&apos;}
+{&apos;summary_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;value&apos;: u&apos;&lt;img src=&quot;http://38.media.tumblr.com/8dc9075b558c521c5a7afe521142cc34/tumblr_n51kxtcIOC1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;Portrait of /u/yomatz&lt;/p&gt;&apos;, &apos;language&apos;: None}, &apos;published_parsed&apos;: time.struct_time(tm_year=2014, tm_mon=5, tm_mday=4, tm_hour=8, tm_min=58, tm_sec=41, tm_wday=6, tm_yday=124, tm_isdst=0), &apos;links&apos;: [{&apos;href&apos;: u&apos;http://mcsteffen.tumblr.com/post/84702067334&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;rel&apos;: u&apos;alternate&apos;}], &apos;title&apos;: u&apos;Portrait of /u/yomatz&apos;, &apos;tags&apos;: [{&apos;term&apos;: u&apos;redditgetsdrawn rgd portraiture drawing&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}], &apos;summary&apos;: u&apos;&lt;img src=&quot;http://38.media.tumblr.com/8dc9075b558c521c5a7afe521142cc34/tumblr_n51kxtcIOC1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;Portrait of /u/yomatz&lt;/p&gt;&apos;, &apos;guidislink&apos;: False, &apos;title_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/plain&apos;, &apos;value&apos;: u&apos;Portrait of /u/yomatz&apos;, &apos;language&apos;: None}, &apos;link&apos;: u&apos;http://mcsteffen.tumblr.com/post/84702067334&apos;, &apos;published&apos;: u&apos;Sun, 04 May 2014 04:58:41 -0400&apos;, &apos;id&apos;: u&apos;http://mcsteffen.tumblr.com/post/84702067334&apos;}
+{&apos;summary_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;value&apos;: u&apos;&lt;img src=&quot;http://38.media.tumblr.com/b8480ba389be6572f4bf08141eac6ce5/tumblr_n3e72pVmaq1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;/u/ItWillBeMine&lt;/p&gt;&apos;, &apos;language&apos;: None}, &apos;published_parsed&apos;: time.struct_time(tm_year=2014, tm_mon=4, tm_mday=2, tm_hour=7, tm_min=20, tm_sec=49, tm_wday=2, tm_yday=92, tm_isdst=0), &apos;links&apos;: [{&apos;href&apos;: u&apos;http://mcsteffen.tumblr.com/post/81470400358&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;rel&apos;: u&apos;alternate&apos;}], &apos;title&apos;: u&apos;/u/ItWillBeMine&apos;, &apos;tags&apos;: [{&apos;term&apos;: u&apos;RedditGetsDrawn&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;/r/redditgetsdrawn&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;RGD&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;portraiture&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;drawing&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;funisher&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}], &apos;summary&apos;: u&apos;&lt;img src=&quot;http://38.media.tumblr.com/b8480ba389be6572f4bf08141eac6ce5/tumblr_n3e72pVmaq1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;/u/ItWillBeMine&lt;/p&gt;&apos;, &apos;guidislink&apos;: False, &apos;title_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/plain&apos;, &apos;value&apos;: u&apos;/u/ItWillBeMine&apos;, &apos;language&apos;: None}, &apos;link&apos;: u&apos;http://mcsteffen.tumblr.com/post/81470400358&apos;, &apos;published&apos;: u&apos;Wed, 02 Apr 2014 03:20:49 -0400&apos;, &apos;id&apos;: u&apos;http://mcsteffen.tumblr.com/post/81470400358&apos;}
+{&apos;summary_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;value&apos;: u&apos;&lt;img src=&quot;http://37.media.tumblr.com/32e94e70b0921e15d1725566cef13f33/tumblr_n37ymbeLeI1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;/u/curiousnonsense\u2019s great uncle&lt;/p&gt;&apos;, &apos;language&apos;: None}, &apos;published_parsed&apos;: time.struct_time(tm_year=2014, tm_mon=3, tm_mday=29, tm_hour=22, tm_min=32, tm_sec=35, tm_wday=5, tm_yday=88, tm_isdst=0), &apos;links&apos;: [{&apos;href&apos;: u&apos;http://mcsteffen.tumblr.com/post/81117377637&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;rel&apos;: u&apos;alternate&apos;}], &apos;title&apos;: u&apos;/u/curiousnonsense\u2019s great uncle&apos;, &apos;tags&apos;: [{&apos;term&apos;: u&apos;RGD&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;RedditGetsDrawn&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;funisher&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;/r/redditgetsdrawn&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;portraiture&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;drawing&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;markers&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;prismacolor&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;prismacolor markers&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}], &apos;summary&apos;: u&apos;&lt;img src=&quot;http://37.media.tumblr.com/32e94e70b0921e15d1725566cef13f33/tumblr_n37ymbeLeI1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;/u/curiousnonsense\u2019s great uncle&lt;/p&gt;&apos;, &apos;guidislink&apos;: False, &apos;title_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/plain&apos;, &apos;value&apos;: u&apos;/u/curiousnonsense\u2019s great uncle&apos;, &apos;language&apos;: None}, &apos;link&apos;: u&apos;http://mcsteffen.tumblr.com/post/81117377637&apos;, &apos;published&apos;: u&apos;Sat, 29 Mar 2014 18:32:35 -0400&apos;, &apos;id&apos;: u&apos;http://mcsteffen.tumblr.com/post/81117377637&apos;}
+{&apos;summary_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;value&apos;: u&apos;&lt;img src=&quot;http://38.media.tumblr.com/b60cb65ab4e60dfeb32e7b24432a7be3/tumblr_n2svjsIgTY1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;Recent landscape commission&lt;/p&gt;&apos;, &apos;language&apos;: None}, &apos;published_parsed&apos;: time.struct_time(tm_year=2014, tm_mon=3, tm_mday=21, tm_hour=19, tm_min=2, tm_sec=16, tm_wday=4, tm_yday=80, tm_isdst=0), &apos;links&apos;: [{&apos;href&apos;: u&apos;http://mcsteffen.tumblr.com/post/80280221308&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;rel&apos;: u&apos;alternate&apos;}], &apos;title&apos;: u&apos;Recent landscape commission&apos;, &apos;tags&apos;: [{&apos;term&apos;: u&apos;new zealand&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;oil painting&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;painting&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;landscape painting&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;art commission&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}], &apos;summary&apos;: u&apos;&lt;img src=&quot;http://38.media.tumblr.com/b60cb65ab4e60dfeb32e7b24432a7be3/tumblr_n2svjsIgTY1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;Recent landscape commission&lt;/p&gt;&apos;, &apos;guidislink&apos;: False, &apos;title_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/plain&apos;, &apos;value&apos;: u&apos;Recent landscape commission&apos;, &apos;language&apos;: None}, &apos;link&apos;: u&apos;http://mcsteffen.tumblr.com/post/80280221308&apos;, &apos;published&apos;: u&apos;Fri, 21 Mar 2014 15:02:16 -0400&apos;, &apos;id&apos;: u&apos;http://mcsteffen.tumblr.com/post/80280221308&apos;}
+{&apos;summary_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;value&apos;: u&apos;&lt;img src=&quot;http://31.media.tumblr.com/875be53500ea4b979a58a09f5b940a76/tumblr_n2rd5gI4M41t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;/u/Catness_NeverClean from /r/prettygirlsuglyfaces&lt;/p&gt;&apos;, &apos;language&apos;: None}, &apos;published_parsed&apos;: time.struct_time(tm_year=2014, tm_mon=3, tm_mday=20, tm_hour=23, tm_min=27, tm_sec=16, tm_wday=3, tm_yday=79, tm_isdst=0), &apos;links&apos;: [{&apos;href&apos;: u&apos;http://mcsteffen.tumblr.com/post/80208053307&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;rel&apos;: u&apos;alternate&apos;}], &apos;title&apos;: u&apos;/u/Catness_NeverClean from /r/prettygirlsuglyfaces&apos;, &apos;tags&apos;: [{&apos;term&apos;: u&apos;drawing&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;portrait&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;funisher&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;PrettyGirlsUglyFaces&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;reddit&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}], &apos;summary&apos;: u&apos;&lt;img src=&quot;http://31.media.tumblr.com/875be53500ea4b979a58a09f5b940a76/tumblr_n2rd5gI4M41t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;/u/Catness_NeverClean from /r/prettygirlsuglyfaces&lt;/p&gt;&apos;, &apos;guidislink&apos;: False, &apos;title_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/plain&apos;, &apos;value&apos;: u&apos;/u/Catness_NeverClean from /r/prettygirlsuglyfaces&apos;, &apos;language&apos;: None}, &apos;link&apos;: u&apos;http://mcsteffen.tumblr.com/post/80208053307&apos;, &apos;published&apos;: u&apos;Thu, 20 Mar 2014 19:27:16 -0400&apos;, &apos;id&apos;: u&apos;http://mcsteffen.tumblr.com/post/80208053307&apos;}
+{&apos;summary_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;value&apos;: u&apos;&lt;img src=&quot;http://33.media.tumblr.com/4a9f14996a9a6be04c3ec5644fa1b661/tumblr_n2r4ntnY4F1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;/u/Hotnonsense\u2019s daughter from /r/redditgetsdrawn&lt;/p&gt;&apos;, &apos;language&apos;: None}, &apos;published_parsed&apos;: time.struct_time(tm_year=2014, tm_mon=3, tm_mday=20, tm_hour=20, tm_min=23, tm_sec=53, tm_wday=3, tm_yday=79, tm_isdst=0), &apos;links&apos;: [{&apos;href&apos;: u&apos;http://mcsteffen.tumblr.com/post/80190751038&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;rel&apos;: u&apos;alternate&apos;}], &apos;title&apos;: u&apos;/u/Hotnonsense\u2019s daughter from /r/redditgetsdrawn&apos;, &apos;tags&apos;: [{&apos;term&apos;: u&apos;RGD&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;RedditGetsDrawn&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;portraiture&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;funisher&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;drawing&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}], &apos;summary&apos;: u&apos;&lt;img src=&quot;http://33.media.tumblr.com/4a9f14996a9a6be04c3ec5644fa1b661/tumblr_n2r4ntnY4F1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;/u/Hotnonsense\u2019s daughter from /r/redditgetsdrawn&lt;/p&gt;&apos;, &apos;guidislink&apos;: False, &apos;title_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/plain&apos;, &apos;value&apos;: u&apos;/u/Hotnonsense\u2019s daughter from /r/redditgetsdrawn&apos;, &apos;language&apos;: None}, &apos;link&apos;: u&apos;http://mcsteffen.tumblr.com/post/80190751038&apos;, &apos;published&apos;: u&apos;Thu, 20 Mar 2014 16:23:53 -0400&apos;, &apos;id&apos;: u&apos;http://mcsteffen.tumblr.com/post/80190751038&apos;}
+{&apos;summary_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;value&apos;: u&apos;&lt;img src=&quot;http://33.media.tumblr.com/eb3c44b5249af01c4b6e77e87056ca4d/tumblr_n29gvzgNdO1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;/u/blackzao&lt;/p&gt;&apos;, &apos;language&apos;: None}, &apos;published_parsed&apos;: time.struct_time(tm_year=2014, tm_mon=3, tm_mday=11, tm_hour=7, tm_min=31, tm_sec=11, tm_wday=1, tm_yday=70, tm_isdst=0), &apos;links&apos;: [{&apos;href&apos;: u&apos;http://mcsteffen.tumblr.com/post/79247221533&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;rel&apos;: u&apos;alternate&apos;}], &apos;title&apos;: u&apos;/u/blackzao&apos;, &apos;tags&apos;: [{&apos;term&apos;: u&apos;portraiture&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;RedditGetsDrawn&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;/r/redditgetsdrawn&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;RGD&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;funisher&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;mike steffen&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}], &apos;summary&apos;: u&apos;&lt;img src=&quot;http://33.media.tumblr.com/eb3c44b5249af01c4b6e77e87056ca4d/tumblr_n29gvzgNdO1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;/u/blackzao&lt;/p&gt;&apos;, &apos;guidislink&apos;: False, &apos;title_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/plain&apos;, &apos;value&apos;: u&apos;/u/blackzao&apos;, &apos;language&apos;: None}, &apos;link&apos;: u&apos;http://mcsteffen.tumblr.com/post/79247221533&apos;, &apos;published&apos;: u&apos;Tue, 11 Mar 2014 03:31:11 -0400&apos;, &apos;id&apos;: u&apos;http://mcsteffen.tumblr.com/post/79247221533&apos;}
+{&apos;summary_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;value&apos;: u&apos;&lt;img src=&quot;http://31.media.tumblr.com/47e18d37bf3cc77af96cec189afff66a/tumblr_n28b4rv12K1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;Portrait of Melvin&lt;/p&gt;&apos;, &apos;language&apos;: None}, &apos;published_parsed&apos;: time.struct_time(tm_year=2014, tm_mon=3, tm_mday=10, tm_hour=16, tm_min=29, tm_sec=15, tm_wday=0, tm_yday=69, tm_isdst=0), &apos;links&apos;: [{&apos;href&apos;: u&apos;http://mcsteffen.tumblr.com/post/79172519099&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;rel&apos;: u&apos;alternate&apos;}], &apos;title&apos;: u&apos;Portrait of Melvin&apos;, &apos;tags&apos;: [{&apos;term&apos;: u&apos;RGD&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;/r/redditgetsdrawn&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;RedditGetsDrawn&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;/r/artistlounge&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;artistlounge&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;portraiture&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;drawing&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;mike steffen&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;funisher&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}], &apos;summary&apos;: u&apos;&lt;img src=&quot;http://31.media.tumblr.com/47e18d37bf3cc77af96cec189afff66a/tumblr_n28b4rv12K1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;Portrait of Melvin&lt;/p&gt;&apos;, &apos;guidislink&apos;: False, &apos;title_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/plain&apos;, &apos;value&apos;: u&apos;Portrait of Melvin&apos;, &apos;language&apos;: None}, &apos;link&apos;: u&apos;http://mcsteffen.tumblr.com/post/79172519099&apos;, &apos;published&apos;: u&apos;Mon, 10 Mar 2014 12:29:15 -0400&apos;, &apos;id&apos;: u&apos;http://mcsteffen.tumblr.com/post/79172519099&apos;}
+{&apos;summary_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;value&apos;: u&apos;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;Newb School: Episode Fucked Up&lt;/p&gt;&apos;, &apos;language&apos;: None}, &apos;published_parsed&apos;: time.struct_time(tm_year=2014, tm_mon=3, tm_mday=9, tm_hour=10, tm_min=55, tm_sec=5, tm_wday=6, tm_yday=68, tm_isdst=0), &apos;links&apos;: [{&apos;href&apos;: u&apos;http://mcsteffen.tumblr.com/post/79044786476&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;rel&apos;: u&apos;alternate&apos;}], &apos;title&apos;: u&apos;Newb School: Episode Fucked Up&apos;, &apos;tags&apos;: [{&apos;term&apos;: u&apos;/r/redditgetsdrawn&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;RedditGetsDrawn&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;/r/artistlounge&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;rgd&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;mike steffen&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;art&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;instructional&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;artistlounge&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;funisher&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}], &apos;summary&apos;: u&apos;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;Newb School: Episode Fucked Up&lt;/p&gt;&apos;, &apos;guidislink&apos;: False, &apos;title_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/plain&apos;, &apos;value&apos;: u&apos;Newb School: Episode Fucked Up&apos;, &apos;language&apos;: None}, &apos;link&apos;: u&apos;http://mcsteffen.tumblr.com/post/79044786476&apos;, &apos;published&apos;: u&apos;Sun, 09 Mar 2014 06:55:05 -0400&apos;, &apos;id&apos;: u&apos;http://mcsteffen.tumblr.com/post/79044786476&apos;}
+{&apos;summary_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;value&apos;: u&apos;&lt;img src=&quot;http://31.media.tumblr.com/b89cc31d9ca0510c9a078ad67ead8975/tumblr_n1s51zhZlt1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;First time hanging this in a show. :)&lt;/p&gt;&apos;, &apos;language&apos;: None}, &apos;published_parsed&apos;: time.struct_time(tm_year=2014, tm_mon=3, tm_mday=1, tm_hour=22, tm_min=56, tm_sec=22, tm_wday=5, tm_yday=60, tm_isdst=0), &apos;links&apos;: [{&apos;href&apos;: u&apos;http://mcsteffen.tumblr.com/post/78255101926&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;rel&apos;: u&apos;alternate&apos;}], &apos;title&apos;: u&apos;First time hanging this in a show. :)&apos;, &apos;tags&apos;: [{&apos;term&apos;: u&apos;ntropic&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;landscape painting&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;mike steffen&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;art&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}], &apos;summary&apos;: u&apos;&lt;img src=&quot;http://31.media.tumblr.com/b89cc31d9ca0510c9a078ad67ead8975/tumblr_n1s51zhZlt1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;First time hanging this in a show. :)&lt;/p&gt;&apos;, &apos;guidislink&apos;: False, &apos;title_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/plain&apos;, &apos;value&apos;: u&apos;First time hanging this in a show. :)&apos;, &apos;language&apos;: None}, &apos;link&apos;: u&apos;http://mcsteffen.tumblr.com/post/78255101926&apos;, &apos;published&apos;: u&apos;Sat, 01 Mar 2014 17:56:22 -0500&apos;, &apos;id&apos;: u&apos;http://mcsteffen.tumblr.com/post/78255101926&apos;}
+{&apos;summary_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;value&apos;: u&apos;&lt;img src=&quot;http://38.media.tumblr.com/a2d384e4b9959edf9d806c1d28f46ee2/tumblr_n1p09uo6Fn1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;Sketch of /u/arretez\u2019s friend&lt;/p&gt;&apos;, &apos;language&apos;: None}, &apos;published_parsed&apos;: time.struct_time(tm_year=2014, tm_mon=2, tm_mday=28, tm_hour=6, tm_min=20, tm_sec=18, tm_wday=4, tm_yday=59, tm_isdst=0), &apos;links&apos;: [{&apos;href&apos;: u&apos;http://mcsteffen.tumblr.com/post/78086866029&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;rel&apos;: u&apos;alternate&apos;}], &apos;title&apos;: u&apos;Sketch of /u/arretez\u2019s friend&apos;, &apos;tags&apos;: [{&apos;term&apos;: u&apos;RGD&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;/r/artistlounge&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;/r/redditgetsdrawn&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;redditgetsdrawn&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;funisher&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;mike steffen&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;sketch&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;art&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}], &apos;summary&apos;: u&apos;&lt;img src=&quot;http://38.media.tumblr.com/a2d384e4b9959edf9d806c1d28f46ee2/tumblr_n1p09uo6Fn1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;Sketch of /u/arretez\u2019s friend&lt;/p&gt;&apos;, &apos;guidislink&apos;: False, &apos;title_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/plain&apos;, &apos;value&apos;: u&apos;Sketch of /u/arretez\u2019s friend&apos;, &apos;language&apos;: None}, &apos;link&apos;: u&apos;http://mcsteffen.tumblr.com/post/78086866029&apos;, &apos;published&apos;: u&apos;Fri, 28 Feb 2014 01:20:18 -0500&apos;, &apos;id&apos;: u&apos;http://mcsteffen.tumblr.com/post/78086866029&apos;}
+{&apos;summary_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;value&apos;: u&apos;&lt;img src=&quot;http://31.media.tumblr.com/67b29f3fa6e636fa938d66c6bd87e392/tumblr_mz8djw4VLL1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;/u/Birdynumnums1, pencil on paper&lt;/p&gt;&apos;, &apos;language&apos;: None}, &apos;published_parsed&apos;: time.struct_time(tm_year=2014, tm_mon=1, tm_mday=11, tm_hour=9, tm_min=40, tm_sec=44, tm_wday=5, tm_yday=11, tm_isdst=0), &apos;links&apos;: [{&apos;href&apos;: u&apos;http://mcsteffen.tumblr.com/post/72961361062&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;rel&apos;: u&apos;alternate&apos;}], &apos;title&apos;: u&apos;/u/Birdynumnums1, pencil on paper&apos;, &apos;tags&apos;: [{&apos;term&apos;: u&apos;rgd&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;/r/redditgetsdrawn&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;/r/artistlounge&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;funisher&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;mike steffen&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;drawing&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;art&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;portraiture&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}], &apos;summary&apos;: u&apos;&lt;img src=&quot;http://31.media.tumblr.com/67b29f3fa6e636fa938d66c6bd87e392/tumblr_mz8djw4VLL1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;/u/Birdynumnums1, pencil on paper&lt;/p&gt;&apos;, &apos;guidislink&apos;: False, &apos;title_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/plain&apos;, &apos;value&apos;: u&apos;/u/Birdynumnums1, pencil on paper&apos;, &apos;language&apos;: None}, &apos;link&apos;: u&apos;http://mcsteffen.tumblr.com/post/72961361062&apos;, &apos;published&apos;: u&apos;Sat, 11 Jan 2014 04:40:44 -0500&apos;, &apos;id&apos;: u&apos;http://mcsteffen.tumblr.com/post/72961361062&apos;}
+{&apos;summary_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;value&apos;: u&apos;&lt;img src=&quot;http://31.media.tumblr.com/e7e60139d8fe58d4d82942998e55000b/tumblr_mz8dh8zvR11t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;/u/Internet_Exploder, Oil on Wood Panel, 14 x 11 inches&lt;/p&gt;&apos;, &apos;language&apos;: None}, &apos;published_parsed&apos;: time.struct_time(tm_year=2014, tm_mon=1, tm_mday=11, tm_hour=9, tm_min=39, tm_sec=8, tm_wday=5, tm_yday=11, tm_isdst=0), &apos;links&apos;: [{&apos;href&apos;: u&apos;http://mcsteffen.tumblr.com/post/72961290241&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;rel&apos;: u&apos;alternate&apos;}], &apos;title&apos;: u&apos;/u/Internet_Exploder, Oil on Wood Panel, 14 x 11 inches&apos;, &apos;tags&apos;: [{&apos;term&apos;: u&apos;RGD&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;/r/redditgetsdrawn&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;/r/artistlounge&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;art&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;mike steffen&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;funisher&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}], &apos;summary&apos;: u&apos;&lt;img src=&quot;http://31.media.tumblr.com/e7e60139d8fe58d4d82942998e55000b/tumblr_mz8dh8zvR11t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;/u/Internet_Exploder, Oil on Wood Panel, 14 x 11 inches&lt;/p&gt;&apos;, &apos;guidislink&apos;: False, &apos;title_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/plain&apos;, &apos;value&apos;: u&apos;/u/Internet_Exploder, Oil on Wood Panel, 14 x 11 inches&apos;, &apos;language&apos;: None}, &apos;link&apos;: u&apos;http://mcsteffen.tumblr.com/post/72961290241&apos;, &apos;published&apos;: u&apos;Sat, 11 Jan 2014 04:39:08 -0500&apos;, &apos;id&apos;: u&apos;http://mcsteffen.tumblr.com/post/72961290241&apos;}
+{&apos;summary_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;value&apos;: u&apos;&lt;img src=&quot;http://33.media.tumblr.com/4075917b855bf3f83112a7ef04a4f9e1/tumblr_myep73x95N1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;Poeptal&lt;/p&gt;&apos;, &apos;language&apos;: None}, &apos;published_parsed&apos;: time.struct_time(tm_year=2013, tm_mon=12, tm_mday=26, tm_hour=9, tm_min=4, tm_sec=15, tm_wday=3, tm_yday=360, tm_isdst=0), &apos;links&apos;: [{&apos;href&apos;: u&apos;http://mcsteffen.tumblr.com/post/71188778392&apos;, &apos;type&apos;: u&apos;text/html&apos;, &apos;rel&apos;: u&apos;alternate&apos;}], &apos;title&apos;: u&apos;Poeptal&apos;, &apos;tags&apos;: [{&apos;term&apos;: u&apos;/r/fancyfollicles&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;rgd&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;/r/redditgetsdrawn&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;funisher&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}, {&apos;term&apos;: u&apos;mike steffen&apos;, &apos;scheme&apos;: None, &apos;label&apos;: None}], &apos;summary&apos;: u&apos;&lt;img src=&quot;http://33.media.tumblr.com/4075917b855bf3f83112a7ef04a4f9e1/tumblr_myep73x95N1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;Poeptal&lt;/p&gt;&apos;, &apos;guidislink&apos;: False, &apos;title_detail&apos;: {&apos;base&apos;: u&apos;http://mcsteffen.tumblr.com/rss&apos;, &apos;type&apos;: u&apos;text/plain&apos;, &apos;value&apos;: u&apos;Poeptal&apos;, &apos;language&apos;: None}, &apos;link&apos;: u&apos;http://mcsteffen.tumblr.com/post/71188778392&apos;, &apos;published&apos;: u&apos;Thu, 26 Dec 2013 04:04:15 -0500&apos;, &apos;id&apos;: u&apos;http://mcsteffen.tumblr.com/post/71188778392&apos;}
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[685]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">tumlis</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[686]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="k">for</span> <span class="n">em</span> <span class="ow">in</span> <span class="n">emcs</span><span class="p">:</span>
+    <span class="n">tumlis</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">em</span><span class="p">[</span><span class="s">&#39;summary_detail&#39;</span><span class="p">][</span><span class="s">&#39;value&#39;</span><span class="p">]))</span>
+    
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[687]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">tumlis</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">
+    Out[687]:</div>
+
+
+<div class="output_text output_subarea output_pyout">
+<pre>
+[u&apos;&lt;img src=&quot;http://31.media.tumblr.com/11e436f1af1931cdaa3eb52ce80d4304/tumblr_n9pz76J7DB1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;Rim Fire 2, 40 x 26\xa01/2 inches, pencil and graphite on paper&lt;/p&gt;&apos;,
+ u&apos;&lt;img src=&quot;http://38.media.tumblr.com/f3817e5e8c03f24a535814e75c7203d2/tumblr_n9mzq4fl9R1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;Rim Fire 1, pencil and graphite on paper&lt;/p&gt;&apos;,
+ u&apos;&lt;img src=&quot;http://38.media.tumblr.com/018b0938fde692ff0ca2bc19db18bab4/tumblr_n85fm3Z6uq1qg45pdo1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;&lt;a class=&quot;tumblr_blog&quot; href=&quot;http://osaft.tumblr.com/post/90677710590/comedy-gold-with-mcsteffen-nottherogeruknow-and&quot;&gt;osaft&lt;/a&gt;:&lt;/p&gt;\n\n&lt;blockquote&gt;&lt;p&gt;Comedy Gold with &lt;a class=&quot;tumblelog&quot; href=&quot;http://tmblr.co/mrHolH0AaL0YBsXWUyZeEWQ&quot;&gt;mcsteffen&lt;/a&gt; , &lt;a class=&quot;tumblelog&quot; href=&quot;http://tmblr.co/mPPcQWm7xfpLmnCPFo36taQ&quot;&gt;nottherogeruknow&lt;/a&gt; and moi&lt;u&gt;&lt;br /&gt;&lt;/u&gt;&lt;/p&gt;&lt;/blockquote&gt;\n\nBringing it back the way it shoulda been! Beautiful drawing by the beautiful &lt;a class=&quot;tumblelog&quot; href=&quot;http://tmblr.co/mvmqaltOPNXNRufmqAn2xBg&quot;&gt;osaft&lt;/a&gt;!&apos;,
+ u&apos;&lt;img src=&quot;http://38.media.tumblr.com/4b193ced537b2169b7f3c64de342e768/tumblr_n83ohf0fzv1qg45pdo1_500.jpg&quot; /&gt;&lt;br /&gt; &lt;br /&gt;&lt;img src=&quot;http://37.media.tumblr.com/02275e50e6e4ed89676eb61e350575c0/tumblr_n83ohf0fzv1qg45pdo2_500.jpg&quot; /&gt;&lt;br /&gt; &lt;br /&gt;&lt;p&gt;Portrait of\xa0&lt;a class=&quot;tumblelog&quot; href=&quot;http://tmblr.co/mdKApUvkTXycUmehUhDw4DA&quot;&gt;katlix&lt;/a&gt;\xa0and myself by the ridiculously talented and wonderful\xa0&lt;a class=&quot;tumblr_blog&quot; href=&quot;http://osaft.tumblr.com/post/90582945065/katlix-and-mcsteffen-3-3-3-3-3-3-3-3-3&quot;&gt;osaft&lt;/a&gt;!&lt;/p&gt;&apos;,
+ u&apos;&lt;img src=&quot;http://31.media.tumblr.com/03a08772c9c3cbea84383f5a27eb2c43/tumblr_n6zybli8gr1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;Portrait of /u/Daven2ude&lt;/p&gt;&apos;,
+ u&apos;&lt;img src=&quot;http://31.media.tumblr.com/c062a07836c7873309643aacebb03409/tumblr_n6tvo9efMl1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;Portrait of /u/ChardeeMacdennisTime. \xa0Pencil and Marker on paper.&lt;/p&gt;&apos;,
+ u&apos;&lt;img src=&quot;http://38.media.tumblr.com/8dc9075b558c521c5a7afe521142cc34/tumblr_n51kxtcIOC1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;Portrait of /u/yomatz&lt;/p&gt;&apos;,
+ u&apos;&lt;img src=&quot;http://38.media.tumblr.com/b8480ba389be6572f4bf08141eac6ce5/tumblr_n3e72pVmaq1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;/u/ItWillBeMine&lt;/p&gt;&apos;,
+ u&apos;&lt;img src=&quot;http://37.media.tumblr.com/32e94e70b0921e15d1725566cef13f33/tumblr_n37ymbeLeI1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;/u/curiousnonsense\u2019s great uncle&lt;/p&gt;&apos;,
+ u&apos;&lt;img src=&quot;http://38.media.tumblr.com/b60cb65ab4e60dfeb32e7b24432a7be3/tumblr_n2svjsIgTY1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;Recent landscape commission&lt;/p&gt;&apos;,
+ u&apos;&lt;img src=&quot;http://31.media.tumblr.com/875be53500ea4b979a58a09f5b940a76/tumblr_n2rd5gI4M41t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;/u/Catness_NeverClean from /r/prettygirlsuglyfaces&lt;/p&gt;&apos;,
+ u&apos;&lt;img src=&quot;http://33.media.tumblr.com/4a9f14996a9a6be04c3ec5644fa1b661/tumblr_n2r4ntnY4F1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;/u/Hotnonsense\u2019s daughter from /r/redditgetsdrawn&lt;/p&gt;&apos;,
+ u&apos;&lt;img src=&quot;http://33.media.tumblr.com/eb3c44b5249af01c4b6e77e87056ca4d/tumblr_n29gvzgNdO1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;/u/blackzao&lt;/p&gt;&apos;,
+ u&apos;&lt;img src=&quot;http://31.media.tumblr.com/47e18d37bf3cc77af96cec189afff66a/tumblr_n28b4rv12K1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;Portrait of Melvin&lt;/p&gt;&apos;,
+ u&apos;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;Newb School: Episode Fucked Up&lt;/p&gt;&apos;,
+ u&apos;&lt;img src=&quot;http://31.media.tumblr.com/b89cc31d9ca0510c9a078ad67ead8975/tumblr_n1s51zhZlt1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;First time hanging this in a show. :)&lt;/p&gt;&apos;,
+ u&apos;&lt;img src=&quot;http://38.media.tumblr.com/a2d384e4b9959edf9d806c1d28f46ee2/tumblr_n1p09uo6Fn1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;Sketch of /u/arretez\u2019s friend&lt;/p&gt;&apos;,
+ u&apos;&lt;img src=&quot;http://31.media.tumblr.com/67b29f3fa6e636fa938d66c6bd87e392/tumblr_mz8djw4VLL1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;/u/Birdynumnums1, pencil on paper&lt;/p&gt;&apos;,
+ u&apos;&lt;img src=&quot;http://31.media.tumblr.com/e7e60139d8fe58d4d82942998e55000b/tumblr_mz8dh8zvR11t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;/u/Internet_Exploder, Oil on Wood Panel, 14 x 11 inches&lt;/p&gt;&apos;,
+ u&apos;&lt;img src=&quot;http://33.media.tumblr.com/4075917b855bf3f83112a7ef04a4f9e1/tumblr_myep73x95N1t8sai5o1_500.jpg&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;p&gt;Poeptal&lt;/p&gt;&apos;]
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[688]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">contactpage</span> <span class="o">=</span> <span class="n">dominate</span><span class="o">.</span><span class="n">document</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&#39;contact&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[689]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="k">with</span> <span class="n">contactpage</span><span class="o">.</span><span class="n">head</span><span class="p">:</span>
+    <span class="n">link</span><span class="p">(</span><span class="n">rel</span><span class="o">=</span><span class="s">&#39;stylesheet&#39;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s">&#39;style.css&#39;</span><span class="p">)</span>
+    <span class="n">script</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s">&#39;text/javascript&#39;</span><span class="p">,</span> <span class="n">src</span><span class="o">=</span><span class="s">&#39;script.js&#39;</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">contactpage</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">div</span><span class="p">():</span>
+        <span class="n">attr</span><span class="p">(</span><span class="n">cls</span><span class="o">=</span><span class="s">&#39;top&#39;</span><span class="p">)</span>
+        <span class="c">#&lt;img src=&quot;smiley.gif&quot; alt=&quot;Smiley face&quot; height=&quot;42&quot; width=&quot;42&quot;&gt;</span>
+        <span class="n">h1</span><span class="p">(</span><span class="s">&#39;artcontroldrawsyou!&#39;</span><span class="p">)</span>
+        <span class="n">img</span><span class="p">(</span><span class="n">scr</span><span class="o">=</span><span class="s">&#39;logo.gif&#39;</span><span class="p">)</span>
+        <span class="n">h2</span><span class="p">(</span><span class="s">&#39;go away artcontrol&#39;</span><span class="p">)</span>
+        <span class="n">p</span><span class="p">(</span><span class="n">strftime</span><span class="p">(</span><span class="s">&quot;%a, </span><span class="si">%d</span><span class="s"> %b %Y %H:%M:%S +0000&quot;</span><span class="p">,</span> <span class="n">gmtime</span><span class="p">()))</span>
+        <span class="n">a</span><span class="p">(</span><span class="s">&#39;about&#39;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s">&#39;http://brobeur.com/artcontroldrawsyou/about&#39;</span><span class="p">)</span>
+        <span class="n">a</span><span class="p">(</span><span class="s">&#39;contact&#39;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s">&#39;http://brobeur.com/artcontroldrawsyou/contact&#39;</span><span class="p">)</span> 
+        <span class="n">a</span><span class="p">(</span><span class="s">&#39;blog&#39;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s">&#39;http://brobeur.com/artcontroldrawsyou/wcmckee.com/wcmckee/output&#39;</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">div</span><span class="p">():</span>
+        <span class="n">attr</span><span class="p">(</span><span class="n">cls</span><span class="o">=</span><span class="s">&#39;header&#39;</span><span class="p">)</span>
+        <span class="c">#&lt;img src=&quot;smiley.gif&quot; alt=&quot;Smiley face&quot; height=&quot;42&quot; width=&quot;42&quot;&gt;</span>
+        <span class="n">h1</span><span class="p">(</span><span class="s">&#39;contact&#39;</span><span class="p">)</span>
+        <span class="n">p</span><span class="p">(</span><span class="s">&#39;email: will@artcontrol.me twitter: art_control&#39;</span><span class="p">)</span>
+        <span class="n">p</span><span class="p">(</span><span class="s">&#39;Recent comments from itwillbemine:&#39;</span><span class="p">)</span>
+        <span class="c">#for mine in minels:</span>
+            <span class="c">#h1(mine.author_flair_text())</span>
+            <span class="c">#p(mine.body)</span>
+        
+ <span class="c">#   with div(id=&#39;author&#39;):</span>
+  <span class="c">#     for tum in tumlis:</span>
+   <span class="c">#         p(tum)</span>
+    
+    
+    <span class="k">with</span> <span class="n">div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s">&#39;body&#39;</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">mine</span> <span class="ow">in</span> <span class="n">minels</span><span class="p">:</span>
+            <span class="c">#h1(mine.created)</span>
+            <span class="n">li</span><span class="p">(</span><span class="n">mine</span><span class="o">.</span><span class="n">body</span><span class="p">)</span>
+            
+
+
+
+
+<span class="k">print</span> <span class="n">contactpage</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;contact&lt;/title&gt;
+    &lt;link href=&quot;style.css&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;script src=&quot;script.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class=&quot;top&quot;&gt;
+      &lt;h1&gt;artcontroldrawsyou!&lt;/h1&gt;
+      &lt;img scr=&quot;logo.gif&quot;&gt;
+      &lt;h2&gt;go away artcontrol&lt;/h2&gt;
+      &lt;p&gt;Mon, 04 Aug 2014 22:57:22 +0000&lt;/p&gt;
+      &lt;a href=&quot;http://brobeur.com/artcontroldrawsyou/about&quot;&gt;about&lt;/a&gt;
+      &lt;a href=&quot;http://brobeur.com/artcontroldrawsyou/contact&quot;&gt;contact&lt;/a&gt;
+      &lt;a href=&quot;http://brobeur.com/artcontroldrawsyou/wcmckee.com/wcmckee/output&quot;&gt;blog&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;header&quot;&gt;
+      &lt;h1&gt;contact&lt;/h1&gt;
+      &lt;p&gt;email: will@artcontrol.me twitter: art_control&lt;/p&gt;
+      &lt;p&gt;Recent comments from itwillbemine:&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;body&quot;&gt;
+      &lt;li&gt;All children should be clothed in this sub, so this post was removed.&lt;/li&gt;
+      &lt;li&gt;Please submit a different photo that doesn&apos;t have such blatant advertising.&lt;/li&gt;
+      &lt;li&gt;This breaks two sub rules, and was removed.&lt;/li&gt;
+      &lt;li&gt;Sorry it took so long. Feel free to try again in three days with a new photo if this one doesn&apos;t get any responses.  You won&apos;t have to verify next time.&lt;/li&gt;
+      &lt;li&gt;Post removed. You can&apos;t use your birthday to get art here. Please review our rules.&lt;/li&gt;
+      &lt;li&gt;Titles that elicit sympathy aren&apos;t allowed, and gift posts aren&apos;t allowed. Please review our rules.&lt;/li&gt;
+      &lt;li&gt;Post removed; please review our list of approved relationships.&lt;/li&gt;
+      &lt;li&gt;Post removed. Please review our list of approved relationships.&lt;/li&gt;
+      &lt;li&gt;Your post is visible. :)&lt;/li&gt;
+      &lt;li&gt;(Your post was removed since you were banned fo&apos; attitude).&lt;/li&gt;
+      &lt;li&gt;Please repost without the bit about being thousands of miles apart.&lt;/li&gt;
+      &lt;li&gt;Gift posts aren&apos;t allowed, so your post was removed.&lt;/li&gt;
+      &lt;li&gt;Reposting and frequent posting are not allowed, so your post was removed.&lt;/li&gt;
+      &lt;li&gt;Gift posts aren&apos;t allowed, so your post was removed.&lt;/li&gt;
+      &lt;li&gt;Sad posts are not allowed. Please read our rules before posting.&lt;/li&gt;
+      &lt;li&gt;Gift posts aren&apos;t allowed. Please review our rules.&lt;/li&gt;
+      &lt;li&gt;Your post was removed. Please review our list of approved relationships.&lt;/li&gt;
+      &lt;li&gt;Sorry, this breaks sub rules and was removed. Please review our rules.&lt;/li&gt;
+      &lt;li&gt;You should see the ones that never make it out of the gate!
+
+&amp;quot;My dog just died of cancer, pls draw him, I&apos;m so sad.&amp;quot;
+
+&amp;quot;I took a picture of my grandma&apos;s cactus, show me what you can do!&amp;quot;
+
+&amp;quot;This is my cousin&apos;s husband&apos;s neighbor, can you draw him?&amp;quot;
+
+I&apos;ll definitely give it a try, just for you! Prepare your eyeballs! For the suck!&lt;/li&gt;
+      &lt;li&gt;You know me, sometimes I just like to fuck a lil&apos; shit up on a Monday...
+
+Seriously, tho, I believe that person has received the highest number of warnings prior to a ban ever in the history of RGD. I would say that person has received 12-15 warnings about rule-breaking, easily. Normally I give 0-2. :)
+
+P.S. I would draw you if I could! Have you ever seen my feeble art attempts before? I like to think of them as endearing. :D&lt;/li&gt;
+      &lt;li&gt;Please send it to modmail - I am at work and cannot open it right now. I won&apos;t be able to open that link until tonight (my time).&lt;/li&gt;
+      &lt;li&gt;Beautiful! Now remember, you are either a 15% shit artist or a 5% pretty good artist. This is the result of POYINK&apos;s quantitative analysis, conducted with the most stringent of psychometric properties. ;D&lt;/li&gt;
+      &lt;li&gt;Yeah. I don&apos;t think this will work out, alas. I will leave your comment up, though, because I actually find it a little amusing. I wonder where you would place yourself on that spectrum.&lt;/li&gt;
+      &lt;li&gt;If you want to participate, you have to follow our rules. I don&apos;t care if you are Obama himself. There are no exceptions. If you follow the rules, you&apos;ll be just fine.&lt;/li&gt;
+      &lt;li&gt;I remember speaking to your other account - [redacted] - many times because you broke so many rules before, some of them multiple times, seemingly ignoring our warnings. Make sure you follow all of our rules. You already broke yet another rule with this submission since you didn&apos;t zoom in, so it&apos;s been temporarily hidden until you crop it.
+
+BTW, when I was on your other profile I noticed this comment you made:
+
+&amp;quot;Girls dont rly mean what they say. She either wants you to chase her or shes testing you. 
+
+Ppl will usually never absolutely make up their mind so u can definetly change it. Girls dont make the decisions, you do because ur masculine and in control.&amp;quot;
+
+I&apos;m pretty sure I&apos;m more masculine than you. :) Kudos on your flagrant sexism.
+
+[Run Forrest Run](http://i.imgur.com/LtIVjnB.gif)&lt;/li&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[690]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s">&#39;contact&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[691]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">savcon</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;index.html&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">savcon</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">contactpage</span><span class="p">))</span>
+<span class="n">savcon</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[692]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">dirdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s">&#39;/var/www/artcontroldrawsyou&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[693]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">dirdir</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[694]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">aboutpage</span> <span class="o">=</span> <span class="n">dominate</span><span class="o">.</span><span class="n">document</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&#39;about&#39;</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">aboutpage</span><span class="o">.</span><span class="n">head</span><span class="p">:</span>
+    <span class="n">link</span><span class="p">(</span><span class="n">rel</span><span class="o">=</span><span class="s">&#39;stylesheet&#39;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s">&#39;style.css&#39;</span><span class="p">)</span>
+    <span class="n">script</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s">&#39;text/javascript&#39;</span><span class="p">,</span> <span class="n">src</span><span class="o">=</span><span class="s">&#39;script.js&#39;</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">aboutpage</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">div</span><span class="p">():</span>
+        <span class="n">attr</span><span class="p">(</span><span class="n">cls</span><span class="o">=</span><span class="s">&#39;header&#39;</span><span class="p">)</span>
+        <span class="c">#&lt;img src=&quot;smiley.gif&quot; alt=&quot;Smiley face&quot; height=&quot;42&quot; width=&quot;42&quot;&gt;</span>
+        <span class="n">h1</span><span class="p">(</span><span class="s">&#39;artcontroldrawsyou!&#39;</span><span class="p">)</span>
+        <span class="n">img</span><span class="p">(</span><span class="n">scr</span><span class="o">=</span><span class="s">&#39;logo.gif&#39;</span><span class="p">)</span>
+        <span class="n">h2</span><span class="p">(</span><span class="s">&#39;go away artcontrol&#39;</span><span class="p">)</span>
+        <span class="n">p</span><span class="p">(</span><span class="n">strftime</span><span class="p">(</span><span class="s">&quot;%a, </span><span class="si">%d</span><span class="s"> %b %Y %H:%M:%S +0000&quot;</span><span class="p">,</span> <span class="n">gmtime</span><span class="p">()))</span>
+        <span class="n">a</span><span class="p">(</span><span class="s">&#39;about&#39;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s">&#39;https://brobeur.com/artcontroldrawsyou/about&#39;</span><span class="p">)</span>
+        <span class="n">a</span><span class="p">(</span><span class="s">&#39;contact&#39;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s">&#39;http://brobeur.com/artcontroldrawsyou/contact&#39;</span><span class="p">)</span> 
+        <span class="n">a</span><span class="p">(</span><span class="s">&#39;blog&#39;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s">&#39;http://brobeur.com/artcontroldrawsyou/wcmckee.com/wcmckee/output&#39;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">div</span><span class="p">():</span>
+        <span class="n">attr</span><span class="p">(</span><span class="n">cls</span><span class="o">=</span><span class="s">&#39;header&#39;</span><span class="p">)</span>
+        <span class="c">#&lt;img src=&quot;smiley.gif&quot; alt=&quot;Smiley face&quot; height=&quot;42&quot; width=&quot;42&quot;&gt;</span>
+        <span class="n">h1</span><span class="p">(</span><span class="s">&#39;about&#39;</span><span class="p">)</span>
+        <span class="n">p</span><span class="p">(</span><span class="s">&#39;artcontroldrawsyou is a website that takes RedditGetsDrawn data and posts it here.&#39;</span><span class="p">)</span>
+        <span class="n">p</span><span class="p">(</span><span class="s">&#39;artcontrol is not allowed to submit artwork to redditgetsdrawn so this was created&#39;</span><span class="p">)</span>
+        <span class="c">#for mine in minels:</span>
+            <span class="c">#h1(mine.author_flair_text())</span>
+            <span class="c">#p(mine.body)</span>
+        
+    <span class="sd">&#39;&#39;&#39;with div(id=&#39;author&#39;):</span>
+<span class="sd">        for tits in titlis:</span>
+<span class="sd">            h3(tits)</span>
+<span class="sd">    </span>
+<span class="sd">    with div(id=&#39;body&#39;).add(p()):</span>
+<span class="sd">        for mine in minels:</span>
+<span class="sd">            #h1(mine.created)</span>
+<span class="sd">            p(mine.body)</span>
+<span class="sd">            </span>
+
+
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="k">print</span> <span class="n">aboutpage</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;about&lt;/title&gt;
+    &lt;link href=&quot;style.css&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;script src=&quot;script.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class=&quot;header&quot;&gt;
+      &lt;h1&gt;artcontroldrawsyou!&lt;/h1&gt;
+      &lt;img scr=&quot;logo.gif&quot;&gt;
+      &lt;h2&gt;go away artcontrol&lt;/h2&gt;
+      &lt;p&gt;Mon, 04 Aug 2014 22:57:23 +0000&lt;/p&gt;
+      &lt;a href=&quot;https://brobeur.com/artcontroldrawsyou/about&quot;&gt;about&lt;/a&gt;
+      &lt;a href=&quot;http://brobeur.com/artcontroldrawsyou/contact&quot;&gt;contact&lt;/a&gt;
+      &lt;a href=&quot;http://brobeur.com/artcontroldrawsyou/wcmckee.com/wcmckee/output&quot;&gt;blog&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;header&quot;&gt;
+      &lt;h1&gt;about&lt;/h1&gt;
+      &lt;p&gt;artcontroldrawsyou is a website that takes RedditGetsDrawn data and posts it here.&lt;/p&gt;
+      &lt;p&gt;artcontrol is not allowed to submit artwork to redditgetsdrawn so this was created&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[695]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s">&#39;about&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[696]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">aboucr</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;index.html&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">aboucr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">aboutpage</span><span class="p">))</span>
+<span class="n">aboucr</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[697]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s">&#39;/var/www/artcontroldrawsyou/&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[698]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">requests</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[699]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;https://github.com/wcmckee/hamiltoncomputerclub.org.nz/archive/master.zip&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">
+    Out[699]:</div>
+
+
+<div class="output_text output_subarea output_pyout">
+<pre>
+&lt;Response [200]&gt;
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[700]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">ls</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+<span class="ansibold ansiblue">about</span>/  <span class="ansibold ansiblue">contact</span>/  idcomt.json  reddit.html  userurl.json
+<span class="ansibold ansiblue">blog</span>/   <span class="ansibold ansiblue">home</span>/     index.html   style.css    <span class="ansibold ansiblue">wcmckee.com</span>/
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[700]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[469]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
