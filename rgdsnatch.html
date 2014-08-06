@@ -1693,21 +1693,26 @@ div#notebook {
 <p>Save to server rather than imgur</p>
 <p>Archieve, snapshots of rgd</p>
 <p>more artcontrol</p>
-<p>itwillbemine comments to html</p>
+<p>itwillbemine comments to html - currently being saved in contact</p>
 <p>work on css, div up page, title, side, body, footer</p>
+<p>update twitter with ONE IMAGE and announce that the list has been updated.</p>
+<p>write blog post and submits to artcontroldrawsyou/blog</p>
+<p>gets sticked post on reddit</p>
+<p>delete about/contact page and have on all same page. can still have link to blog. about contact etc... along the top. other sections</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[701]:
+In&nbsp;[899]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">random</span>
 <span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
 <span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">time</span>
@@ -1724,7 +1729,7 @@ In&nbsp;[701]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[702]:
+In&nbsp;[900]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1739,7 +1744,7 @@ In&nbsp;[702]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[703]:
+In&nbsp;[901]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1754,7 +1759,7 @@ In&nbsp;[703]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[704]:
+In&nbsp;[902]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1769,7 +1774,7 @@ In&nbsp;[704]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[705]:
+In&nbsp;[903]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1784,7 +1789,127 @@ In&nbsp;[705]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[706]:
+In&nbsp;[904]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">subz</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">get_hot</span><span class="p">()</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+<span class="n">istit</span> <span class="o">=</span> <span class="p">(</span><span class="n">subz</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+<span class="n">istxt</span> <span class="o">=</span> <span class="p">(</span><span class="n">subz</span><span class="o">.</span><span class="n">selftext_html</span><span class="p">)</span>
+<span class="n">istick</span> <span class="o">=</span> <span class="p">(</span><span class="n">subz</span><span class="o">.</span><span class="n">stickied</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[905]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">istit</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">
+    Out[905]:</div>
+
+
+<div class="output_text output_subarea output_pyout">
+<pre>
+u&quot;It&apos;s time for RGD Mod Favorites (July 27 - August 2)! See inside for details!&quot;
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[906]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">istxt</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">
+    Out[906]:</div>
+
+
+<div class="output_text output_subarea output_pyout">
+<pre>
+u&apos;&amp;lt;!-- SC_OFF --&amp;gt;&amp;lt;div class=&quot;md&quot;&amp;gt;&amp;lt;p&amp;gt;Each week, every mod picks his or her favorite five RGD pieces from that week. Each Sunday, those selections are compiled and posted! Let&amp;amp;#39;s take a gander, shall we? Shan&amp;amp;#39;t we?&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;Selections from fivepmsomewhere&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;Submitter &amp;lt;a href=&quot;http://i.imgur.com/hSZlpTc.png&quot;&amp;gt;futachankawaiidesune&amp;lt;/a&amp;gt;, artist &amp;lt;a href=&quot;https://i.imgur.com/LWwJc4S.jpg&quot;&amp;gt;bcsketches&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/comments/2c8w7w/profile_of_me_in_drag_sans_wig_any_takers/cjdgaj1&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;Submitter &amp;lt;a href=&quot;http://i.imgur.com/SfVd5lf.jpg&quot;&amp;gt;ashcaughtemall&amp;lt;/a&amp;gt;, artist &amp;lt;a href=&quot;http://i.imgur.com/ueDc70D.jpg&quot;&amp;gt;---c&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/comments/2c475g/please_draw_me_3/cjbv62n&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;Submitter &amp;lt;a href=&quot;http://i.imgur.com/Hv8py7S.jpg&quot;&amp;gt;pseudogentry&amp;lt;/a&amp;gt;, artist &amp;lt;a href=&quot;http://i.imgur.com/YBg9dtb.jpg&quot;&amp;gt;jareddrawsreddit&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/comments/2bzirx/would_love_for_anyone_to_have_a_go_my_dad_and_me/cjb22hp&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;Submitter &amp;lt;a href=&quot;http://i.imgur.com/bIj8t8W.jpg&quot;&amp;gt;heyitslolo&amp;lt;/a&amp;gt;, artist &amp;lt;a href=&quot;http://i.imgur.com/ugEwF8M.jpg&quot;&amp;gt;learning_to_draw_ccw&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/comments/2bwkrb/i_would_love_if_someone_would_draw_me/cj9xaxw&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;Submitter &amp;lt;a href=&quot;http://i.imgur.com/hSZlpTc.png&quot;&amp;gt;futachankawaiidesune&amp;lt;/a&amp;gt;, artist &amp;lt;a href=&quot;http://i.imgur.com/qWdzBJk.jpg&quot;&amp;gt;manderhits&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/comments/2c8w7w/profile_of_me_in_drag_sans_wig_any_takers/cjd77jf&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;Selections from heyryaaan&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;Submitter &amp;lt;a href=&quot;http://i.imgur.com/3VgZwUH.jpg&quot;&amp;gt;arc129&amp;lt;/a&amp;gt;, artist &amp;lt;a href=&quot;http://i.imgur.com/rhwHpOP.jpg&quot;&amp;gt;Kivakaa&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/comments/2c763f/cool_moth_landed_on_me_as_i_arrived_home_from/cjcsifs&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;Submitter &amp;lt;a href=&quot;http://i.imgur.com/26cDtN1.jpg&quot;&amp;gt;iamarting&amp;lt;/a&amp;gt;, artist &amp;lt;a href=&quot;http://i.imgur.com/3Uz21OP.gif&quot;&amp;gt;Powersimon&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/comments/2bw7gi/would_anyone_like_to_draw_me_and_my_fancy_coat/cj9ywau&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;Submitter &amp;lt;a href=&quot;http://i.imgur.com/RWoJVD2.jpg&quot;&amp;gt;MysteryViolaPlayer&amp;lt;/a&amp;gt;, artist &amp;lt;a href=&quot;http://i.imgur.com/tLrHjIB.jpg&quot;&amp;gt;The_Drawist&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/comments/2c77zy/my_mothers_favorite_baby_picture_of_me_and_i/cjcr8by&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;Submitter &amp;lt;a href=&quot;http://i.imgur.com/LSuAPPI.jpg&quot;&amp;gt;yadi_1690&amp;lt;/a&amp;gt;, artist &amp;lt;a href=&quot;http://i.imgur.com/gCCYqSt.jpg&quot;&amp;gt;we_have_a_TREX&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/comments/2c7ih7/can_someone_please_draw_me_would_love_to_see_your/cjd8d2m&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;Submitter &amp;lt;a href=&quot;http://i.imgur.com/uAB0peA.jpg?1&quot;&amp;gt;lonestargranger&amp;lt;/a&amp;gt;, artist &amp;lt;a href=&quot;http://i.imgur.com/hvhAg0W.jpg&quot;&amp;gt;Zhim&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/comments/2c3qom/ive_been_a_lurker_for_a_while_would_be_extremely/cjc10ou&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;Selections from ItWillBeMine&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;Submitter &amp;lt;a href=&quot;http://i.imgur.com/8hiESDN.jpg&quot;&amp;gt;gg-no-re&amp;lt;/a&amp;gt;, artist &amp;lt;a href=&quot;http://i.imgur.com/wUrkhNr.jpg&quot;&amp;gt;slam_nine&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/comments/2bxa7l/a_picture_of_me_and_my_street_luge_in_front_of_a/cj9utn1&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;Submitter &amp;lt;a href=&quot;http://i.imgur.com/C31aDVB.jpg&quot;&amp;gt;arrabel&amp;lt;/a&amp;gt;, artist &amp;lt;a href=&quot;http://i.imgur.com/1NDAECj.jpg&quot;&amp;gt;rotis4&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/comments/2bxvcs/i_used_to_do_a_lot_of_flying_photos_and_this_was/cjatd5b&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;Submitter &amp;lt;a href=&quot;http://i.imgur.com/TWBnEJI.jpg&quot;&amp;gt;Thankyousosomuch&amp;lt;/a&amp;gt;, artist &amp;lt;a href=&quot;http://i.imgur.com/xH6kXXf.jpg&quot;&amp;gt;cacophonyart&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/comments/2c4bu0/thanks_for_drawing_my_greatest_grandma_shes_about/cjbvkn8&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;Submitter &amp;lt;a href=&quot;http://i.imgur.com/bNAyb19.jpg&quot;&amp;gt;sh0tzy&amp;lt;/a&amp;gt;, artist &amp;lt;a href=&quot;http://i.imgur.com/tDOOHXA.jpg&quot;&amp;gt;---c&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/comments/2bw63j/one_of_my_favorite_pictures_of_my_son_the_beach/cj9ssno&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;Submitter &amp;lt;a href=&quot;http://i.imgur.com/h3IDxxE.jpg&quot;&amp;gt;omgitsbabyseat&amp;lt;/a&amp;gt;, artists &amp;lt;a href=&quot;http://i.imgur.com/rNVApcQ.jpg&quot;&amp;gt;Lairosiel and MeatyElbow&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/comments/2cbzly/this_is_my_beautiful_daughter_and_she_loves_art_i/cje40p6&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;Selections from meeps114&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;Submitter &amp;lt;a href=&quot;http://i.imgur.com/ClxWVbQ.jpg&quot;&amp;gt;aLousyFatKid&amp;lt;/a&amp;gt;, artist &amp;lt;a href=&quot;http://i.imgur.com/IMIHY4y.jpg&quot;&amp;gt;milldogg&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/comments/2c92fb/have_some_fun_with_my_dog_gary_is_a_grump/cjdtno7&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;Submitter &amp;lt;a href=&quot;http://i.imgur.com/XtIWPfx.jpg&quot;&amp;gt;anonude, NSFW&amp;lt;/a&amp;gt;, artist &amp;lt;a href=&quot;http://i.imgur.com/2mhO8bq.jpg&quot;&amp;gt;orvane&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/comments/2btl3q/a_few_redditors_on_rartgw_suggested_i_post_some/cj8zyeh&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;Submitter &amp;lt;a href=&quot;http://i.imgur.com/3VgZwUH.jpg&quot;&amp;gt;arc129&amp;lt;/a&amp;gt;, artist &amp;lt;a href=&quot;https://i.imgur.com/n0lkjWp.jpg&quot;&amp;gt;bcsketches&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/comments/2c763f/cool_moth_landed_on_me_as_i_arrived_home_from/cjcpueg&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;Submitter &amp;lt;a href=&quot;http://i.imgur.com/C31aDVB.jpg&quot;&amp;gt;arabbel&amp;lt;/a&amp;gt;, artist &amp;lt;a href=&quot;http://31.media.tumblr.com/31564e208847a5f4c5711359c3803382/tumblr_n9ghm0Zmvn1ty772no1_1280.png&quot;&amp;gt;LucarioPrime&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/comments/2bxvcs/i_used_to_do_a_lot_of_flying_photos_and_this_was/cjaq6lz&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;Submitter &amp;lt;a href=&quot;http://i.imgur.com/XWqkLyD.jpg&quot;&amp;gt;OtotheHtotheItotheO&amp;lt;/a&amp;gt;, artist &amp;lt;a href=&quot;http://i.imgur.com/moKLMEi.jpg&quot;&amp;gt;FlyinMayanLion&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/comments/2c9w34/saw_a_luna_moth_picture_posted_yesterday_figured/cjehh8v&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;Selections from sgt_mary_mary&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;Submitter &amp;lt;a href=&quot;http://i.imgur.com/hL5YVo5.jpg&quot;&amp;gt;poeticjustice226&amp;lt;/a&amp;gt;, artist &amp;lt;a href=&quot;http://i.imgur.com/yqX9h64.jpg&quot;&amp;gt;hedgie_wedgie&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/comments/2c72ru/i_would_absolutely_love_for_you_guys_to_draw_my/cjdb8vl&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;Submitter &amp;lt;a href=&quot;http://i.imgur.com/SfVd5lf.jpg&quot;&amp;gt;ashcaughtemall&amp;lt;/a&amp;gt;, artist &amp;lt;a href=&quot;http://i.imgur.com/pZ5mP8h.jpg&quot;&amp;gt;Chokeberry&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/comments/2c475g/please_draw_me_3/cjbu3rh&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;Submitter &amp;lt;a href=&quot;http://i.imgur.com/hSZlpTc.png&quot;&amp;gt;futachankawaiidesune&amp;lt;/a&amp;gt;, artist &amp;lt;a href=&quot;http://i.imgur.com/l2QUzai.jpg&quot;&amp;gt;Taurox&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/comments/2c8w7w/profile_of_me_in_drag_sans_wig_any_takers/cjdmsii&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;Submitter &amp;lt;a href=&quot;http://i.imgur.com/uAB0peA.jpg?1&quot;&amp;gt;lonestargranger&amp;lt;/a&amp;gt;, artist &amp;lt;a href=&quot;http://i.imgur.com/rshAaH2.jpg&quot;&amp;gt;but_not_by_wolves&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/comments/2c3qom/ive_been_a_lurker_for_a_while_would_be_extremely/cjc1r88&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;Submitter &amp;lt;a href=&quot;http://i.imgur.com/pdnEjq3.jpg&quot;&amp;gt;STEP___ &amp;lt;/a&amp;gt;, artist &amp;lt;a href=&quot;http://38.media.tumblr.com/b0817b418e2d8ab98b5663ccce5efc3b/tumblr_n9lfljdiWe1tgjtw3o1_1280.png&quot;&amp;gt;FinaSusu&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/comments/2c8pjw/care_to_draw_me_again_wonderful_people/cjdcbt5&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;Selections from yowtfyo&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;Submitter &amp;lt;a href=&quot;http://i.imgur.com/A48meVY.jpg&quot;&amp;gt;kbleu&amp;lt;/a&amp;gt;, artist &amp;lt;a href=&quot;http://i.imgur.com/WTR0fti.jpg&quot;&amp;gt;NinjaShira&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/comments/2c67x3/my_roommates_and_i_after_we_thought_someone_was/cjcmnv5&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;Submitter &amp;lt;a href=&quot;http://imgur.com/a/RHqPJ&quot;&amp;gt;Jennylane25&amp;lt;/a&amp;gt;, artist &amp;lt;a href=&quot;http://i.imgur.com/BtY305c.jpg&quot;&amp;gt;shaaaaa&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/comments/2c6r7v/anyone_want_to_draw_my_son_and_i_as_superheroes/cjclywr&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;Submitter &amp;lt;a href=&quot;http://i.imgur.com/OcdOto8.jpg?1&quot;&amp;gt;Rumformypups&amp;lt;/a&amp;gt;, artist &amp;lt;a href=&quot;http://i.imgur.com/ARdpL7e.jpg&quot;&amp;gt;smokeybeard&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/comments/2cd3vt/a_shot_of_me_waiting_outside_the_bart_station_in/cjef16h&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;Submitter &amp;lt;a href=&quot;http://i.imgur.com/vbFb05j.jpg&quot;&amp;gt;totorose&amp;lt;/a&amp;gt;, artist &amp;lt;a href=&quot;http://i.imgur.com/WowePkx.png&quot;&amp;gt;theMaynEvent&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/comments/2c22a8/would_love_for_someone_to_draw_this_photo_of_me/cjbfuyl&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;Submitter &amp;lt;a href=&quot;http://i.imgur.com/XgDwBbl.jpg&quot;&amp;gt;InfiniteThird&amp;lt;/a&amp;gt;, artist &amp;lt;a href=&quot;http://i.imgur.com/A19MIUo.jpg&quot;&amp;gt;jareddrawsreddit&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/comments/2c1jsq/you_all_did_so_well_with_my_last_photo_i_thought/cjb666f&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;We want to continue to encourage submitters to post high-quality/interesting photos. Accordingly, each mod has selected a favorite RGD picture of the week. Both artists and submitters listed in these posts will receive flair.&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;fivepmsomewhere&amp;lt;/strong&amp;gt;: &amp;lt;a href=&quot;http://i.imgur.com/3VgZwUH.jpg&quot;&amp;gt;arc129&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/top/?sort=top&amp;amp;amp;t=week&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;heyryaaan&amp;lt;/strong&amp;gt;: &amp;lt;a href=&quot;http://i.imgur.com/bIj8t8W.jpg&quot;&amp;gt;heyitslolo&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/comments/2bwkrb/i_would_love_if_someone_would_draw_me/&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;ItWillBeMine&amp;lt;/strong&amp;gt;: &amp;lt;a href=&quot;http://i.imgur.com/y2x9W3f.jpg&quot;&amp;gt;Foureyes89&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/comments/2c497b/this_is_my_friend_looking_badass_can_someone/&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;meeps114&amp;lt;/strong&amp;gt;: &amp;lt;a href=&quot;http://i.imgur.com/C31aDVB.jpg&quot;&amp;gt;arabbel&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/comments/2bxvcs/i_used_to_do_a_lot_of_flying_photos_and_this_was/&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;sgt_mary_mary&amp;lt;/strong&amp;gt;: &amp;lt;a href=&quot;http://i.imgur.com/kb8aIz0.jpg&quot;&amp;gt;poeticjustice226&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/comments/2c72ru/i_would_absolutely_love_for_you_guys_to_draw_my/&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n\n&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;yowtfyo&amp;lt;/strong&amp;gt;: &amp;lt;a href=&quot;http://i.imgur.com/vwn5Lqd.jpg&quot;&amp;gt;sageandonion&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;http://www.reddit.com/r/redditgetsdrawn/comments/2ccl7o/me_in_afghanistan_with_this_little_dude/&quot;&amp;gt;Permalink&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n&amp;lt;/div&amp;gt;&amp;lt;!-- SC_ON --&amp;gt;&apos;
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[907]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="k">if</span> <span class="n">istick</span> <span class="o">=</span> <span class="bp">True</span><span class="p">:</span>
+    
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_text output_pyerr">
+<pre>
+<span class="ansicyan">  File </span><span class="ansigreen">&quot;&lt;ipython-input-907-ba3e16af1a86&gt;&quot;</span><span class="ansicyan">, line </span><span class="ansigreen">1</span>
+<span class="ansiyellow">    if istick = True:</span>
+<span class="ansigrey">              ^</span>
+<span class="ansired">SyntaxError</span><span class="ansired">:</span> invalid syntax
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[908]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1799,7 +1924,7 @@ In&nbsp;[706]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[707]:
+In&nbsp;[909]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1814,7 +1939,7 @@ In&nbsp;[707]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[708]:
+In&nbsp;[910]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1830,7 +1955,7 @@ In&nbsp;[708]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[708]:</div>
+    Out[910]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
@@ -1848,7 +1973,7 @@ In&nbsp;[708]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[709]:
+In&nbsp;[911]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1865,7 +1990,7 @@ In&nbsp;[709]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[710]:
+In&nbsp;[912]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1881,7 +2006,7 @@ In&nbsp;[710]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[711]:
+In&nbsp;[913]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1896,7 +2021,7 @@ In&nbsp;[711]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[712]:
+In&nbsp;[914]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1918,7 +2043,16 @@ In&nbsp;[712]:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-http://imgur.com/a/op1j9
+http://imgur.com/v9vSO9U
+http://i.imgur.com/rHbBy6K.jpg
+http://i.imgur.com/ZexToPI.jpg
+http://i.imgur.com/t1HgLMo.jpg
+http://i.imgur.com/VqI5FFc.jpg
+http://i.imgur.com/LDXlWie.jpg
+http://i.imgur.com/RgooyN3.jpg
+http://imgur.com/NxTMyGD
+http://www.reddit.com/r/redditgetsdrawn/comments/2cmzex/august_1_is_already_over_well_heck_its_time_to/
+http://imgur.com/GHJawNP
 http://i.imgur.com/4CEDav6.jpg
 http://i.imgur.com/EmlglE1.jpg
 http://i.imgur.com/zijZ4kH.jpg
@@ -1934,15 +2068,6 @@ http://imgur.com/9jrKMgt
 http://i.imgur.com/NRhvGTT.jpg
 http://i.imgur.com/F8cF3Ir.jpg
 http://imgur.com/JZuGhEj
-http://imgur.com/9FitYtZ
-http://i.imgur.com/8WayMWY.jpg
-http://i.imgur.com/z7tOXSo.jpg
-http://i.imgur.com/emFoqGx.png
-http://i.imgur.com/W6UdtsP.jpg
-http://imgur.com/u5rFwNA
-http://i.imgur.com/wv6bDxa.jpg
-http://i.imgur.com/P5q3wg3.jpg
-http://imgur.com/AsGYmfo
 
 </pre>
 </div>
@@ -1955,7 +2080,7 @@ http://imgur.com/AsGYmfo
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[713]:
+In&nbsp;[915]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1971,12 +2096,21 @@ In&nbsp;[713]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[713]:</div>
+    Out[915]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
 <pre>
-[u&apos;Nathan-Sharp&apos;,
+[u&apos;xNikkinicolex&apos;,
+ u&apos;rickjackwood&apos;,
+ u&apos;Kivakaa&apos;,
+ u&apos;tysonoff&apos;,
+ u&apos;IM_ALL_THAT_IS_MAN&apos;,
+ u&apos;nightingalesoul&apos;,
+ u&apos;hohohopeless&apos;,
+ u&apos;Rossii&apos;,
+ u&apos;ItWillBeMine&apos;,
+ u&apos;patozash&apos;,
  u&apos;PinchMyPapayas&apos;,
  u&apos;oodlethepoodle&apos;,
  u&apos;peter-park0ur&apos;,
@@ -1991,16 +2125,7 @@ In&nbsp;[713]:
  u&apos;AkumaLamprey&apos;,
  u&apos;DanimalHouse&apos;,
  u&apos;DarwinsApostle&apos;,
- u&apos;Urgrimm&apos;,
- u&apos;Whistlerrr&apos;,
- u&apos;patorjk--&apos;,
- u&apos;pruffer9&apos;,
- u&apos;johnisbob&apos;,
- u&apos;bunrn&apos;,
- u&apos;calilock&apos;,
- u&apos;spinny37&apos;,
- u&apos;Vikingspaceprogram&apos;,
- u&apos;Le7els1&apos;]
+ u&apos;Urgrimm&apos;]
 </pre>
 </div>
 
@@ -2013,7 +2138,7 @@ In&nbsp;[713]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[714]:
+In&nbsp;[916]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2028,7 +2153,7 @@ In&nbsp;[714]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[715]:
+In&nbsp;[917]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2043,7 +2168,7 @@ In&nbsp;[715]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[716]:
+In&nbsp;[918]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2059,7 +2184,7 @@ In&nbsp;[716]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[717]:
+In&nbsp;[919]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2076,7 +2201,7 @@ In&nbsp;[717]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[718]:
+In&nbsp;[920]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2091,7 +2216,7 @@ In&nbsp;[718]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[718]:
+In&nbsp;[920]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2106,7 +2231,7 @@ In&nbsp;[718]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[719]:
+In&nbsp;[921]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2169,13 +2294,22 @@ In&nbsp;[719]:
       &lt;h1&gt;artcontroldrawsyou!&lt;/h1&gt;
       &lt;img scr=&quot;logo.gif&quot;&gt;
       &lt;h2&gt;go away artcontrol&lt;/h2&gt;
-      &lt;p&gt;Mon, 04 Aug 2014 23:01:46 +0000&lt;/p&gt;
+      &lt;p&gt;Tue, 05 Aug 2014 00:29:33 +0000&lt;/p&gt;
       &lt;a href=&quot;http://brobeur.com/artcontroldrawsyou/about&quot;&gt;about&lt;/a&gt;
       &lt;a href=&quot;http://brobeur.com/artcontroldrawsyou/contact&quot;&gt;contact&lt;/a&gt;
       &lt;a href=&quot;http://brobeur.com/wcmckee.com/wcmckee/output&quot;&gt;blog&lt;/a&gt;
     &lt;/div&gt;
     &lt;div id=&quot;authors&quot;&gt;
-      &lt;a href=&quot;https://reddit.com/u/Nathan-Sharp&quot;&gt;Nathan-Sharp&lt;/a&gt;
+      &lt;a href=&quot;https://reddit.com/u/xNikkinicolex&quot;&gt;xNikkinicolex&lt;/a&gt;
+      &lt;a href=&quot;https://reddit.com/u/rickjackwood&quot;&gt;rickjackwood&lt;/a&gt;
+      &lt;a href=&quot;https://reddit.com/u/Kivakaa&quot;&gt;Kivakaa&lt;/a&gt;
+      &lt;a href=&quot;https://reddit.com/u/tysonoff&quot;&gt;tysonoff&lt;/a&gt;
+      &lt;a href=&quot;https://reddit.com/u/IM_ALL_THAT_IS_MAN&quot;&gt;IM_ALL_THAT_IS_MAN&lt;/a&gt;
+      &lt;a href=&quot;https://reddit.com/u/nightingalesoul&quot;&gt;nightingalesoul&lt;/a&gt;
+      &lt;a href=&quot;https://reddit.com/u/hohohopeless&quot;&gt;hohohopeless&lt;/a&gt;
+      &lt;a href=&quot;https://reddit.com/u/Rossii&quot;&gt;Rossii&lt;/a&gt;
+      &lt;a href=&quot;https://reddit.com/u/ItWillBeMine&quot;&gt;ItWillBeMine&lt;/a&gt;
+      &lt;a href=&quot;https://reddit.com/u/patozash&quot;&gt;patozash&lt;/a&gt;
       &lt;a href=&quot;https://reddit.com/u/PinchMyPapayas&quot;&gt;PinchMyPapayas&lt;/a&gt;
       &lt;a href=&quot;https://reddit.com/u/oodlethepoodle&quot;&gt;oodlethepoodle&lt;/a&gt;
       &lt;a href=&quot;https://reddit.com/u/peter-park0ur&quot;&gt;peter-park0ur&lt;/a&gt;
@@ -2191,18 +2325,21 @@ In&nbsp;[719]:
       &lt;a href=&quot;https://reddit.com/u/DanimalHouse&quot;&gt;DanimalHouse&lt;/a&gt;
       &lt;a href=&quot;https://reddit.com/u/DarwinsApostle&quot;&gt;DarwinsApostle&lt;/a&gt;
       &lt;a href=&quot;https://reddit.com/u/Urgrimm&quot;&gt;Urgrimm&lt;/a&gt;
-      &lt;a href=&quot;https://reddit.com/u/Whistlerrr&quot;&gt;Whistlerrr&lt;/a&gt;
-      &lt;a href=&quot;https://reddit.com/u/patorjk--&quot;&gt;patorjk--&lt;/a&gt;
-      &lt;a href=&quot;https://reddit.com/u/pruffer9&quot;&gt;pruffer9&lt;/a&gt;
-      &lt;a href=&quot;https://reddit.com/u/johnisbob&quot;&gt;johnisbob&lt;/a&gt;
-      &lt;a href=&quot;https://reddit.com/u/bunrn&quot;&gt;bunrn&lt;/a&gt;
-      &lt;a href=&quot;https://reddit.com/u/calilock&quot;&gt;calilock&lt;/a&gt;
-      &lt;a href=&quot;https://reddit.com/u/spinny37&quot;&gt;spinny37&lt;/a&gt;
-      &lt;a href=&quot;https://reddit.com/u/Vikingspaceprogram&quot;&gt;Vikingspaceprogram&lt;/a&gt;
-      &lt;a href=&quot;https://reddit.com/u/Le7els1&quot;&gt;Le7els1&lt;/a&gt;
     &lt;/div&gt;
     &lt;div id=&quot;body&quot;&gt;
       &lt;p&gt;
+        &lt;img src=&quot;http://i.imgur.com/rHbBy6K.jpg&quot;&gt;
+        &lt;a href=&quot;http://i.imgur.com/rHbBy6K.jpg&quot;&gt;http://i.imgur.com/rhbby6k.jpg&lt;/a&gt;
+        &lt;img src=&quot;http://i.imgur.com/ZexToPI.jpg&quot;&gt;
+        &lt;a href=&quot;http://i.imgur.com/ZexToPI.jpg&quot;&gt;http://i.imgur.com/zextopi.jpg&lt;/a&gt;
+        &lt;img src=&quot;http://i.imgur.com/t1HgLMo.jpg&quot;&gt;
+        &lt;a href=&quot;http://i.imgur.com/t1HgLMo.jpg&quot;&gt;http://i.imgur.com/t1hglmo.jpg&lt;/a&gt;
+        &lt;img src=&quot;http://i.imgur.com/VqI5FFc.jpg&quot;&gt;
+        &lt;a href=&quot;http://i.imgur.com/VqI5FFc.jpg&quot;&gt;http://i.imgur.com/vqi5ffc.jpg&lt;/a&gt;
+        &lt;img src=&quot;http://i.imgur.com/LDXlWie.jpg&quot;&gt;
+        &lt;a href=&quot;http://i.imgur.com/LDXlWie.jpg&quot;&gt;http://i.imgur.com/ldxlwie.jpg&lt;/a&gt;
+        &lt;img src=&quot;http://i.imgur.com/RgooyN3.jpg&quot;&gt;
+        &lt;a href=&quot;http://i.imgur.com/RgooyN3.jpg&quot;&gt;http://i.imgur.com/rgooyn3.jpg&lt;/a&gt;
         &lt;img src=&quot;http://i.imgur.com/4CEDav6.jpg&quot;&gt;
         &lt;a href=&quot;http://i.imgur.com/4CEDav6.jpg&quot;&gt;http://i.imgur.com/4cedav6.jpg&lt;/a&gt;
         &lt;img src=&quot;http://i.imgur.com/EmlglE1.jpg&quot;&gt;
@@ -2225,16 +2362,6 @@ In&nbsp;[719]:
         &lt;a href=&quot;http://i.imgur.com/NRhvGTT.jpg&quot;&gt;http://i.imgur.com/nrhvgtt.jpg&lt;/a&gt;
         &lt;img src=&quot;http://i.imgur.com/F8cF3Ir.jpg&quot;&gt;
         &lt;a href=&quot;http://i.imgur.com/F8cF3Ir.jpg&quot;&gt;http://i.imgur.com/f8cf3ir.jpg&lt;/a&gt;
-        &lt;img src=&quot;http://i.imgur.com/8WayMWY.jpg&quot;&gt;
-        &lt;a href=&quot;http://i.imgur.com/8WayMWY.jpg&quot;&gt;http://i.imgur.com/8waymwy.jpg&lt;/a&gt;
-        &lt;img src=&quot;http://i.imgur.com/z7tOXSo.jpg&quot;&gt;
-        &lt;a href=&quot;http://i.imgur.com/z7tOXSo.jpg&quot;&gt;http://i.imgur.com/z7toxso.jpg&lt;/a&gt;
-        &lt;img src=&quot;http://i.imgur.com/W6UdtsP.jpg&quot;&gt;
-        &lt;a href=&quot;http://i.imgur.com/W6UdtsP.jpg&quot;&gt;http://i.imgur.com/w6udtsp.jpg&lt;/a&gt;
-        &lt;img src=&quot;http://i.imgur.com/wv6bDxa.jpg&quot;&gt;
-        &lt;a href=&quot;http://i.imgur.com/wv6bDxa.jpg&quot;&gt;http://i.imgur.com/wv6bdxa.jpg&lt;/a&gt;
-        &lt;img src=&quot;http://i.imgur.com/P5q3wg3.jpg&quot;&gt;
-        &lt;a href=&quot;http://i.imgur.com/P5q3wg3.jpg&quot;&gt;http://i.imgur.com/p5q3wg3.jpg&lt;/a&gt;
       &lt;/p&gt;
     &lt;/div&gt;
     &lt;div id=&quot;footer&quot;&gt;
@@ -2256,7 +2383,7 @@ In&nbsp;[719]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[720]:
+In&nbsp;[922]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2271,7 +2398,7 @@ In&nbsp;[720]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[721]:
+In&nbsp;[923]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2286,7 +2413,7 @@ In&nbsp;[721]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[722]:
+In&nbsp;[924]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2301,7 +2428,7 @@ In&nbsp;[722]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[723]:
+In&nbsp;[925]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2327,7 +2454,7 @@ In&nbsp;[723]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[723]:</div>
+    Out[925]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
@@ -2354,7 +2481,7 @@ In&nbsp;[723]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[724]:
+In&nbsp;[926]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2369,7 +2496,7 @@ In&nbsp;[724]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[725]:
+In&nbsp;[927]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2390,7 +2517,16 @@ In&nbsp;[725]:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-Nathan-Sharp
+xNikkinicolex
+rickjackwood
+Kivakaa
+tysonoff
+IM_ALL_THAT_IS_MAN
+nightingalesoul
+hohohopeless
+Rossii
+ItWillBeMine
+patozash
 PinchMyPapayas
 oodlethepoodle
 peter-park0ur
@@ -2406,15 +2542,6 @@ AkumaLamprey
 DanimalHouse
 DarwinsApostle
 Urgrimm
-Whistlerrr
-patorjk--
-pruffer9
-johnisbob
-bunrn
-calilock
-spinny37
-Vikingspaceprogram
-Le7els1
 
 </pre>
 </div>
@@ -2427,39 +2554,7 @@ Le7els1
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[726]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="n">ls</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-<span class="ansibold ansiblue">about</span>/  <span class="ansibold ansiblue">contact</span>/  idcomt.json  reddit.html  userurl.json
-<span class="ansibold ansiblue">blog</span>/   <span class="ansibold ansiblue">home</span>/     index.html   style.css    <span class="ansibold ansiblue">wcmckee.com</span>/
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[727]:
+In&nbsp;[928]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2512,7 +2607,7 @@ In&nbsp;[727]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[727]:</div>
+    Out[928]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
@@ -2530,7 +2625,7 @@ In&nbsp;[727]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[728]:
+In&nbsp;[929]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2545,7 +2640,7 @@ In&nbsp;[728]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[729]:
+In&nbsp;[930]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2563,7 +2658,7 @@ In&nbsp;[729]:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-19
+18
 
 </pre>
 </div>
@@ -2576,7 +2671,7 @@ In&nbsp;[729]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[730]:
+In&nbsp;[931]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2591,7 +2686,7 @@ In&nbsp;[730]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[731]:
+In&nbsp;[932]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2606,7 +2701,7 @@ In&nbsp;[731]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[732]:
+In&nbsp;[933]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2621,7 +2716,7 @@ In&nbsp;[732]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[733]:
+In&nbsp;[934]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2636,7 +2731,7 @@ In&nbsp;[733]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[734]:
+In&nbsp;[935]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2652,7 +2747,7 @@ In&nbsp;[734]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[734]:</div>
+    Out[935]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
@@ -2670,7 +2765,7 @@ In&nbsp;[734]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[735]:
+In&nbsp;[936]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2685,7 +2780,7 @@ In&nbsp;[735]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[736]:
+In&nbsp;[937]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2700,7 +2795,7 @@ In&nbsp;[736]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[737]:
+In&nbsp;[938]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2715,7 +2810,7 @@ In&nbsp;[737]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[738]:
+In&nbsp;[939]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2731,12 +2826,12 @@ In&nbsp;[738]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[738]:</div>
+    Out[939]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
 <pre>
-&apos;I would love if one of you talented people would have the go at the portraits of my two beautiful nephews, in any style you see fit!&apos;
+&apos;Can anyone draw me and my best friend on walkies?&apos;
 </pre>
 </div>
 
@@ -2749,7 +2844,7 @@ In&nbsp;[738]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[739]:
+In&nbsp;[940]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2764,7 +2859,7 @@ In&nbsp;[739]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[740]:
+In&nbsp;[941]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2779,7 +2874,7 @@ In&nbsp;[740]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[741]:
+In&nbsp;[942]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2794,7 +2889,7 @@ In&nbsp;[741]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[742]:
+In&nbsp;[943]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2809,7 +2904,7 @@ In&nbsp;[742]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[743]:
+In&nbsp;[944]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2824,7 +2919,7 @@ In&nbsp;[743]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[744]:
+In&nbsp;[945]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2840,12 +2935,12 @@ In&nbsp;[744]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[744]:</div>
+    Out[945]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
 <pre>
-4
+5
 </pre>
 </div>
 
@@ -2858,7 +2953,7 @@ In&nbsp;[744]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[745]:
+In&nbsp;[946]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2874,7 +2969,7 @@ In&nbsp;[745]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[745]:</div>
+    Out[946]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
@@ -2892,7 +2987,7 @@ In&nbsp;[745]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[746]:
+In&nbsp;[947]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2907,7 +3002,7 @@ In&nbsp;[746]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[747]:
+In&nbsp;[948]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2923,12 +3018,12 @@ In&nbsp;[747]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[747]:</div>
+    Out[948]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
 <pre>
-&apos;4/8&apos;
+&apos;5/8&apos;
 </pre>
 </div>
 
@@ -2941,7 +3036,7 @@ In&nbsp;[747]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[748]:
+In&nbsp;[949]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2956,7 +3051,7 @@ In&nbsp;[748]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[749]:
+In&nbsp;[950]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2972,12 +3067,12 @@ In&nbsp;[749]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[749]:</div>
+    Out[950]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
 <pre>
-time.struct_time(tm_year=2014, tm_mon=8, tm_mday=4, tm_hour=23, tm_min=1, tm_sec=49, tm_wday=0, tm_yday=216, tm_isdst=0)
+time.struct_time(tm_year=2014, tm_mon=8, tm_mday=5, tm_hour=0, tm_min=29, tm_sec=38, tm_wday=1, tm_yday=217, tm_isdst=0)
 </pre>
 </div>
 
@@ -2990,7 +3085,7 @@ time.struct_time(tm_year=2014, tm_mon=8, tm_mday=4, tm_hour=23, tm_min=1, tm_sec
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[750]:
+In&nbsp;[951]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3002,32 +3097,64 @@ In&nbsp;[750]:
 </div>
 
 </div>
-                for newa in rdnew:
-    #rint newa.url
-    print len(newa)
-    htmstr = (str(newa.title) + '<a href="' + 
-                 str(newa.url) + 
-                 '"><img class="aligncenter size-large wp-image-5723" alt="' +
-                 str(newa.author) +
-                 '" src="' + 
-                 str(newa.url) + 
-                 '" /></a>')
-    #ophtml.write(htmstr)
-    #ady.submit(('[RGD]' + newa.author), newa.url)
-    print newa.author
-    #print newa.media
-    ophtml.write(htmstr)
-    print newa.selftext
-    print newa.url
-    print newa.num_comments
-    
-    linkdict.update({str(newa.author): str(newa.url)})
-
-                
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[751]:
+In&nbsp;[952]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="sd">&#39;&#39;&#39;for newa in rdnew:</span>
+<span class="sd">    #rint newa.url</span>
+<span class="sd">    print len(newa)</span>
+<span class="sd">    htmstr = (str(newa.title) + &#39;&lt;a href=&quot;&#39; + </span>
+<span class="sd">                 str(newa.url) + </span>
+<span class="sd">                 &#39;&quot;&gt;&lt;img class=&quot;aligncenter size-large wp-image-5723&quot; alt=&quot;&#39; +</span>
+<span class="sd">                 str(newa.author) +</span>
+<span class="sd">                 &#39;&quot; src=&quot;&#39; + </span>
+<span class="sd">                 str(newa.url) + </span>
+<span class="sd">                 &#39;&quot; /&gt;&lt;/a&gt;&#39;)</span>
+<span class="sd">    #ophtml.write(htmstr)</span>
+<span class="sd">    #ady.submit((&#39;[RGD]&#39; + newa.author), newa.url)</span>
+<span class="sd">    print newa.author</span>
+<span class="sd">    #print newa.media</span>
+<span class="sd">    ophtml.write(htmstr)</span>
+<span class="sd">    print newa.selftext</span>
+<span class="sd">    print newa.url</span>
+<span class="sd">    print newa.num_comments</span>
+<span class="sd">    </span>
+<span class="sd">    linkdict.update({str(newa.author): str(newa.url)})</span>
+<span class="sd">&#39;&#39;&#39;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">
+    Out[952]:</div>
+
+
+<div class="output_text output_subarea output_pyout">
+<pre>
+&apos;for newa in rdnew:\n    #rint newa.url\n    print len(newa)\n    htmstr = (str(newa.title) + \&apos;&lt;a href=&quot;\&apos; + \n                 str(newa.url) + \n                 \&apos;&quot;&gt;&lt;img class=&quot;aligncenter size-large wp-image-5723&quot; alt=&quot;\&apos; +\n                 str(newa.author) +\n                 \&apos;&quot; src=&quot;\&apos; + \n                 str(newa.url) + \n                 \&apos;&quot; /&gt;&lt;/a&gt;\&apos;)\n    #ophtml.write(htmstr)\n    #ady.submit((\&apos;[RGD]\&apos; + newa.author), newa.url)\n    print newa.author\n    #print newa.media\n    ophtml.write(htmstr)\n    print newa.selftext\n    print newa.url\n    print newa.num_comments\n    \n    linkdict.update({str(newa.author): str(newa.url)})\n&apos;
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[953]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3042,7 +3169,7 @@ In&nbsp;[751]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[752]:
+In&nbsp;[954]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3057,7 +3184,7 @@ In&nbsp;[752]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[753]:
+In&nbsp;[955]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3072,7 +3199,7 @@ In&nbsp;[753]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[754]:
+In&nbsp;[956]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3087,7 +3214,7 @@ In&nbsp;[754]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[754]:
+In&nbsp;[956]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3102,7 +3229,7 @@ In&nbsp;[754]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[755]:
+In&nbsp;[957]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3117,7 +3244,7 @@ In&nbsp;[755]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[756]:
+In&nbsp;[958]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3134,7 +3261,7 @@ In&nbsp;[756]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[757]:
+In&nbsp;[959]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3149,7 +3276,7 @@ In&nbsp;[757]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[758]:
+In&nbsp;[960]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3164,7 +3291,7 @@ In&nbsp;[758]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[759]:
+In&nbsp;[961]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3179,7 +3306,7 @@ In&nbsp;[759]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[760]:
+In&nbsp;[962]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3194,7 +3321,7 @@ In&nbsp;[760]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[761]:
+In&nbsp;[963]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3212,7 +3339,7 @@ In&nbsp;[761]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[762]:
+In&nbsp;[964]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3230,7 +3357,7 @@ In&nbsp;[762]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[763]:
+In&nbsp;[965]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3245,7 +3372,7 @@ In&nbsp;[763]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[764]:
+In&nbsp;[966]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3312,7 +3439,7 @@ In&nbsp;[764]:
       &lt;h1&gt;itwillbemine&lt;/h1&gt;
       &lt;img scr=&quot;logo.gif&quot;&gt;
       &lt;h2&gt;go away artcontrol&lt;/h2&gt;
-      &lt;p&gt;Mon, 04 Aug 2014 23:01:55 +0000&lt;/p&gt;
+      &lt;p&gt;Tue, 05 Aug 2014 00:29:43 +0000&lt;/p&gt;
       &lt;a href=&quot;http://brobeur.com/artcontroldrawsyou/about&quot;&gt;about&lt;/a&gt;
       &lt;a href=&quot;http://brobeur.com/artcontroldrawsyou/contact&quot;&gt;contact&lt;/a&gt;
       &lt;a href=&quot;http://brobeur.com/artcontroldrawsyou/wcmckee.com/wcmckee/output&quot;&gt;blog&lt;/a&gt;
@@ -3324,7 +3451,16 @@ In&nbsp;[764]:
       &lt;/p&gt;
     &lt;/div&gt;
     &lt;div id=&quot;author&quot;&gt;
-      &lt;h3&gt;Nathan-Sharp&lt;/h3&gt;
+      &lt;h3&gt;xNikkinicolex&lt;/h3&gt;
+      &lt;h3&gt;rickjackwood&lt;/h3&gt;
+      &lt;h3&gt;Kivakaa&lt;/h3&gt;
+      &lt;h3&gt;tysonoff&lt;/h3&gt;
+      &lt;h3&gt;IM_ALL_THAT_IS_MAN&lt;/h3&gt;
+      &lt;h3&gt;nightingalesoul&lt;/h3&gt;
+      &lt;h3&gt;hohohopeless&lt;/h3&gt;
+      &lt;h3&gt;Rossii&lt;/h3&gt;
+      &lt;h3&gt;ItWillBeMine&lt;/h3&gt;
+      &lt;h3&gt;patozash&lt;/h3&gt;
       &lt;h3&gt;PinchMyPapayas&lt;/h3&gt;
       &lt;h3&gt;oodlethepoodle&lt;/h3&gt;
       &lt;h3&gt;peter-park0ur&lt;/h3&gt;
@@ -3340,18 +3476,16 @@ In&nbsp;[764]:
       &lt;h3&gt;DanimalHouse&lt;/h3&gt;
       &lt;h3&gt;DarwinsApostle&lt;/h3&gt;
       &lt;h3&gt;Urgrimm&lt;/h3&gt;
-      &lt;h3&gt;Whistlerrr&lt;/h3&gt;
-      &lt;h3&gt;patorjk--&lt;/h3&gt;
-      &lt;h3&gt;pruffer9&lt;/h3&gt;
-      &lt;h3&gt;johnisbob&lt;/h3&gt;
-      &lt;h3&gt;bunrn&lt;/h3&gt;
-      &lt;h3&gt;calilock&lt;/h3&gt;
-      &lt;h3&gt;spinny37&lt;/h3&gt;
-      &lt;h3&gt;Vikingspaceprogram&lt;/h3&gt;
-      &lt;h3&gt;Le7els1&lt;/h3&gt;
     &lt;/div&gt;
     &lt;div id=&quot;body&quot;&gt;
       &lt;p&gt;
+        &lt;p&gt;This post is offensive and was removed. You can try again with a different photo.&lt;/p&gt;
+        &lt;p&gt;I assume this is your cat?
+&lt;/p&gt;
+        &lt;p&gt;1) your images aren&apos;t available
+
+2) gift posts aren&apos;t allowed, so your post was removed.&lt;/p&gt;
+        &lt;p&gt;This is a repost. Post removed.&lt;/p&gt;
         &lt;p&gt;All children should be clothed in this sub, so this post was removed.&lt;/p&gt;
         &lt;p&gt;Please submit a different photo that doesn&apos;t have such blatant advertising.&lt;/p&gt;
         &lt;p&gt;This breaks two sub rules, and was removed.&lt;/p&gt;
@@ -3385,20 +3519,6 @@ Seriously, tho, I believe that person has received the highest number of warning
 
 P.S. I would draw you if I could! Have you ever seen my feeble art attempts before? I like to think of them as endearing. :D&lt;/p&gt;
         &lt;p&gt;Please send it to modmail - I am at work and cannot open it right now. I won&apos;t be able to open that link until tonight (my time).&lt;/p&gt;
-        &lt;p&gt;Beautiful! Now remember, you are either a 15% shit artist or a 5% pretty good artist. This is the result of POYINK&apos;s quantitative analysis, conducted with the most stringent of psychometric properties. ;D&lt;/p&gt;
-        &lt;p&gt;Yeah. I don&apos;t think this will work out, alas. I will leave your comment up, though, because I actually find it a little amusing. I wonder where you would place yourself on that spectrum.&lt;/p&gt;
-        &lt;p&gt;If you want to participate, you have to follow our rules. I don&apos;t care if you are Obama himself. There are no exceptions. If you follow the rules, you&apos;ll be just fine.&lt;/p&gt;
-        &lt;p&gt;I remember speaking to your other account - [redacted] - many times because you broke so many rules before, some of them multiple times, seemingly ignoring our warnings. Make sure you follow all of our rules. You already broke yet another rule with this submission since you didn&apos;t zoom in, so it&apos;s been temporarily hidden until you crop it.
-
-BTW, when I was on your other profile I noticed this comment you made:
-
-&amp;quot;Girls dont rly mean what they say. She either wants you to chase her or shes testing you. 
-
-Ppl will usually never absolutely make up their mind so u can definetly change it. Girls dont make the decisions, you do because ur masculine and in control.&amp;quot;
-
-I&apos;m pretty sure I&apos;m more masculine than you. :) Kudos on your flagrant sexism.
-
-[Run Forrest Run](http://i.imgur.com/LtIVjnB.gif)&lt;/p&gt;
       &lt;/p&gt;
     &lt;/div&gt;
   &lt;/body&gt;
@@ -3415,7 +3535,7 @@ I&apos;m pretty sure I&apos;m more masculine than you. :) Kudos on your flagrant
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[765]:
+In&nbsp;[967]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3432,7 +3552,7 @@ In&nbsp;[765]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[766]:
+In&nbsp;[968]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3447,7 +3567,7 @@ In&nbsp;[766]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[767]:
+In&nbsp;[969]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3486,7 +3606,7 @@ user comments updated
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[970]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3501,7 +3621,7 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[971]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3516,7 +3636,7 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[678]:
+In&nbsp;[972]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3533,7 +3653,7 @@ In&nbsp;[678]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[679]:
+In&nbsp;[973]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3548,7 +3668,7 @@ In&nbsp;[679]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[680]:
+In&nbsp;[974]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3563,7 +3683,7 @@ In&nbsp;[680]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[681]:
+In&nbsp;[975]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3578,7 +3698,7 @@ In&nbsp;[681]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[682]:
+In&nbsp;[976]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3593,7 +3713,7 @@ In&nbsp;[682]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[683]:
+In&nbsp;[977]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3608,7 +3728,7 @@ In&nbsp;[683]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[684]:
+In&nbsp;[978]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3659,7 +3779,7 @@ In&nbsp;[684]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[685]:
+In&nbsp;[979]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3674,7 +3794,7 @@ In&nbsp;[685]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[686]:
+In&nbsp;[980]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3691,7 +3811,7 @@ In&nbsp;[686]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[687]:
+In&nbsp;[981]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3707,7 +3827,7 @@ In&nbsp;[687]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[687]:</div>
+    Out[981]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
@@ -3744,7 +3864,7 @@ In&nbsp;[687]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[688]:
+In&nbsp;[982]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3759,7 +3879,7 @@ In&nbsp;[688]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[689]:
+In&nbsp;[983]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3829,7 +3949,7 @@ In&nbsp;[689]:
       &lt;h1&gt;artcontroldrawsyou!&lt;/h1&gt;
       &lt;img scr=&quot;logo.gif&quot;&gt;
       &lt;h2&gt;go away artcontrol&lt;/h2&gt;
-      &lt;p&gt;Mon, 04 Aug 2014 22:57:22 +0000&lt;/p&gt;
+      &lt;p&gt;Tue, 05 Aug 2014 00:29:46 +0000&lt;/p&gt;
       &lt;a href=&quot;http://brobeur.com/artcontroldrawsyou/about&quot;&gt;about&lt;/a&gt;
       &lt;a href=&quot;http://brobeur.com/artcontroldrawsyou/contact&quot;&gt;contact&lt;/a&gt;
       &lt;a href=&quot;http://brobeur.com/artcontroldrawsyou/wcmckee.com/wcmckee/output&quot;&gt;blog&lt;/a&gt;
@@ -3840,6 +3960,13 @@ In&nbsp;[689]:
       &lt;p&gt;Recent comments from itwillbemine:&lt;/p&gt;
     &lt;/div&gt;
     &lt;div id=&quot;body&quot;&gt;
+      &lt;li&gt;This post is offensive and was removed. You can try again with a different photo.&lt;/li&gt;
+      &lt;li&gt;I assume this is your cat?
+&lt;/li&gt;
+      &lt;li&gt;1) your images aren&apos;t available
+
+2) gift posts aren&apos;t allowed, so your post was removed.&lt;/li&gt;
+      &lt;li&gt;This is a repost. Post removed.&lt;/li&gt;
       &lt;li&gt;All children should be clothed in this sub, so this post was removed.&lt;/li&gt;
       &lt;li&gt;Please submit a different photo that doesn&apos;t have such blatant advertising.&lt;/li&gt;
       &lt;li&gt;This breaks two sub rules, and was removed.&lt;/li&gt;
@@ -3873,20 +4000,6 @@ Seriously, tho, I believe that person has received the highest number of warning
 
 P.S. I would draw you if I could! Have you ever seen my feeble art attempts before? I like to think of them as endearing. :D&lt;/li&gt;
       &lt;li&gt;Please send it to modmail - I am at work and cannot open it right now. I won&apos;t be able to open that link until tonight (my time).&lt;/li&gt;
-      &lt;li&gt;Beautiful! Now remember, you are either a 15% shit artist or a 5% pretty good artist. This is the result of POYINK&apos;s quantitative analysis, conducted with the most stringent of psychometric properties. ;D&lt;/li&gt;
-      &lt;li&gt;Yeah. I don&apos;t think this will work out, alas. I will leave your comment up, though, because I actually find it a little amusing. I wonder where you would place yourself on that spectrum.&lt;/li&gt;
-      &lt;li&gt;If you want to participate, you have to follow our rules. I don&apos;t care if you are Obama himself. There are no exceptions. If you follow the rules, you&apos;ll be just fine.&lt;/li&gt;
-      &lt;li&gt;I remember speaking to your other account - [redacted] - many times because you broke so many rules before, some of them multiple times, seemingly ignoring our warnings. Make sure you follow all of our rules. You already broke yet another rule with this submission since you didn&apos;t zoom in, so it&apos;s been temporarily hidden until you crop it.
-
-BTW, when I was on your other profile I noticed this comment you made:
-
-&amp;quot;Girls dont rly mean what they say. She either wants you to chase her or shes testing you. 
-
-Ppl will usually never absolutely make up their mind so u can definetly change it. Girls dont make the decisions, you do because ur masculine and in control.&amp;quot;
-
-I&apos;m pretty sure I&apos;m more masculine than you. :) Kudos on your flagrant sexism.
-
-[Run Forrest Run](http://i.imgur.com/LtIVjnB.gif)&lt;/li&gt;
     &lt;/div&gt;
   &lt;/body&gt;
 &lt;/html&gt;
@@ -3902,7 +4015,7 @@ I&apos;m pretty sure I&apos;m more masculine than you. :) Kudos on your flagrant
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[690]:
+In&nbsp;[984]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3917,7 +4030,7 @@ In&nbsp;[690]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[691]:
+In&nbsp;[985]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3934,7 +4047,7 @@ In&nbsp;[691]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[692]:
+In&nbsp;[986]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3949,7 +4062,7 @@ In&nbsp;[692]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[693]:
+In&nbsp;[987]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3964,7 +4077,7 @@ In&nbsp;[693]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[694]:
+In&nbsp;[988]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -4033,7 +4146,7 @@ In&nbsp;[694]:
       &lt;h1&gt;artcontroldrawsyou!&lt;/h1&gt;
       &lt;img scr=&quot;logo.gif&quot;&gt;
       &lt;h2&gt;go away artcontrol&lt;/h2&gt;
-      &lt;p&gt;Mon, 04 Aug 2014 22:57:23 +0000&lt;/p&gt;
+      &lt;p&gt;Tue, 05 Aug 2014 00:29:47 +0000&lt;/p&gt;
       &lt;a href=&quot;https://brobeur.com/artcontroldrawsyou/about&quot;&gt;about&lt;/a&gt;
       &lt;a href=&quot;http://brobeur.com/artcontroldrawsyou/contact&quot;&gt;contact&lt;/a&gt;
       &lt;a href=&quot;http://brobeur.com/artcontroldrawsyou/wcmckee.com/wcmckee/output&quot;&gt;blog&lt;/a&gt;
@@ -4057,7 +4170,7 @@ In&nbsp;[694]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[695]:
+In&nbsp;[989]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -4072,7 +4185,7 @@ In&nbsp;[695]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[696]:
+In&nbsp;[990]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -4089,7 +4202,7 @@ In&nbsp;[696]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[697]:
+In&nbsp;[991]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -4104,88 +4217,7 @@ In&nbsp;[697]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[698]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">requests</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[699]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;https://github.com/wcmckee/hamiltoncomputerclub.org.nz/archive/master.zip&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">
-    Out[699]:</div>
-
-
-<div class="output_text output_subarea output_pyout">
-<pre>
-&lt;Response [200]&gt;
-</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[700]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="n">ls</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-<span class="ansibold ansiblue">about</span>/  <span class="ansibold ansiblue">contact</span>/  idcomt.json  reddit.html  userurl.json
-<span class="ansibold ansiblue">blog</span>/   <span class="ansibold ansiblue">home</span>/     index.html   style.css    <span class="ansibold ansiblue">wcmckee.com</span>/
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[700]:
+In&nbsp;[991]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -4200,7 +4232,67 @@ In&nbsp;[700]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[469]:
+In&nbsp;[991]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[991]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[898]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[898]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">

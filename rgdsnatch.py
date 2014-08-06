@@ -24,20 +24,33 @@
 # 
 # itwillbemine comments to html - currently being saved in contact 
 # 
-# work on css, div up page, title, side, body, footer
-# 
+# work on css, div up page, title, side, body, fo
 # update twitter with ONE IMAGE and announce that the list has been updated.
 # 
 # write blog post and submits to artcontroldrawsyou/blog 
 # 
+# gets sticked post on reddit
 # 
+# delete about/contact page and have on all same page. can still have link to blog. 
+# about 
+# contact etc... along the top.
+# other sections
 # 
+# post images to blog for archieve - save body to wcmckee.com/blog - md format?
+# 
+# nikola install - build site.
+# 
+# cronjob to update site ever ?? hours? 4?
+# 
+# photos section: latest 25 photos submitted to redditgetsdrawn.
+# art section: latest 25 art submitted to redditgetsdrawn. 
 
 # <codecell>
 
 import os
 import random
 import requests
+from bs4 import BeautifulSoup
 import re
 import json
 import time
@@ -682,4 +695,22 @@ aboucr.close()
 # <codecell>
 
 os.chdir('/var/www/artcontroldrawsyou/')
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
 

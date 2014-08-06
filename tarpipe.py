@@ -10,24 +10,20 @@
 # <codecell>
 
 import tarfile
+import time
+import os
+
+curtime = time.strftime("%d-%b-%Y-%H", time.gmtime())
 
 # <codecell>
 
-ls
-
-# <codecell>
-
-tar = tarfile.open("sativacam.tar.gz", "w:gz")
-tar.add("/home/sharedcam", arcname="TarName")
+tar = tarfile.open(curtime + ".tar.gz", "w:gz")
+tar.add("/home/shared/cam", arcname="TarName")
 tar.close()
+os.rmdir('/home/shared/cam')
 
 # <codecell>
 
-ls -l
-
-# <codecell>
-
-ls
 
 # <codecell>
 
