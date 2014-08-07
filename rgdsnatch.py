@@ -57,6 +57,8 @@ import time
 import praw
 import dominate
 from dominate.tags import *
+from time import gmtime, strftime
+
 
 # <codecell>
 
@@ -136,10 +138,6 @@ titlis
 # <codecell>
 
 jplis = []
-
-# <codecell>
-
-from time import gmtime, strftime
 
 # <codecell>
 
@@ -579,12 +577,23 @@ contactpage = dominate.document(title='contact')
 
 # <codecell>
 
+x = '''
+hello
+'''
+
+# <codecell>
+
+x
+
+# <codecell>
+
 with contactpage.head:
     link(rel='stylesheet', href='style.css')
     script(type='text/javascript', src='script.js')
 
 with contactpage:
     with div():
+        dominate.tags.
         attr(cls='top')
         #<img src="smiley.gif" alt="Smiley face" height="42" width="42">
         h1('artcontroldrawsyou!')
@@ -695,6 +704,54 @@ aboucr.close()
 # <codecell>
 
 os.chdir('/var/www/artcontroldrawsyou/')
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
 
 # <codecell>
 

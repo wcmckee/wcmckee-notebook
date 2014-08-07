@@ -5,17 +5,25 @@
 
 # RedTube json Python
 
+# <markdowncell>
+
+# This takes data from the website redtube and saves it as an index.html.
+# When I first wrote this script I manually wrote the html tags. That was before I found dominate. 
+# Since discovering dominate I have been using it everywhere. It allows me to visually see the output of the scripts I write. 
+# The posibilities are endless...
+
 # <codecell>
 
-
-# <codecell>
-
-
-# <codecell>
-
-import requests
-import json
+import os
 import random
+import requests
+from bs4 import BeautifulSoup
+import re
+import json
+import time
+import dominate
+from dominate.tags import *
+from time import gmtime, strftime
 
 # <markdowncell>
 
@@ -23,7 +31,7 @@ import random
 
 # <codecell>
 
-getPrn = requests.get('http://api.redtube.com/?output=json&data=redtube.Videos.searchVideos&page=1')
+getprn = requests.get('http://api.redtube.com/?output=json&data=redtube.Videos.searchVideos&page=1')
 
 # <markdowncell>
 
@@ -31,7 +39,7 @@ getPrn = requests.get('http://api.redtube.com/?output=json&data=redtube.Videos.s
 
 # <codecell>
 
-loaPrn = json.loads(getPrn.text)
+loaprn = json.loads(getprn.text)
 #print loaUrl
 
 # <markdowncell>
@@ -40,8 +48,8 @@ loaPrn = json.loads(getPrn.text)
 
 # <codecell>
 
-naoPrn = loaPrn[u'videos'][0]
-print naoPrn
+naoprn = loaprn[u'videos'][0]
+print naoprn
 
 # <markdowncell>
 
@@ -50,8 +58,8 @@ print naoPrn
 
 # <codecell>
 
-ngePrn = naoPrn[u'video']
-print ngePrn
+ngeprn = naoprn[u'video']
+print ngeprn
 
 # <markdowncell>
 
@@ -69,60 +77,38 @@ print ngePrn
 
 # <codecell>
 
-ratPrn = ngePrn[u'rating']
+prnliz = []
 
 # <codecell>
 
-thumPrn = ngePrn[u'thumb']
+for nge in ngeprn:
+    prnliz.append(ngeprn[nge])
+    print nge
+    print len(nge)
 
 # <codecell>
 
-print thumPrn
+prnliz
 
 # <codecell>
 
-ratPrn = ngePrn[u'ratings']
-print ratPrn
+for liz in prnliz:
+    print liz
 
 # <codecell>
 
-urlPrn = ngePrn[u'url']
-print urlPrn
+tagprn = ngeprn[u'tags']
+print tagprn
 
 # <codecell>
 
-viwPrn = ngePrn[u'views']
-print viwPrn
+derbprn = (tagprn, 'tag_name')
+print derbprn
 
 # <codecell>
 
-idPrn = ngePrn[u'video_id']
-print idPrn
-
-# <codecell>
-
-pdaPrn = ngePrn[u'publish_date']
-print pdaPrn
-
-# <codecell>
-
-timPrn = ngePrn[u'duration']
-print timPrn
-
-# <codecell>
-
-titPrn = ngePrn[u'title']
-print titPrn
-
-# <codecell>
-
-tagPrn = ngePrn[u'tags']
-print tagPrn
-
-# <codecell>
-
-derbPrn = (tagPrn, 'tag_name')
-print derbPrn
+for deb in derbprn:
+    print deb
 
 # <codecell>
 
@@ -152,29 +138,75 @@ print naTrn
 
 # <codecell>
 
-import dominate
+doc = dominate.document(title='nsfw')
 
 # <codecell>
 
-savPrn = open('savPrn','w')
-savPrn.write('<h3 style="text-align: center;"><a href="' + urlPrn + '">')
-savPrn.write(titPrn + '</a></h3>')
-savPrn.write('<p style="text-align: right;">' + pdaPrn)
-savPrn.write('</a></h3><img class="aligncenter" alt="null" src="' + thumPrn)
-savPrn.write('" />')
+with doc.head:
+    link(rel='stylesheet', href='style.css')
+    script(type='text/javascript', src='script.js')
+
+with doc:
+    with div(id=header):
+        attr(cls='header')
+        #<img src="smiley.gif" alt="Smiley face" height="42" width="42">
+        h1('nsfw')
+        img(scr='logo.gif')
+        h2('warning: porn. get out now.')
+        p(strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime()))
+        a('about', href='http://brobeur.com/nsfw/about')
+        a('contact', href='http://brobeur.com/nsfw/contact') 
+        a('blog', href='http://brobeur.com/wcmckee.com/wcmckee/output')
+        
+    with div(id='body'):
+        h1(prnliz[8])
+        img(prnliz[1])
+        #for liz in prnliz:
+        #    h1(liz)[7]
+            
+    \]
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+                                                                                                                                                                                                                 #with div(id='pnr').add(p()):
+        #for i in jplis:
+            #(img(i.lower(), src='%s' % i))
+            #(a(i.lower(), href='%s' % i))
+            
+    with div(id='footer'):
+        p(a('nsfw: warning porn - is open source', href='https://github.com/wcmckee/wcmckee-notebook'))
+
+
+            
+
+print doc
+
+# <codecell>
+
+os.chdir('/var/www/nsfw/')
+
+# <codecell>
+
+
+# <codecell>
+
+savPrn = open('index.html','w')
+savPrn.write(str(doc))
 savPrn.close()
 
 # <codecell>
 
-opPrn = open('savPrn','r')
+opPrn = open('index.html','r')
 for op in opPrn:
     print op
-
-# <codecell>
-
-
-# <codecell>
-
 
 # <codecell>
 
