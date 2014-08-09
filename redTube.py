@@ -102,6 +102,21 @@ print tagprn
 
 # <codecell>
 
+tagval = []
+
+# <codecell>
+
+for ta in tagprn:
+    print ta.values()
+    tagval.append(ta.values())
+
+# <codecell>
+
+for tag in tagval:
+    print tag
+
+# <codecell>
+
 derbprn = (tagprn, 'tag_name')
 print derbprn
 
@@ -159,13 +174,13 @@ with doc:
         a('blog', href='http://brobeur.com/wcmckee.com/wcmckee/output')
         
     with div(id='body'):
-        h1(prnliz[8])
-        img(prnliz[1])
+        h1(prnliz[9])
+        #img(prnliz[1])
+        (img(src= prnliz[1]))
         #for liz in prnliz:
         #    h1(liz)[7]
-            
-    \]
-    
+        for tag in tagval:
+            p(tag)
     
     
     
@@ -207,6 +222,15 @@ savPrn.close()
 opPrn = open('index.html','r')
 for op in opPrn:
     print op
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
 
 # <codecell>
 

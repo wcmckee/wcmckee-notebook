@@ -93,11 +93,6 @@ istxt
 
 # <codecell>
 
-if istick = True:
-    
-
-# <codecell>
-
 rdnewz = rd.get_new()
 
 # <codecell>
@@ -167,7 +162,7 @@ with doc:
     with div():
         attr(cls='header')
         #<img src="smiley.gif" alt="Smiley face" height="42" width="42">
-        h1('artcontroldrawsyou!')
+        (h1(a('artcontroldrawsyou', href='http://brobeur.com/artcontroldrawsyou')))
         img(scr='logo.gif')
         h2('go away artcontrol')
         p(strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime()))
@@ -184,7 +179,7 @@ with doc:
     with div(id='body').add(p()):
         for i in jplis:
             (img(i.lower(), src='%s' % i))
-            (a(i.lower(), href='%s' % i))
+            #(a(i.lower(), href='%s' % i))
             
     with div(id='footer'):
         p(a('artcontroldrawsyou is open source', href='https://github.com/wcmckee/wcmckee-notebook'))
@@ -577,26 +572,15 @@ contactpage = dominate.document(title='contact')
 
 # <codecell>
 
-x = '''
-hello
-'''
-
-# <codecell>
-
-x
-
-# <codecell>
-
 with contactpage.head:
     link(rel='stylesheet', href='style.css')
     script(type='text/javascript', src='script.js')
 
 with contactpage:
     with div():
-        dominate.tags.
         attr(cls='top')
         #<img src="smiley.gif" alt="Smiley face" height="42" width="42">
-        h1('artcontroldrawsyou!')
+        h1('rgdsnatch')
         img(scr='logo.gif')
         h2('go away artcontrol')
         p(strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime()))

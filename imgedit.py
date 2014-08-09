@@ -21,7 +21,37 @@
 
 # <markdowncell>
 
-# Ideas fo
+# Ideas for
+# 
+# dominate 
+
+# <markdowncell>
+
+# TODO:
+# 
+# makes folder - centre kindy - had folder of all kindys - inside of this is static blog - 
+# 
+# linked to main centre kindy blog. 
+# 
+# admin - roll
+# 
+# generates a list of students at centre
+# 
+# generates a list of teachers at centre
+# 
+# warnings on ratio
+# 
+# communication with other centre
+# 
+# each centre has static page with info about each centre - open hours, list of teachers, job/opotunity, 
+# 
+# central kids os: linux debian 7
+# 
+# os locationed inside thieir folder. This is based off Debian7 (root7.tar.gz install7). All computers have this os. Unable to access certain areas outside of os (rsa ssh from inside central kids os into secure server)
+# 
+# Ways to keep privacy safe
+# 
+# i have no idea what im doing, but i hope something works!
 
 # <codecell>
 
@@ -40,10 +70,6 @@ from shutil import make_archive
 
 # <markdowncell>
 
-# testing one two three
-
-# <markdowncell>
-
 
 # <codecell>
 
@@ -52,7 +78,11 @@ import re
 
 # <codecell>
 
-listkindy = list(os.listdir(os.getcwd()))
+whaidir = ('/var/www/whai')
+
+# <codecell>
+
+listkindy = list(os.listdir(whaidir))
 
 # <codecell>
 
@@ -88,6 +118,9 @@ for kin in listkindy:
     if 'early' in kin:
         print kin
         listen.append(kin)
+
+# <markdowncell>
+
 
 # <codecell>
 
@@ -465,20 +498,6 @@ fi
 # <codecell>
 
 
-# <markdowncell>
-
-# makes folder - centre kindy - had folder of all kindys - inside of this is static blog - linked to main centre kindy blog. 
-# admin - roll
-# generates a list of students at centre
-# generates a list of teachers at centre
-# warnings on ratio
-# communication with other centre
-# each centre has static page with info about each centre - open hours, list of teachers, job/opotunity, 
-# central kids os: linux debian 7
-# os locationed inside thieir folder. This is based off Debian7 (root7.tar.gz install7). All Central kids computers have this os. Unable to access certain areas outside of os (rsa ssh from inside central kids os into secure server)
-# Ways to keep privacy safe
-# i have no idea what im doing, but i hope something works!
-
 # <codecell>
 
 os.chdir('/home/public/')
@@ -549,10 +568,6 @@ for imz in os.listdir('/home/public/central-test'):
 
 # <codecell>
 
-logincos = 
-
-# <codecell>
-
 os.urandom(512)
 
 # <codecell>
@@ -582,10 +597,6 @@ import feedparser
 # <codecell>
 
 cenblog = feedparser.parse('http://feeds.feedburner.com/CentralKidsKindergartens')
-
-# <codecell>
-
-http://feeds.feedburner.com/CentralKidsKindergartens
 
 # <codecell>
 
@@ -678,16 +689,81 @@ def getallpost():
 
 # <codecell>
 
-ls
-
-# <codecell>
-
-getallpost() y
+getallpost()
 
 # <codecell>
 
 cenblog['entries']
 
 # <markdowncell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
+
+
+# <codecell>
 
 
