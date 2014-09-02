@@ -55,7 +55,7 @@ with nbdoc.head:
 with nbdoc:
     with div(id='header').add(ol()):
         for nbs in lisnb:
-            li(a(nbs, href='/%s' % nbs))
+            li(a(nbs, href='http://brobeur.com/wcmckee-notebook/%s' % nbs))
 
     with div():
         attr(cls='body')
@@ -238,6 +238,9 @@ print nbdoc
 #     </div>
 #   </body>
 # </html>
+
+# <codecell>
+
 
 # <codecell>
 

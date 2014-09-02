@@ -504,6 +504,10 @@ noizjson = json.dumps(dausr)
 
 # <codecell>
 
+ls
+
+# <codecell>
+
 newposts = open('userurl.json', 'a')
 newposts.write(newzjson)
 print ('file userurl.json updated')
@@ -688,66 +692,6 @@ aboucr.close()
 # <codecell>
 
 os.chdir('/var/www/artcontroldrawsyou/')
-
-# <codecell>
-
-
-# <codecell>
-
-
-# <codecell>
-
-
-# <codecell>
-
-
-# <codecell>
-
-
-# <codecell>
-
-
-# <codecell>
-
-
-# <codecell>
-
-
-# <codecell>
-
-
-# <codecell>
-
-
-# <codecell>
-
-
-# <codecell>
-
-
-# <codecell>
-
-
-# <codecell>
-
-
-# <codecell>
-
-
-# <codecell>
-
-
-# <codecell>
-
-
-# <codecell>
-
-
-# <codecell>
-
-
-# <codecell>
-
 
 # <codecell>
 

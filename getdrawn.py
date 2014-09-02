@@ -9,22 +9,6 @@
 
 # <codecell>
 
-x = 'hello ther!'
-
-# <codecell>
-
-mylist = []
-
-# <codecell>
-
-mylist.append('testing adding this to the list!')
-
-# <codecell>
-
-mylist
-
-# <codecell>
-
 import os
 import random
 import bs4
@@ -605,10 +589,6 @@ fulzname
 # <codecell>
 
 Image(fulzname)
-
-# <codecell>
-
-ls
 
 # <codecell>
 

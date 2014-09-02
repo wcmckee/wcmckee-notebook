@@ -10,49 +10,18 @@
 from bs4 import BeautifulSoup
 import requests
 import pickle
-
-# <codecell>
-
 loadSite = requests.get('http://www.intercity.co.nz/')
-
-# <codecell>
-
 siteData =  loadSite.content
-
-# <codecell>
-
 blehData = siteData.split()
-
-# <codecell>
-
 blehData[0:20]
-
-# <codecell>
-
 siteData.swapcase()
-
-# <codecell>
-
 print siteData.find('a')
-
-# <codecell>
-
 omgSite = BeautifulSoup(siteData)
-
-# <codecell>
-
 linkZite = omgSite.text
 
 # <codecell>
 
-
-# <codecell>
-
 pickle.dump(linkZite, open('outpuz.txt', 'wb'))
-
-# <codecell>
-
-ls
 
 # <codecell>
 
