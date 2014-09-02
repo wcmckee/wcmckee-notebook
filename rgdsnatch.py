@@ -154,43 +154,6 @@ doc = dominate.document(title='artcontroldrawsyou')
 
 # <codecell>
 
-with doc.head:
-    link(rel='stylesheet', href='style.css')
-    script(type='text/javascript', src='script.js')
-
-with doc:
-    with div():
-        attr(cls='header')
-        #<img src="smiley.gif" alt="Smiley face" height="42" width="42">
-        (h1(a('artcontroldrawsyou', href='http://brobeur.com/artcontroldrawsyou')))
-        img(scr='logo.gif')
-        h2('go away artcontrol')
-        p(strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime()))
-        a('about', href='http://brobeur.com/artcontroldrawsyou/about')
-        a('contact', href='http://brobeur.com/artcontroldrawsyou/contact') 
-        a('blog', href='http://brobeur.com/wcmckee.com/wcmckee/output')
-        
-    with div(id='authors'):
-        for tits in titlis:
-            (tits)
-            (a(tits, href='https://reddit.com/u/%s' % tits))
-            
-    
-    with div(id='body').add(p()):
-        for i in jplis:
-            (img(i.lower(), src='%s' % i))
-            #(a(i.lower(), href='%s' % i))
-            
-    with div(id='footer'):
-        p(a('artcontroldrawsyou is open source', href='https://github.com/wcmckee/wcmckee-notebook'))
-
-
-            
-
-print doc
-
-# <codecell>
-
 ophtml = open('index.html', 'w')
 
 # <codecell>
@@ -442,6 +405,9 @@ for newa in rdnew:
 
 # <codecell>
 
+
+# <codecell>
+
 for con in mincom:
     #print con.body
     minels.append(con)
@@ -504,12 +470,12 @@ noizjson = json.dumps(dausr)
 
 # <codecell>
 
-ls
+linkdict
 
 # <codecell>
 
 newposts = open('userurl.json', 'a')
-newposts.write(newzjson)
+newposts.write(str(linkdict))
 print ('file userurl.json updated')
 newcomments = open('idcomt.json', 'a')
 newcomments.write(noizjson)
@@ -559,6 +525,45 @@ for em in emcs:
 # <codecell>
 
 tumlis = []
+
+# <codecell>
+
+with doc.head:
+    link(rel='stylesheet', href='style.css')
+    script(type='text/javascript', src='script.js')
+
+with doc:
+    with div():
+        attr(cls='header')
+        #<img src="smiley.gif" alt="Smiley face" height="42" width="42">
+        (h1(a('artcontroldrawsyou', href='http://brobeur.com/artcontroldrawsyou')))
+        img(scr='logo.gif')
+        h2('go away artcontrol')
+        p(strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime()))
+       
+        a('contact', href='http://brobeur.com/artcontroldrawsyou/contact') 
+        a('blog', href='http://brobeur.com/wcmckee.com/wcmckee/output')
+        
+    with div(id='about'):
+        p('artcontroldrawsyou is a website that takes RedditGetsDrawn data and posts it here.')
+        p('artcontrol is not allowed to submit artwork to redditgetsdrawn so this was created')
+        for tits in titlis:
+            (tits)
+            (a(tits, href='https://reddit.com/u/%s' % tits))
+            
+    
+    with div(id='body').add(p()):
+        for i in jplis:
+            (img(i.lower(), src='%s' % i))
+            #(a(i.lower(), href='%s' % i))
+            
+    with div(id='footer'):
+        p(a('artcontroldrawsyou is open source', href='https://github.com/wcmckee/wcmckee-notebook'))
+
+
+            
+
+print doc
 
 # <codecell>
 
@@ -658,8 +663,6 @@ with aboutpage:
         attr(cls='header')
         #<img src="smiley.gif" alt="Smiley face" height="42" width="42">
         h1('about')
-        p('artcontroldrawsyou is a website that takes RedditGetsDrawn data and posts it here.')
-        p('artcontrol is not allowed to submit artwork to redditgetsdrawn so this was created')
         #for mine in minels:
             #h1(mine.author_flair_text())
             #p(mine.body)
