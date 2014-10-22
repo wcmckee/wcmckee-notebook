@@ -42,6 +42,69 @@ datadict = xmltodict.parse(data)
 
 # <codecell>
 
+daval = datadict.values()
+
+# <codecell>
+
+daitem = datadict.items()
+
+# <codecell>
+
+daitem.sort()
+
+# <codecell>
+
+daiz = daitem[0][1]
+
+# <codecell>
+
+davalz = daiz.values()[4]
+
+# <codecell>
+
+dalenz = len(davalz)
+
+# <codecell>
+
+davalz[1]['tns:imageUrl']
+
+# <codecell>
+
+chret = []
+
+# <codecell>
+
+for deta in range(0, dalenz):
+    print deta
+    chret.append(davalz[deta]['tns:imageUrl'])
+
+# <codecell>
+
+
+# <codecell>
+
+chret
+
+# <codecell>
+
+flis = []
+
+# <codecell>
+
+for dinz in datadict.values():
+    print (dinz)
+    flis.append(dinz)
+
+# <codecell>
+
+
+# <codecell>
+
+for itz in flis:
+    print (itz)
+
+# <codecell>
+
 #savxml = open('/home/will/Desktop/brobeur-static/feeds/aklmcam.json', 'w')
 #savxml.write(data)
 #savxml.close()
@@ -55,8 +118,15 @@ jsononjz = json.dumps(datadict)
 
 # <codecell>
 
+len(jsononjz)
+
+# <codecell>
+
 savcdat = open('/home/wcmckee/brobeur-static/feeds/aklmcam.json', 'w')
 savcdat.write(str(jsononjz))
 savcdat.close()
 print('done uploading feed!')
+
+# <codecell>
+
 
