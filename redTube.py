@@ -127,29 +127,10 @@ for deb in derbprn:
 
 # <codecell>
 
-thNum = 0
-taTrn = tagPrn[thNum]
-print taTrn
-thNum + 1
-
-# <markdowncell>
-
-# TODO: Cycle the list and print all tags
-
-# <codecell>
-
-naTrn = taTrn['tag_name']
-print naTrn
-
-# <codecell>
-
 
 # <headingcell level=2>
 
 # Saving Data
-
-# <markdowncell>
-
 
 # <codecell>
 
@@ -206,7 +187,7 @@ print doc
 
 # <codecell>
 
-os.chdir('/var/www/nsfw/')
+os.chdir('/home/wcmckee/nsfw/')
 
 # <codecell>
 

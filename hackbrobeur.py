@@ -109,7 +109,7 @@ df
 
 # <codecell>
 
-pwd
+import os
 
 # <codecell>
 

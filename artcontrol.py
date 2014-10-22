@@ -27,13 +27,9 @@ print jawArt
 
 lodArt = jawArt['posts']
 
-# <codecell>
+# <markdowncell>
 
-print lodArt[1]
-
-# <codecell>
-
-print lodArt[1]
+# print lodArt[1]
 
 # <codecell>
 
@@ -150,4 +146,7 @@ print extrArt
 
 dateArt = titArt['date']
 print dateArt
+
+# <codecell>
+
 
