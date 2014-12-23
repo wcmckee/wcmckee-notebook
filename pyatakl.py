@@ -3,6 +3,10 @@
 
 # <codecell>
 
+import geopy
+
+# <codecell>
+
 import requests
 import json
 import random
@@ -87,30 +91,6 @@ print listz[3]
 
 # <codecell>
 
-import geopy
-
-# <codecell>
-
-geo = geopy.GoogleV3()
-
-# <codecell>
-
-geo.geocode(listz[3])
-
-# <codecell>
-
-olenz = len(listz)
-
-# <codecell>
-
-dachoice = random.randint(0, olenz)
-
-# <codecell>
-
-dachoice
-
-# <codecell>
-
 class parks(object):
     def getparks(self):
         return atres
@@ -135,6 +115,26 @@ class parks(object):
     
     def parknon(self, inpuz ):
         return(atres[renpark][inpuz])
+
+# <codecell>
+
+geo = geopy.GoogleV3()
+
+# <codecell>
+
+geo.geocode(listz[3])
+
+# <codecell>
+
+olenz = len(listz)
+
+# <codecell>
+
+dachoice = random.randint(0, olenz)
+
+# <codecell>
+
+dachoice
 
 # <codecell>
 

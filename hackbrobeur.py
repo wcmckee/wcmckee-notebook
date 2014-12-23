@@ -104,11 +104,6 @@ ycmds = ['git', 'clone', ']
 
 # <codecell>
 
-%%bash
-df
-
-# <codecell>
-
 import os
 
 # <codecell>
@@ -145,11 +140,6 @@ import subprocess
 
 # <codecell>
 
-%%bash 
-source `dirname $0`/github-config.sh
-
-# <codecell>
-
 
 # <codecell>
 
@@ -175,18 +165,6 @@ for repoz in g.get_user('wcmckee').get_repos():
 # <codecell>
 
 gitlist
-
-# <codecell>
-
-ls
-
-# <codecell>
-
-cd brobeur-web/
-
-# <codecell>
-
-minex = open(')
 
 # <codecell>
 

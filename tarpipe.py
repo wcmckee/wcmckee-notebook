@@ -18,9 +18,9 @@ curtime = time.strftime("%d-%b-%Y-%H", time.gmtime())
 # <codecell>
 
 tar = tarfile.open(curtime + ".tar.gz", "w:gz")
-tar.add("/home/shared/cam", arcname="TarName")
+tar.add("/home/", arcname="TarName")
 tar.close()
-os.rmdir('/home/shared/cam')
+#os.rmdir('/home/shared/cam')
 
 # <codecell>
 
