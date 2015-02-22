@@ -100,7 +100,7 @@ for us in usergen:
 #opac = opaz.read()
 
 # <codecell>
-pausr = raw_input('Github Password: ')
+pausr = getpass.getpass('Github Password: ')
 
 g = Github(usergen, pausr )
 
